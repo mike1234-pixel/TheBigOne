@@ -17,7 +17,7 @@ class Carousel extends Component<
   }
 
   componentDidMount() {
-    setInterval(() => this.handleForward(), 3000);
+    setInterval(() => this.handleForward(), 5000);
   }
 
   componentWillUnmount() {
@@ -53,8 +53,16 @@ class Carousel extends Component<
   render() {
     return (
       <div>
-        <button onClick={this.handleBackward}>{`<`}</button>
-        <button onClick={this.handleForward}>{`>`}</button>
+        <div className="carousel-btn-container">
+          <button
+            className="carousel-btn carousel-btn-left"
+            onClick={this.handleBackward}
+          >{`<`}</button>
+          <button
+            className="carousel-btn carousel-btn-right"
+            onClick={this.handleForward}
+          >{`>`}</button>
+        </div>
         <TransitionGroup className="img-container">
           <CSSTransition
             key={this.state.carouselImage}

@@ -6,7 +6,13 @@
 
 .carousel-img {
   width: 100vw;
-  height: 100vh;
+  height: 75vh;
+}
+
+@media (max-width: 700px) {
+  .carousel-img {
+    height: 50vh;
+  }
 }
 
 // image appear
@@ -46,4 +52,38 @@
     opacity: 0;
     transition: opacity 2500ms linear;
   }
+}
+
+// buttons
+
+.carousel-btn-container {
+  position: absolute;
+  width: 100%; // set width to position btns
+}
+
+.carousel-btn {
+  height: 20px;
+  width: 20px;
+  position: relative;
+  color: #fff;
+  background-color: #000;
+  border-radius: 50px;
+  z-index: 10;
+  top: 37.5vh;
+  left: 1vw;
+}
+
+@media (max-width: 700px) {
+  .carousel-btn {
+    top: 25vh;
+  }
+}
+
+.carousel-btn-left {
+  float: left;
+}
+
+.carousel-btn-right {
+  float: right;
+  margin-right: 2vw;
 }
