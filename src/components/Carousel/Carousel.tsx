@@ -1,11 +1,16 @@
 import React, { Component } from "react";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import "./Carousel.scss";
 
-class Carousel extends Component<{}, { carouselImage: number }> {
+class Carousel extends Component<
+  {},
+  { carouselImage: number; appear: boolean }
+> {
   constructor(props) {
     super(props);
     this.state = {
       carouselImage: 1,
+      appear: true,
     };
     this.handleForward = this.handleForward.bind(this);
     this.handleBackward = this.handleBackward.bind(this);
@@ -50,11 +55,21 @@ class Carousel extends Component<{}, { carouselImage: number }> {
       <div>
         <button onClick={this.handleBackward}>{`<`}</button>
         <button onClick={this.handleForward}>{`>`}</button>
-        <img
-          className="carousel-img"
-          src={require(`./carouselImages/img${this.state.carouselImage.toString()}.webp`)}
-          alt="city scape"
-        />
+        <TransitionGroup className="img-container">
+          <CSSTransition
+            key={this.state.carouselImage}
+            in={this.state.appear}
+            appear={true}
+            timeout={1000}
+            classNames="fade"
+          >
+            <img
+              className="carousel-img"
+              src={require(`./carouselImages/img${this.state.carouselImage.toString()}.webp`)}
+              alt="city scape"
+            />
+          </CSSTransition>
+        </TransitionGroup>
       </div>
     );
   }
