@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* FLEX CONTAINER PROPERTIES */
+
+.flex-container {
+  display: flex;
+  background-color: #000;
+  padding: 10px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: right;
+  align-content: stretch;
+  flex-wrap: wrap;
+}
+
+/* FLEX ITEM PROPERTIES */
+
+.item {
+  background-color: #f1425d;
+  padding: 10px;
+  margin: 5px;
+  color: white;
+  font-size: 20px;
+  flex-grow: 1;
+  width: 200px;
+  max-width: 200px;
+}
+
+@media (min-width: 855px) {
+  .flex-container {
+    justify-content: flex-end;
+  }
+}
+
+@media (min-width: 645px) {
+  .org-logo {
+    margin-right: auto;
+  }
+}
