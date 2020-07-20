@@ -19,11 +19,12 @@ const Carousel = () => {
   };
 
   useEffect(() => {
-    setInterval(() => handleForward(), 5000);
+    setInterval(() => handleForward(), 5000); // the class component is doing this on mount, this is doing on mount **and** update.
     return () => {
+      console.log(`timer cleared`);
       clearInterval();
     }; // return function from useEffect to cleanup
-  });
+  }, []); // empty array arg makes useEffect only run once on mounting
 
   return (
     <div>
