@@ -1,88 +1,59 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import "./Carousel.scss";
 
-class Carousel extends Component<
-  {},
-  { carouselImage: number; appear: boolean }
-> {
-  constructor(props) {
-    super(props);
-    this.state = {
-      carouselImage: 1,
-      appear: true,
-    };
-    this.handleForward = this.handleForward.bind(this);
-    this.handleBackward = this.handleBackward.bind(this);
-  }
+const Carousel = () => {
+  const [carouselImage, setCarouselImage] = useState(1);
+  const [appear] = useState(true);
 
-  componentDidMount() {
-    setInterval(() => this.handleForward(), 5000);
-  }
+  const handleForward = () => {
+    carouselImage < 4
+      ? setCarouselImage(carouselImage + 1)
+      : setCarouselImage(1);
+  };
 
-  componentWillUnmount() {
-    clearInterval();
-  }
+  const handleBackward = () => {
+    carouselImage > 1
+      ? setCarouselImage(carouselImage - 1)
+      : setCarouselImage(4);
+  };
 
-  // if carouselImage is less than 4, then increment, otherwise, set to 1
+  useEffect(() => {
+    setInterval(() => handleForward(), 5000);
+    return () => {
+      clearInterval();
+    }; // return function from useEffect to cleanup
+  });
 
-  handleForward() {
-    this.state.carouselImage < 4
-      ? this.setState((state) => ({
-          carouselImage: state.carouselImage + 1,
-        }))
-      : this.setState(() => ({
-          carouselImage: 1,
-        }));
-    console.log(this.state.carouselImage); // this works
-  }
-
-  // if carousel is greater than 1, then decrement, otherwise, set to 4
-
-  handleBackward() {
-    this.state.carouselImage > 1
-      ? this.setState((state) => ({
-          carouselImage: state.carouselImage - 1,
-        }))
-      : this.setState(() => ({
-          carouselImage: 4,
-        }));
-    console.log(this.state.carouselImage); // this works
-  }
-
-  render() {
-    return (
-      <div>
-        <div className="carousel-btn-container">
-          <button
-            className="carousel-btn carousel-btn-left"
-            onClick={this.handleBackward}
-          >{`<`}</button>
-          <button
-            className="carousel-btn carousel-btn-right"
-            onClick={this.handleForward}
-          >{`>`}</button>
-        </div>
-        <TransitionGroup className="img-container">
-          <CSSTransition
-            key={this.state.carouselImage}
-            in={this.state.appear}
-            appear={true}
-            timeout={1000}
-            classNames="fade"
-          >
-            <img
-              className="carousel-img"
-              src={require(`./carouselImages/img${this.state.carouselImage.toString()}.webp`)}
-              alt="city scape"
-            />
-          </CSSTransition>
-        </TransitionGroup>
+  return (
+    <div>
+      <div className="carousel-btn-container">
+        <button
+          className="carousel-btn carousel-btn-left"
+          onClick={() => handleBackward()}
+        >{`<`}</button>
+        <button
+          className="carousel-btn carousel-btn-right"
+          onClick={() => handleForward()}
+        >{`>`}</button>
       </div>
-    );
-  }
-}
+      <TransitionGroup className="img-container">
+        <CSSTransition
+          key={carouselImage}
+          in={appear}
+          appear={true}
+          timeout={1000}
+          classNames="fade"
+        >
+          <img
+            className="carousel-img"
+            src={require(`./carouselImages/img${carouselImage.toString()}.webp`)}
+            alt="city scape"
+          />
+        </CSSTransition>
+      </TransitionGroup>
+    </div>
+  );
+};
 
 export default Carousel;
-
-// carousel to display 4 images, change on click, then add a timer
