@@ -1,5 +1,52 @@
+// for smooth transition between two colors can use css transition property.
+// for smooth transition between color and image or image and image, use react transition group.
+
 .section-a {
   width: 100vw;
   height: 75vh;
-  background-color: pink;
+  background-color: #fbfbfb;
+  color: #000;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 100%;
+  grid-gap: 30px;
+  padding: 5%;
+}
+
+.grid-item {
+  height: 100px;
+  width: 100px;
+
+  &-one {
+    grid-column: 1/2;
+    background-color: red;
+    transition: 1s;
+    &:hover,
+    &:active {
+      background-color: purple;
+      cursor: pointer;
+    }
+  }
+  &-two {
+    grid-column: 2/3;
+    background-color: pink;
+    transition: 1s;
+    &:hover,
+    &:active {
+      background-image: url(../Carousel/carouselImages/img2.webp);
+      cursor: pointer;
+    }
+  }
+  &-three {
+    grid-column: 3/4;
+    background-image: url(../Carousel/carouselImages/img4.webp);
+    &:hover,
+    &:active {
+      background-image: url(../Carousel/carouselImages/img3.webp);
+      cursor: pointer;
+    }
+  }
 }
