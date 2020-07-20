@@ -1,0 +1,14 @@
+.nav-toggle-btn {
+  position: absolute;
+  z-index: 10;
+  width: 100px;
+  margin: auto;
+  // to center absolutely positioned element, push left 50% then add margin-left of hald the element's width
+  left: 50%;
+  margin-left: -50px;
+  text-align: center;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}

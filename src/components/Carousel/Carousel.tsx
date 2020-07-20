@@ -19,12 +19,11 @@ const Carousel = () => {
   };
 
   useEffect(() => {
-    setInterval(() => handleForward(), 5000); // the class component is doing this on mount, this is doing on mount **and** update.
+    setInterval(() => handleForward(), 5000);
     return () => {
-      console.log(`timer cleared`);
       clearInterval();
-    }; // return function from useEffect to cleanup
-  }, []); // empty array arg makes useEffect only run once on mounting
+    };
+  }, []);
 
   return (
     <div>
@@ -58,3 +57,6 @@ const Carousel = () => {
 };
 
 export default Carousel;
+
+// state of Carousel is only used by Carousel component so remains in local state
+// useEffect sets timer on mount, does nothing on update due to [] arg, clears timer on unmount as this function is returned from useEffect

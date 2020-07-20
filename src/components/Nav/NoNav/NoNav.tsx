@@ -2,7 +2,7 @@ import React from "react";
 import "./NoNav.scss";
 
 const NoNav = () => {
-  return <div>Show NavBar.</div>;
+  return <div className="no-navbar"></div>;
 };
 
 export default NoNav;
