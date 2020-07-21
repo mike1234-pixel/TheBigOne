@@ -1,4 +1,4 @@
-@import "../../sassMixins/SassMixins.scss";
+@import "../../../sassFiles/sassMixins/SassMixins.scss";
 
 * {
   margin: 0;
@@ -19,6 +19,7 @@
   flex-wrap: wrap;
   position: relative;
   z-index: 10;
+  width: 100vw;
 }
 
 /* FLEX ITEM PROPERTIES */
@@ -31,6 +32,8 @@
   @include navItemStyles;
   // added for growing underline
   position: relative;
+  background-image: url("../../../backgroundImages/backgroundImage1.webp");
+  @include imageFit;
 }
 
 @media (min-width: 855px) {
