@@ -1,5 +1,5 @@
-// for smooth transition between two colors can use css transition property.
-// for smooth transition between color and image or image and image, use react transition group.
+@import "../sassMixins/SassMixins.scss";
+@import "../sassMixins/SassVariables.scss";
 
 .section-a {
   width: 100vw;
@@ -14,39 +14,51 @@
   grid-template-rows: 100%;
   grid-gap: 30px;
   padding: 5%;
+
+  @media (max-width: 700px) {
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(3, 1fr);
+  }
 }
 
 .grid-item {
-  height: 100px;
-  width: 100px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+
+  @include imageGreyScaleToColorOnHover;
+  @include imageFit;
+
+  @media (max-width: 700px) {
+    @include turnOffGreyScaleToColorOnHover;
+    font-size: 75%;
+  }
 
   &-one {
     grid-column: 1/2;
-    background-color: red;
-    transition: 1s;
-    &:hover,
-    &:active {
-      background-color: purple;
-      cursor: pointer;
+    background-image: url(../Carousel/carouselImages/img2.webp);
+    @media (max-width: 700px) {
+      grid-column: 1/-1;
+      grid-row: 1/2;
     }
   }
   &-two {
     grid-column: 2/3;
-    background-color: pink;
-    transition: 1s;
-    &:hover,
-    &:active {
-      background-image: url(../Carousel/carouselImages/img2.webp);
-      cursor: pointer;
+    background-image: url(../Carousel/carouselImages/img3.webp);
+    @media (max-width: 700px) {
+      grid-column: 1/-1;
+      grid-row: 2/3;
     }
   }
   &-three {
     grid-column: 3/4;
     background-image: url(../Carousel/carouselImages/img4.webp);
-    &:hover,
-    &:active {
-      background-image: url(../Carousel/carouselImages/img3.webp);
-      cursor: pointer;
+    @media (max-width: 700px) {
+      grid-column: 1/-1;
+      grid-row: 3/4;
     }
   }
 }
