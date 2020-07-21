@@ -1,8 +1,12 @@
 import React from "react";
 import "./NoNav.scss";
 
-const NoNav = () => {
-  return <div className="no-navbar"></div>;
+const NoNav = (props) => {
+  return (
+    <div
+      className={props.darkMode ? "no-navbar-dark" : "no-navbar-light"}
+    ></div>
+  );
 };
 
 export default NoNav;

@@ -8,9 +8,8 @@
 
 /* FLEX CONTAINER PROPERTIES */
 
-.flex-container {
+@mixin flexContainerStyles {
   display: flex;
-  background-color: #000;
   padding: 10px;
   flex-direction: row;
   justify-content: center;
@@ -20,6 +19,22 @@
   position: relative;
   z-index: 10;
   width: 100vw;
+}
+
+.flex-container {
+  background-color: #000;
+  @include flexContainerStyles;
+}
+
+.flex-container-dark {
+  background-color: #fff;
+  @include flexContainerStyles;
+}
+
+@media (min-width: 855px) {
+  .flex-container {
+    justify-content: flex-end;
+  }
 }
 
 /* FLEX ITEM PROPERTIES */
@@ -34,12 +49,6 @@
   position: relative;
   background-image: url("../../../backgroundImages/backgroundImage1.webp");
   @include imageFit;
-}
-
-@media (min-width: 855px) {
-  .flex-container {
-    justify-content: flex-end;
-  }
 }
 
 @media (min-width: 645px) {

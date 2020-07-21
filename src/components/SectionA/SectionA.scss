@@ -36,6 +36,9 @@
     @include turnOffGreyScaleToColorOnHover;
     font-size: 75%;
   }
+  @media (max-width: 330px) {
+    font-size: 50%;
+  }
 
   &-one {
     grid-column: 1/2;

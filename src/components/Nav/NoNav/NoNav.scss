@@ -1,6 +1,16 @@
-.no-navbar {
+@mixin noNavBarStyles {
   width: 100vw;
   height: 25px;
+}
+
+.no-navbar-dark {
+  @include noNavBarStyles;
   background-color: #000;
   color: #fff;
+}
+
+.no-navbar-light {
+  @include noNavBarStyles;
+  background-color: #fff;
+  color: #000;
 }

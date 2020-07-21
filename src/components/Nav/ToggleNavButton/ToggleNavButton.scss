@@ -1,4 +1,4 @@
-.nav-toggle-btn {
+@mixin navToggleButtonStyles {
   position: absolute;
   z-index: 10;
   width: 100px;
@@ -7,8 +7,18 @@
   left: 50%;
   margin-left: -50px;
   text-align: center;
-  background-color: #000;
-  color: #fff;
   border: none;
   cursor: pointer;
+}
+
+.nav-toggle-btn-dark {
+  background-color: #000;
+  color: #fff;
+  @include navToggleButtonStyles;
+}
+
+.nav-toggle-btn-light {
+  background-color: #fff;
+  color: #000;
+  @include navToggleButtonStyles;
 }
