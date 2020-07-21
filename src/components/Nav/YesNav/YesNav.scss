@@ -1,3 +1,5 @@
+@import "../../sassMixins/SassMixins.scss";
+
 * {
   margin: 0;
   padding: 0;
@@ -21,15 +23,14 @@
 
 /* FLEX ITEM PROPERTIES */
 
+.org-logo {
+  @include navItemStyles;
+}
+
 .item {
-  background-color: #fff;
-  padding: 10px;
-  margin: 5px;
-  color: #000;
-  font-size: 20px;
-  flex-grow: 1;
-  width: 200px;
-  max-width: 200px;
+  @include navItemStyles;
+  // added for growing underline
+  position: relative;
 }
 
 @media (min-width: 855px) {
@@ -42,4 +43,13 @@
   .org-logo {
     margin-right: auto;
   }
+}
+
+// :after pseudo-element underline - grows on mouseover, shrinks on mouseout
+// .item must have position: relative as above
+.item:after {
+  @include underlineGrowOnMouseover;
+}
+.item:hover:after {
+  @include underlineShrinkOnMouseout;
 }
