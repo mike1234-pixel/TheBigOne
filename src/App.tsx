@@ -2,7 +2,6 @@ import React from "react";
 import "./App.scss";
 import Nav from "./components/Nav/Nav";
 import Carousel from "./components/Carousel/Carousel";
-import CarouselTint from "./components/Carousel/CarouselTint/CarouselTint";
 import SectionA from "./components/SectionA/SectionA";
 import SectionB from "./components/SectionB/SectionB";
 import SectionC from "./components/SectionC/SectionC";
@@ -29,7 +28,6 @@ function App(props) {
     <div className="App">
       <Nav darkModeButton={darkModeButton} darkMode={props.darkMode} />
       <Carousel darkMode={props.darkMode} />
-      <CarouselTint />
       <SectionA />
       <SectionB loremText={loremText} />
       <SectionC loremText={loremText} />

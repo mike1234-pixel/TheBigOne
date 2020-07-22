@@ -53,39 +53,50 @@ class Carousel extends Component<
   render() {
     return (
       <div>
-        <div className="carousel-btn-container">
-          <button
-            className={
-              this.props.darkMode
-                ? `dark-background carousel-btn carousel-btn-left`
-                : `light-background carousel-btn carousel-btn-left`
-            }
-            onClick={this.handleBackward}
-          >{`<`}</button>
-          <button
-            className={
-              this.props.darkMode
-                ? `dark-background carousel-btn carousel-btn-right`
-                : `light-background carousel-btn carousel-btn-right`
-            }
-            onClick={this.handleForward}
-          >{`>`}</button>
+        <div>
+          <div className="carousel-btn-container">
+            <button
+              className={
+                this.props.darkMode
+                  ? `dark-background carousel-btn carousel-btn-left`
+                  : `light-background carousel-btn carousel-btn-left`
+              }
+              onClick={this.handleBackward}
+            >{`<`}</button>
+            <button
+              className={
+                this.props.darkMode
+                  ? `dark-background carousel-btn carousel-btn-right`
+                  : `light-background carousel-btn carousel-btn-right`
+              }
+              onClick={this.handleForward}
+            >{`>`}</button>
+          </div>
+          <TransitionGroup className="img-container">
+            <CSSTransition
+              key={this.state.carouselImage}
+              in={this.state.appear}
+              appear={true}
+              timeout={1000}
+              classNames="fade"
+            >
+              <img
+                className="carousel-img"
+                src={require(`./carouselImages/img${this.state.carouselImage.toString()}.webp`)}
+                alt="city scape"
+              />
+            </CSSTransition>
+            <div className="bg-video-1">
+              <video className="bg-video-1__content" autoPlay muted loop>
+                <source
+                  src={require("../../backgroundImages/video.mp4")}
+                  type="video/mp4"
+                />
+                Your browser is not supported
+              </video>
+            </div>
+          </TransitionGroup>
         </div>
-        <TransitionGroup className="img-container">
-          <CSSTransition
-            key={this.state.carouselImage}
-            in={this.state.appear}
-            appear={true}
-            timeout={1000}
-            classNames="fade"
-          >
-            <img
-              className="carousel-img"
-              src={require(`./carouselImages/img${this.state.carouselImage.toString()}.webp`)}
-              alt="city scape"
-            />
-          </CSSTransition>
-        </TransitionGroup>
       </div>
     );
   }
