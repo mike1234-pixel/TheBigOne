@@ -1,7 +1,6 @@
 .section-c {
   width: 100vw;
   height: 75vh;
-  background-color: #fbfbfb;
 }
 
 .grid-container-c {
@@ -18,15 +17,26 @@
 }
 
 .grid-item-c {
-  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   padding: 10px;
-  background: #333333;
+  transition: 1s;
+  &:hover,
+  &:active {
+    background: #e2dccd;
+    color: #333333;
+    cursor: pointer;
+  }
+  @media (max-width: 700px) {
+    font-size: 75%;
+  }
+  @media (max-width: 330px) {
+    font-size: 50%;
+  }
 
-  &-image-box-c {
+  &-text-box {
     grid-column: 1/2;
     @media (max-width: 700px) {
       grid-column: 1/-1;
@@ -34,11 +44,39 @@
     }
   }
 
-  &-text-box-c {
+  &-image-box {
     grid-column: 2/3;
     @media (max-width: 700px) {
       grid-column: 1/-1;
       grid-row: 2/3;
     }
+  }
+}
+
+.grid-container-c-dark-mode {
+  background: #fff;
+}
+
+.grid-container-c-light-mode {
+  background: #fff;
+}
+
+.grid-item-c-dark-mode {
+  color: #fff;
+  background: #333333;
+  &:hover,
+  &:active {
+    background: #e2dccd;
+    color: #333333;
+  }
+}
+
+.grid-item-c-light-mode {
+  color: #333333;
+  background: #e2dccd;
+  &:hover,
+  &:active {
+    background: #333333;
+    color: #e2dccd;
   }
 }

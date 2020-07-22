@@ -1,7 +1,14 @@
 .carousel-tint {
   width: 100vw;
   height: 75vh;
-  background-color: black;
+}
+
+.dark-tint {
+  background-color: #000;
+}
+
+.light-tint {
+  background-color: #fff;
 }
 
 @media (max-width: 700px) {

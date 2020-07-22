@@ -1,8 +1,18 @@
 import React from "react";
 import "./CarouselTint.scss";
+import { useStore } from "react-redux";
 
 const CarouselTint = () => {
-  return <div className="carousel-tint"></div>;
+  const store = useStore();
+  const state = store.getState();
+
+  return (
+    <div
+      className={
+        state.darkMode ? `carousel-tint dark-tint` : `carousel-tint light-tint`
+      }
+    ></div>
+  );
 };
 
 export default CarouselTint;

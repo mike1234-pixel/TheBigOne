@@ -1,7 +1,6 @@
 .section-b {
   width: 100vw;
   height: 75vh;
-  background-color: #000;
 }
 
 .grid-container-b {
@@ -18,13 +17,11 @@
 }
 
 .grid-item-b {
-  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   padding: 10px;
-  background: #333333;
   transition: 1s;
   &:hover,
   &:active {
@@ -53,5 +50,33 @@
       grid-column: 1/-1;
       grid-row: 2/3;
     }
+  }
+}
+
+.grid-container-b-dark-mode {
+  background: #000;
+}
+
+.grid-container-b-light-mode {
+  background: #e3dac9;
+}
+
+.grid-item-b-dark-mode {
+  color: #fff;
+  background: #333333;
+  &:hover,
+  &:active {
+    background: #e2dccd;
+    color: #333333;
+  }
+}
+
+.grid-item-b-light-mode {
+  color: #333333;
+  background: #fff;
+  &:hover,
+  &:active {
+    background: #333333;
+    color: #e2dccd;
   }
 }

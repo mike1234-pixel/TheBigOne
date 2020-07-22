@@ -1,5 +1,43 @@
 @import "../../../sassFiles/sassMixins/SassMixins.scss";
 
+// MIXINS:
+// underline styles (grow and shrink)
+
+@mixin underlineGrowOnMouseover {
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 5px;
+  left: 50%;
+  position: absolute;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+
+@mixin underlineShrinkOnMouseout {
+  width: 100%;
+  left: 0;
+}
+
+// nav item styles
+
+@mixin navItemStyles {
+  background-color: #fff;
+  padding: 10px;
+  margin: 5px;
+  color: #000;
+  font-size: 20px;
+  flex-grow: 1;
+  width: 200px;
+  max-width: 200px;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 15px 20px;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////
+
 * {
   margin: 0;
   padding: 0;
@@ -13,8 +51,6 @@
   padding: 10px;
   flex-direction: row;
   justify-content: center;
-  align-items: right;
-  align-content: stretch;
   flex-wrap: wrap;
   position: relative;
   z-index: 10;
@@ -43,46 +79,60 @@
   @include navItemStyles;
 }
 
-.item {
-  @include navItemStyles;
-  // added for growing underline
-  margin-top: 20px;
-  position: relative;
-  background-image: url("../../../backgroundImages/backgroundImage1.webp");
-  @include imageFit;
-}
-
-.button-item-dark {
-  background: #000;
-  &:after {
-    background-color: transparent;
-  }
-  &:hover:after {
-    background-color: transparent; // make expanding underline invisible
-  }
-}
-
-.button-item-light {
-  background: #fff;
-  &:after {
-    background-color: transparent;
-  }
-  &:hover:after {
-    background-color: transparent;
-  }
-}
-
-@media (min-width: 645px) {
+@media (min-width: 746px) {
   .org-logo {
     margin-right: auto;
   }
 }
 
+.item-dark {
+  @include navItemStyles;
+  // added for growing underline
+  text-align: center;
+  margin-top: 20px;
+  position: relative;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+  @media (max-width: 1530px) {
+    max-width: 100px;
+  }
+}
+
+.item-light {
+  @include navItemStyles;
+  // added for growing underline
+  text-align: center;
+  margin-top: 20px;
+  position: relative;
+  background: #fff;
+  color: #000;
+  cursor: pointer;
+  @media (max-width: 1530px) {
+    max-width: 100px;
+  }
+}
+
 // :after pseudo-element underline - grows on mouseover, shrinks on mouseout
 // .item must have position: relative as above
-.item:after {
+
+// pseudo-element for .item-dark class
+.item-dark:after {
   @include underlineGrowOnMouseover;
+  background: #fff;
 }
-.item:hover:after {
+.item-dark:hover:after {
   @include underlineShrinkOnMouseout;
+  background: #fff;
+}
+
+// pseudo-element for .item-light class
+
+.item-light:after {
+  @include underlineGrowOnMouseover;
+  background: #000;
+}
+.item-light:hover:after {
+  @include underlineShrinkOnMouseout;
+  background: #000;
 }
