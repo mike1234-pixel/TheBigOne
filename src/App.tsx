@@ -15,7 +15,11 @@ function App(props) {
 
   const darkModeButton = (
     <button
-      className="dark-mode-btn"
+      className={
+        props.darkMode
+          ? `dark-mode-btn btn-dark-background`
+          : `dark-mode-btn btn-light-background`
+      }
       onClick={() => props.dispatch({ type: "TOGGLE_DARKMODE" })}
     >
       {props.darkMode ? `Light Mode` : `Dark Mode`}
@@ -24,7 +28,7 @@ function App(props) {
   return (
     <div className="App">
       <Nav darkModeButton={darkModeButton} darkMode={props.darkMode} />
-      <Carousel />
+      <Carousel darkMode={props.darkMode} />
       <CarouselTint />
       <SectionA />
       <SectionB loremText={loremText} />

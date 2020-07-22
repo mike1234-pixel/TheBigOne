@@ -65,12 +65,20 @@
   height: 20px;
   width: 20px;
   position: relative;
-  color: #fff;
-  background-color: #000;
   border-radius: 50px;
   z-index: 10;
   top: 37.5vh;
   left: 1vw;
+}
+
+.dark-background {
+  background-color: #000;
+  color: #fff;
+}
+
+.light-background {
+  background-color: #fff;
+  color: #000;
 }
 
 @media (max-width: 700px) {

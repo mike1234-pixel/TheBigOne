@@ -21,8 +21,7 @@
 
   outline: none;
   position: absolute;
-  right: 200px;
-  top: -16px;
+  right: 1040px;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   transition: all 0.3s;
@@ -37,15 +36,15 @@
 }
 
 .dark-mode-btn {
-  border: 3px solid #fff;
-  color: #fff;
+  // border: 3px solid #fff;
+  // color: #fff;
 
   &:after {
     width: 0%;
     height: 100%;
     top: 0;
     left: 0;
-    background: #fff;
+    // background: #fff;
   }
   &:hover,
   active {
@@ -54,5 +53,21 @@
   &:hover:after,
   &:active:after {
     width: 100%;
+  }
+}
+
+.btn-dark-background {
+  border: 3px solid #fff;
+  color: #fff;
+  &:after {
+    background: #fff;
+  }
+}
+
+.btn-light-background {
+  border: 3px solid #000;
+  color: #000;
+  &:after {
+    background: #000;
   }
 }

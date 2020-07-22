@@ -1,21 +1,27 @@
 import React, { useState } from "react";
 import "./Nav.scss";
-import YesNav from "./YesNav/YesNav";
+import NavBar from "./NavBar/NavBar";
 import NoNav from "./NoNav/NoNav";
 import ToggleNavButton from "./ToggleNavButton/ToggleNavButton";
+import { useStore } from "react-redux";
 
 const Nav = (props) => {
+  // state of Nav is only used by Nav component so remains in local state
   const [navVisible, setNavVisible] = useState(true);
+
+  // getting darkMode state from redux store and passing as props to children: NavBar, NoNav and ToggleNavButton
+  const store = useStore();
+  const state = store.getState();
 
   return (
     <div className="triangle-container-container">
       {navVisible ? (
-        <YesNav
+        <NavBar
           darkModeButton={props.darkModeButton}
-          darkMode={props.darkMode}
+          darkMode={state.darkMode}
         />
       ) : (
-        <NoNav darkMode={props.darkMode} />
+        <NoNav darkMode={state.darkMode} />
       )}
       <div onClick={() => setNavVisible(!navVisible)}>
         <ToggleNavButton darkMode={props.darkMode} navVisible={navVisible} />
@@ -25,5 +31,3 @@ const Nav = (props) => {
 };
 
 export default Nav;
-
-// state of Nav is only used by Nav component so remains in local state

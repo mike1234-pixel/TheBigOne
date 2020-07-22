@@ -3,7 +3,7 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 import "./Carousel.scss";
 
 class Carousel extends Component<
-  {},
+  { darkMode: boolean },
   { carouselImage: number; appear: boolean }
 > {
   constructor(props) {
@@ -55,11 +55,19 @@ class Carousel extends Component<
       <div>
         <div className="carousel-btn-container">
           <button
-            className="carousel-btn carousel-btn-left"
+            className={
+              this.props.darkMode
+                ? `dark-background carousel-btn carousel-btn-left`
+                : `light-background carousel-btn carousel-btn-left`
+            }
             onClick={this.handleBackward}
           >{`<`}</button>
           <button
-            className="carousel-btn carousel-btn-right"
+            className={
+              this.props.darkMode
+                ? `dark-background carousel-btn carousel-btn-right`
+                : `light-background carousel-btn carousel-btn-right`
+            }
             onClick={this.handleForward}
           >{`>`}</button>
         </div>

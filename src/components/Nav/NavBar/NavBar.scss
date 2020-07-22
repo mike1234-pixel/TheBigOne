@@ -46,6 +46,7 @@
 .item {
   @include navItemStyles;
   // added for growing underline
+  margin-top: 20px;
   position: relative;
   background-image: url("../../../backgroundImages/backgroundImage1.webp");
   @include imageFit;
