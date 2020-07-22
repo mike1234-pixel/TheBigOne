@@ -51,6 +51,26 @@
   @include imageFit;
 }
 
+.button-item-dark {
+  background: #000;
+  &:after {
+    background-color: transparent;
+  }
+  &:hover:after {
+    background-color: transparent; // make expanding underline invisible
+  }
+}
+
+.button-item-light {
+  background: #fff;
+  &:after {
+    background-color: transparent;
+  }
+  &:hover:after {
+    background-color: transparent;
+  }
+}
+
 @media (min-width: 645px) {
   .org-logo {
     margin-right: auto;

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./App.css";
+import "./App.scss";
 import Nav from "./components/Nav/Nav";
 import Carousel from "./components/Carousel/Carousel";
 import CarouselTint from "./components/Carousel/CarouselTint/CarouselTint";
