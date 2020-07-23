@@ -1,0 +1,13 @@
+// full viewport width with no overflow
+
+@mixin fullScreenWidth {
+  width: 100%;
+  max-width: 100%;
+}
+
+// make image fit to container
+
+@mixin imageFit {
+  background-repeat: no-repeat;
+  background-size: cover;
+}

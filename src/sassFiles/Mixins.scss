@@ -1,10 +1,3 @@
-// make image fit to container
-
-@mixin imageFit {
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 // turn grey scale on and off
 
 @mixin imageGreyScaleToColorOnHover {

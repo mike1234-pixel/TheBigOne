@@ -1,20 +1,30 @@
-// the images are exiting the DOM which is why the othe pictures are lifted up.
-// Carousel needs a relatively positioned container with a fixed width and height that contains everything else
+// Notes on carousel with video overlay:
 
-//important: this keeps the transitioning images on top of one another
+// ----- about the carousel
+
+// The carousel uses local state to change the images, and react-transition-group so animate the transition between states.
+// The carousel has a foreground video positioned within the container of the carousel.
+
+// ----- prevent collapsing
+
+// The images in the carousel enter and exit the DOM on a timer. There is a split second between one exiting and another entering where there is no image in the DOM.
+// As a result the carousel vanishes for a split second and everything else moves up.
+// To fix this the entire carousel is wrapped in a container (img-container) which has a height and width, has no content and is relatively positioned. This stops the carousel collpasing between transitions.
+// This container also keeps images on top of one another when transitioning.
+
+// ----- prevent horizontal overflow
+
+// When full width elements like the carousel have a width of 100vw, this causes horizontal overflow of the viewport, meaning the site occupies horizontally slightly more space than the viewport and a horizontal scrollbar is created.
+// to fix this use width: 100% and max-width: 100% on all elements you want to occupy 100% width of the viewport.
+
 .img-container {
-  // --- causes horizontal overflow --- //
-  // width: 100vw;
-  // --- fixes horizontal overflow --- //
   width: 100%;
   max-width: 100%;
-  // ---------------------------------------- //
   height: 75vh;
   position: relative;
 }
 
 .carousel-img {
-  // width: 100vw;
   width: 100%;
   max-width: 100%;
   height: 75vh;
@@ -110,13 +120,12 @@
   margin-right: 2vw;
 }
 
-//
+// foreground video
 
-.bg-video-1 {
+.fg-video-1 {
   position: absolute;
   top: 0;
   left: 0;
-  // width: 100vw;
   width: 100%;
   max-width: 100%;
   height: 75vh;
@@ -132,7 +141,7 @@
 }
 
 @media (max-width: 700px) {
-  .bg-video-1 {
+  .fg-video-1 {
     height: 50vh;
   }
 }
