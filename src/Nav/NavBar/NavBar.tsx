@@ -6,7 +6,10 @@ const NavBar = (props) => {
   const noDarkModeButton = useMediaQuery({ query: "(max-width: 1530px)" }); // returns boolean
 
   return (
-    <div className={props.darkMode ? `flex-container` : `flex-container-dark`}>
+    <div
+      data-testid="NavBar"
+      className={props.darkMode ? `flex-container` : `flex-container-dark`}
+    >
       <div className="org-logo">Cool Frontends</div>
       <div className="nav-items">
         {noDarkModeButton ? (

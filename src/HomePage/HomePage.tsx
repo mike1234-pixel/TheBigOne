@@ -11,7 +11,7 @@ const HomePage = (props) => {
 
   return (
     <div>
-      <Carousel darkMode={props.darkMode} />
+      <Carousel data-testid="Carousel" darkMode={props.darkMode} />
       <SectionA darkMode={props.darkMode} />
       <SectionB loremText={loremText} />
       <SectionC loremText={loremText} />
