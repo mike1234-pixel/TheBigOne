@@ -41,6 +41,12 @@
   },
   "devDependencies": {
     "@types/react": "^16.9.43",
-    "@types/react-dom": "^16.9.8"
+    "@types/react-dom": "^16.9.8",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "jest-dom": "^4.0.0",
+    "react-test-render": "^1.1.2",
+    "redux-mock-store": "^1.5.4",
+    "redux-thunk": "^2.3.0"
   }
 }

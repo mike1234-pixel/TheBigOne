@@ -34,7 +34,6 @@ class Carousel extends Component<
       : this.setState(() => ({
           carouselImage: 1,
         }));
-    console.log(this.state.carouselImage); // this works
   }
 
   // if carousel is greater than 1, then decrement, otherwise, set to 4

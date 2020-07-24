@@ -1,16 +1,15 @@
-@mixin noNavBarStyles {
-  width: 100vw;
+@import "../../sassFiles/Utilities.scss";
+
+.no-navbar-dark {
+  @include fullScreenWidth;
+  background-color: #000;
+  color: #fff;
   height: 25px;
 }
 
-.no-navbar-dark {
-  @include noNavBarStyles;
-  background-color: #000;
-  color: #fff;
-}
-
 .no-navbar-light {
-  @include noNavBarStyles;
+  @include fullScreenWidth;
   background-color: #fff;
   color: #000;
+  height: 25px;
 }

@@ -11,8 +11,8 @@ const HomePage = (props) => {
 
   return (
     <div>
-      <Carousel darkMode={props.dakMode} />
-      <SectionA />
+      <Carousel darkMode={props.darkMode} />
+      <SectionA darkMode={props.darkMode} />
       <SectionB loremText={loremText} />
       <SectionC loremText={loremText} />
       <SectionD />
