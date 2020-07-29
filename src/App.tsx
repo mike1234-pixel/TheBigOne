@@ -23,7 +23,7 @@ function App(props) {
   return (
     <BrowserRouter className="App">
       <Nav darkModeButton={darkModeButton} darkMode={props.darkMode} />
-      <Route exact path="/" component={HomePage} darkMode={props.dakMode} />
+      <Route exact path="/" component={HomePage} />
       <Route path="/Blog" component={BlogPage} />
     </BrowserRouter>
   );

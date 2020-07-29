@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./BlogPage.scss";
+import { useStore } from "react-redux";
 
 const BlogPage = () => {
+  const store = useStore();
+  const state = store.getState();
+
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState<any[]>([]);
@@ -30,7 +34,7 @@ const BlogPage = () => {
     return <div>Loading...</div>;
   } else {
     return (
-      <div>
+      <div className={state.darkMode ? `dark-mode` : `light-mode`}>
         {items.map((item) => (
           <div className="blog-post">
             <p className="blog-title">{item.title}</p>

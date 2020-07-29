@@ -1,4 +1,9 @@
-h1 {
-  font-size: 50px;
-  font-family: "Times New Roman", Times, serif;
+.dark-mode {
+  background-color: #000;
+  color: #fff;
+}
+
+.light-mode {
+  background-color: #fff;
+  color: #000;
 }
