@@ -12,7 +12,7 @@ const BlogPage = (props) => {
   const [items, setItems] = useState<any[]>([]);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [numberOfResults] = useState(7);
+  const [numberOfResults] = useState(10);
 
   let lastId = numberOfResults * currentPage; // 10 * 1 = 10
   let firstId = lastId - numberOfResults;
@@ -91,14 +91,14 @@ const BlogPage = (props) => {
         </button>
         <p>Page {currentPage}</p>
         <p>
-          Articles: {firstId + 1} -{" "}
+          Results: {firstId + 1} -{" "}
           {currentPage * numberOfResults <= items.length
             ? lastId
             : items.length}
         </p>
         <button
           onClick={
-            currentPage * numberOfResults <= items.length
+            currentPage * numberOfResults < items.length
               ? () => setCurrentPage(currentPage + 1)
               : () => setCurrentPage(currentPage)
           }
