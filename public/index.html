@@ -9,6 +9,35 @@
       name="description"
       content="REACT TS REDUX JEST FUNCTIONAL APP - THE BIG ONE"
     />
+    <style>
+      .svgLoader {
+        animation: spin 0.5s linear infinite;
+        margin: auto;
+      }
+      .divLoader {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+    <!-- <style>
+      #loading-image {
+        width: 100%;
+        height: 100%;
+        z-index: 99;
+        text-align: center;
+      }
+    </style> -->
     <title>The Big One</title>
   </head>
   <body>
@@ -17,6 +46,31 @@
       <i>This app will not run without JavaScript</i> unfornately so please
       enable it. Thanks 💋.</noscript
     >
-    <div id="root"></div>
+
+    <div id="root">
+      <div class="divLoader">
+        <svg
+          class="svgLoader"
+          viewBox="0 0 1024 1024"
+          width="10em"
+          height="10em"
+        >
+          <path fill="lightblue" d="./Images/loading-spinner.gif" />
+        </svg>
+      </div>
+    </div>
   </body>
+  <!-- <div id="loading">
+    LOADING
+    <img
+      id="loading-image"
+      src="./Images/loading-spinner.gif"
+      alt="Loading..."
+    />
+  </div> -->
+  <script>
+    window.onload = function () {
+      document.getElementById("loading-spinner").style.display = "none";
+    };
+  </script>
 </html>

@@ -4,6 +4,7 @@ import "./App.scss";
 import Nav from "./Nav/Nav";
 import HomePage from "./HomePage/HomePage";
 import BlogPage from "./BlogPage/BlogPage";
+import BlogPost from "./BlogPage/BlogPost/BlogPost";
 import { connect } from "react-redux";
 import { BrowserRouter, Route } from "react-router-dom";
 
@@ -25,6 +26,7 @@ function App(props) {
       <Nav darkModeButton={darkModeButton} darkMode={props.darkMode} />
       <Route exact path="/" component={HomePage} />
       <Route path="/Blog" component={BlogPage} />
+      <Route path="/BlogPost" component={BlogPost} />
     </BrowserRouter>
   );
 }

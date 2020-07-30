@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./BlogPage.scss";
 import { useStore } from "react-redux";
+import { Link } from "react-router-dom";
+import BlogPost from "./BlogPost/BlogPost";
 
 const BlogPage = () => {
   const store = useStore();
@@ -34,17 +36,39 @@ const BlogPage = () => {
     return <div>Loading...</div>;
   } else {
     return (
-      <div className={state.darkMode ? `dark-mode` : `light-mode`}>
+      <div
+        className={
+          state.darkMode ? `dark-mode blog-page` : `light-mode blog-page`
+        }
+      >
         {items.map((item) => (
           <div className="blog-post">
             <p className="blog-title">{item.title}</p>
-            <p className="blog-content">{item.content}</p>
+            <p className="blog-content">
+              {item.content.substring(0, 199)}
+              <Link
+                to={{
+                  pathname: "/BlogPost",
+                  state: {
+                    title: item.title,
+                    content: item.content,
+                    date: item.date,
+                  },
+                }}
+              >
+                {" "}
+                ...
+              </Link>{" "}
+              {/* need to be in the map method to pass them down as props for each one */}
+            </p>
+            <img src={item.img} className="blog-img"></img>
             <p className="blog-date">{item.date}</p>
           </div>
         ))}
-        <h1>success</h1>
       </div>
     );
   }
 };
 export default BlogPage;
+
+// to send images will need to send images that are saved externally, then just send across the path

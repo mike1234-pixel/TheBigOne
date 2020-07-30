@@ -7,3 +7,34 @@
   background-color: #fff;
   color: #000;
 }
+
+.blog-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+  min-height: 100vh;
+}
+
+.blog-post {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.blog-title {
+  font-size: 175%;
+}
+
+.blog-content {
+  font-size: 100%;
+}
+
+.blog-date {
+  font-size: 50%;
+}
+
+.blog-img {
+  height: 200px;
+  width: 400px;
+}
