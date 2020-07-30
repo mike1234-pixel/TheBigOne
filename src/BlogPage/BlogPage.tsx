@@ -12,9 +12,9 @@ const BlogPage = (props) => {
   const [items, setItems] = useState<any[]>([]);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [numberOfResults] = useState(5);
+  const [numberOfResults] = useState(7);
 
-  let lastId = numberOfResults * currentPage - 1;
+  let lastId = numberOfResults * currentPage; // 10 * 1 = 10
   let firstId = lastId - numberOfResults;
 
   useEffect(() => {
@@ -37,7 +37,7 @@ const BlogPage = (props) => {
   });
 
   const arrayOfBlogPosts = items
-    .filter((item) => item.id >= firstId && item.id <= lastId)
+    .filter((item) => item.id > firstId && item.id <= lastId)
     .map((item) => (
       <div className="blog-post">
         <p className="blog-title">{item.title}</p>
@@ -84,13 +84,25 @@ const BlogPage = (props) => {
           onClick={
             currentPage !== 1
               ? () => setCurrentPage(currentPage - 1)
-              : () => setCurrentPage(1)
+              : () => setCurrentPage(currentPage)
           }
         >
           PREV PAGE x
         </button>
         <p>Page {currentPage}</p>
-        <button onClick={() => setCurrentPage(currentPage + 1)}>
+        <p>
+          Articles: {firstId + 1} -{" "}
+          {currentPage * numberOfResults <= items.length
+            ? lastId
+            : items.length}
+        </p>
+        <button
+          onClick={
+            currentPage * numberOfResults <= items.length
+              ? () => setCurrentPage(currentPage + 1)
+              : () => setCurrentPage(currentPage)
+          }
+        >
           NEXT PAGE x
         </button>
       </div>
@@ -98,3 +110,7 @@ const BlogPage = (props) => {
   }
 };
 export default BlogPage;
+
+// what is the page limit?
+// currentPage (3) * numberOfResults (5) = (15)  items.length
+//
