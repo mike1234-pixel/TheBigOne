@@ -14,13 +14,15 @@ const initialState = {
 
 function reducer(state = initialState, action) {
   switch (action.type) {
-    case "TOGGLE_DARKMODE":
-      return {
-        darkMode: !state.darkMode,
-      };
     case "UPDATE_URL_TITLE":
       return {
         urlTitle: action.title.toLowerCase().replace(/ /g, "-"),
+        darkMode: state.darkMode,
+      };
+    case "TOGGLE_DARKMODE":
+      return {
+        urlTitle: state.urlTitle,
+        darkMode: !state.darkMode,
       };
     default:
       return state;
