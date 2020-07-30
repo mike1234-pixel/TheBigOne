@@ -9,6 +9,7 @@ import { Provider } from "react-redux";
 // set initialState of redux store here
 const initialState = {
   darkMode: true,
+  urlTitle: "",
 };
 
 function reducer(state = initialState, action) {
@@ -16,6 +17,10 @@ function reducer(state = initialState, action) {
     case "TOGGLE_DARKMODE":
       return {
         darkMode: !state.darkMode,
+      };
+    case "UPDATE_URL_TITLE":
+      return {
+        urlTitle: action.title.toLowerCase().replace(/ /g, "-"),
       };
     default:
       return state;

@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./BlogPage.scss";
 import { useStore } from "react-redux";
 import { Link } from "react-router-dom";
-import BlogPost from "./BlogPost/BlogPost";
 
-const BlogPage = () => {
+const BlogPage = (props) => {
   const store = useStore();
   const state = store.getState();
 
@@ -51,10 +50,17 @@ const BlogPage = () => {
                   pathname: "/BlogPost",
                   state: {
                     title: item.title,
+                    img: item.img,
                     content: item.content,
                     date: item.date,
                   },
                 }}
+                onClick={() =>
+                  store.dispatch({
+                    type: "UPDATE_URL_TITLE",
+                    title: item.title,
+                  })
+                }
               >
                 {" "}
                 ...
