@@ -8,26 +8,69 @@ const ContactPage = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  const [errorMessage, setErrorMessage] = useState("");
+  const [nameErrorMessage, setNameErrorMessage] = useState("");
+  const [emailErrorMessage, setEmailErrorMessage] = useState("");
+  const [messageError, setMessageError] = useState("");
 
   // handleSubmit
   const handleSubmit = (e) => {
     console.log("SUBMITTED");
+    // check all error messages are "" before submitting
+    // else send error message to user
     // send post request
     e.preventDefault();
   };
 
   // name handler
-  const nameHandler = (e) => {
-    setFirstName(e.target.value, validator(e));
+  const firstNameHandler = (e) => {
+    setFirstName(e.target.value, nameValidator(e));
+  };
+
+  // name handler
+  const lastNameHandler = (e) => {
+    setLastName(e.target.value, nameValidator(e));
+  };
+
+  const emailHandler = (e) => {
+    setEmail(e.target.value, emailValidator(e));
+  };
+
+  const messageHandler = (e) => {
+    setMessage(e.target.value, messageValidator(e));
   };
 
   // validate firstName
-  const validator = (e) => {
-    if (firstName !== "" && e.target.value.includes("1")) {
-      setErrorMessage("Please enter a valid first Name");
+  // error message appears if: name has chars other than letters or length greater than 20 or it contains a space
+  const nameValidator = (e) => {
+    if (
+      (e.target.value !== "" && /^[a-zA-Z]+$/.test(e.target.value) === false) ||
+      e.target.value.length > 20 ||
+      /␣/g.test(e.target.value)
+    ) {
+      setNameErrorMessage("Please enter a valid name");
     } else {
-      setErrorMessage("");
+      setNameErrorMessage("");
+    }
+  };
+
+  // email must contain at least one @ and one .
+  const emailValidator = (e) => {
+    if (
+      e.target.value !== "" &&
+      /[@][\.]/.test(e.target.value) === false &&
+      /[\.]/.test(e.target.value) === false
+    ) {
+      setEmailErrorMessage("Please enter a valid email");
+    } else {
+      setEmailErrorMessage("");
+    }
+  };
+
+  const messageValidator = (e) => {
+    if (e.target.value.length < 10) {
+      setMessageError("Message must be longer than 10 characters.");
+    } else {
+      setMessageError("");
     }
   };
 
@@ -39,26 +82,26 @@ const ContactPage = () => {
           id="first-name-input"
           className="contact-input"
           value={firstName}
-          onChange={(e) => nameHandler(e)}
+          onChange={(e) => firstNameHandler(e)}
         ></input>
         <input
           id="last-name-input"
           className="contact-input"
           value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
+          onChange={(e) => lastNameHandler(e)}
         ></input>
         <input
           id="email-input"
           className="contact-input"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => emailHandler(e)}
         ></input>
         <textarea
           id="message-input"
           className="contact-textarea"
           defaultValue="your message"
           value={message}
-          onChange={(e) => setMessage(e.target.value)}
+          onChange={(e) => messageHandler(e)}
         ></textarea>
         <button type="submit">submit</button>
       </form>
@@ -66,7 +109,9 @@ const ContactPage = () => {
       <p>{`lastName: ${lastName}`}</p>
       <p>{`email: ${email}`}</p>
       <p>{`message: ${message}`}</p>
-      <p>{errorMessage}</p>
+      <p>NAME ERROR: {nameErrorMessage}</p>
+      <p>EMAIL ERROR: {emailErrorMessage}</p>
+      <p>MESSAGE ERROR: {messageError}</p>
     </div>
   );
 };
