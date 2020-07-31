@@ -1,3 +1,24 @@
 .contact-page {
-  font-size: 50px;
+  font-size: 20px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 70vh;
+  background-color: blue;
+}
+
+.contact-input,
+.contact-textarea,
+.contact-button {
+  font-size: 30px;
+  width: 30%;
+  // margin: 10px;
+}
+
+.error-message {
+  color: red;
 }

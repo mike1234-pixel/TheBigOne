@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./ContactPage.scss";
+import axios from "axios";
+import qs from "qs";
 
 const ContactPage = () => {
   // state
@@ -8,27 +10,38 @@ const ContactPage = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  const [nameErrorMessage, setNameErrorMessage] = useState("");
+  const [firstNameErrorMessage, setFirstNameErrorMessage] = useState("");
+  const [lastNameErrorMessage, setLastNameErrorMessage] = useState("");
   const [emailErrorMessage, setEmailErrorMessage] = useState("");
   const [messageError, setMessageError] = useState("");
 
   // handleSubmit
   const handleSubmit = (e) => {
-    console.log("SUBMITTED");
-    // check all error messages are "" before submitting
-    // else send error message to user
-    // send post request
-    e.preventDefault();
+    let payload = {
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      message: message,
+    };
+
+    axios
+      .post("http://localhost:4000/contact", qs.stringify(payload))
+      .then((err, res) => {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log(res);
+        }
+      });
   };
 
-  // name handler
+  // ONCHANGE HANDLERS
   const firstNameHandler = (e) => {
-    setFirstName(e.target.value, nameValidator(e));
+    setFirstName(e.target.value, firstNameValidator(e));
   };
 
-  // name handler
   const lastNameHandler = (e) => {
-    setLastName(e.target.value, nameValidator(e));
+    setLastName(e.target.value, lastNameValidator(e));
   };
 
   const emailHandler = (e) => {
@@ -39,17 +52,29 @@ const ContactPage = () => {
     setMessage(e.target.value, messageValidator(e));
   };
 
-  // validate firstName
+  // VALIDATORS
   // error message appears if: name has chars other than letters or length greater than 20 or it contains a space
-  const nameValidator = (e) => {
+  const firstNameValidator = (e) => {
     if (
       (e.target.value !== "" && /^[a-zA-Z]+$/.test(e.target.value) === false) ||
       e.target.value.length > 20 ||
       /␣/g.test(e.target.value)
     ) {
-      setNameErrorMessage("Please enter a valid name");
+      setFirstNameErrorMessage("Please enter a valid first name");
     } else {
-      setNameErrorMessage("");
+      setFirstNameErrorMessage("");
+    }
+  };
+
+  const lastNameValidator = (e) => {
+    if (
+      (e.target.value !== "" && /^[a-zA-Z]+$/.test(e.target.value) === false) ||
+      e.target.value.length > 20 ||
+      /␣/g.test(e.target.value)
+    ) {
+      setLastNameErrorMessage("Please enter a valid last name name");
+    } else {
+      setLastNameErrorMessage("");
     }
   };
 
@@ -57,7 +82,7 @@ const ContactPage = () => {
   const emailValidator = (e) => {
     if (
       e.target.value !== "" &&
-      /[@][\.]/.test(e.target.value) === false &&
+      /[@]/.test(e.target.value) === false &&
       /[\.]/.test(e.target.value) === false
     ) {
       setEmailErrorMessage("Please enter a valid email");
@@ -66,9 +91,10 @@ const ContactPage = () => {
     }
   };
 
+  // message must be 10 characters or longer
   const messageValidator = (e) => {
     if (e.target.value.length < 10) {
-      setMessageError("Message must be longer than 10 characters.");
+      setMessageError("Message must 10 characters or longer.");
     } else {
       setMessageError("");
     }
@@ -76,42 +102,44 @@ const ContactPage = () => {
 
   return (
     <div className="contact-page">
-      <p>CONTACT ME PWEEEEASSSE X</p>
-      <form onSubmit={() => handleSubmit()}>
+      <p>CONTACT ME PWEEASEE X</p>
+      <form className="contact-form" onSubmit={() => handleSubmit()}>
         <input
           id="first-name-input"
           className="contact-input"
           value={firstName}
+          placeholder="First Name"
           onChange={(e) => firstNameHandler(e)}
         ></input>
+        <p className="error-message">{firstNameErrorMessage}</p>
         <input
           id="last-name-input"
           className="contact-input"
           value={lastName}
+          placeholder="Last Name"
           onChange={(e) => lastNameHandler(e)}
         ></input>
+        <p className="error-message">{lastNameErrorMessage}</p>
         <input
           id="email-input"
           className="contact-input"
           value={email}
+          placeholder="Email"
           onChange={(e) => emailHandler(e)}
         ></input>
+        <p className="error-message">{emailErrorMessage}</p>
         <textarea
           id="message-input"
-          className="contact-textarea"
-          defaultValue="your message"
+          className="contact-input"
+          placeholder="Your Message"
           value={message}
           onChange={(e) => messageHandler(e)}
         ></textarea>
-        <button type="submit">submit</button>
+        <p className="error-message">{messageError}</p>
+        <button type="submit" className="contact-button">
+          submit
+        </button>
       </form>
-      <p>{`firstName: ${firstName}`}</p>
-      <p>{`lastName: ${lastName}`}</p>
-      <p>{`email: ${email}`}</p>
-      <p>{`message: ${message}`}</p>
-      <p>NAME ERROR: {nameErrorMessage}</p>
-      <p>EMAIL ERROR: {emailErrorMessage}</p>
-      <p>MESSAGE ERROR: {messageError}</p>
     </div>
   );
 };
