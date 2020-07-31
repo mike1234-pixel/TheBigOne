@@ -63,7 +63,7 @@ const BlogPage = (props) => {
             ...
           </Link>
         </p>
-        <img src={item.img} className="blog-img"></img>
+        <img src={item.img} className="blog-img" alt={item.title}></img>
         <p className="blog-date">{item.date}</p>
       </div>
     ));

@@ -46,9 +46,16 @@ const NavBar = (props) => {
             Blog
           </Link>
         </div>
-        <div className={props.darkMode ? `item item-dark` : `item item-light`}>
-          item
-        </div>
+        <Link
+          to="/Contact"
+          style={{ color: "inherit", textDecoration: "inherit" }}
+        >
+          <div
+            className={props.darkMode ? `item item-dark` : `item item-light`}
+          >
+            Contact
+          </div>
+        </Link>
       </div>
     </div>
   );

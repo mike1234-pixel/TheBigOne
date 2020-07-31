@@ -5,6 +5,7 @@ import Nav from "./Nav/Nav";
 import HomePage from "./HomePage/HomePage";
 import BlogPage from "./BlogPage/BlogPage";
 import BlogPost from "./BlogPage/BlogPost/BlogPost";
+import ContactPage from "./ContactPage/ContactPage";
 import { connect } from "react-redux";
 import { BrowserRouter, Route } from "react-router-dom";
 
@@ -28,6 +29,7 @@ function App(props) {
       <Route exact path="/" component={HomePage} />
       <Route path="/Blog" component={BlogPage} />
       <Route path={`/BlogPost`} component={BlogPost} />
+      <Route path="/Contact" component={ContactPage} />
     </BrowserRouter>
   );
 }
