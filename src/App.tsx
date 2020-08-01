@@ -10,6 +10,8 @@ import { connect } from "react-redux";
 import { BrowserRouter, Route } from "react-router-dom";
 
 function App(props) {
+  var urlExtension = "and-thats-the-way-we-do-this";
+
   const darkModeButton = (
     <button
       className={

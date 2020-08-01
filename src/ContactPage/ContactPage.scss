@@ -1,5 +1,21 @@
+.dark-mode {
+  color: #fff;
+  background-image: url("../backgroundImages/backgroundImage1.webp");
+  background-color: rgba(27, 27, 26, 0.5); // Tint color
+  background-blend-mode: multiply;
+}
+
+.light-mode {
+  color: #000;
+  background-image: url("../backgroundImages/backgroundImage1.webp");
+  background-color: rgba(211, 208, 206, 0.5); // Tint color
+  background-blend-mode: multiply;
+}
+
 .contact-page {
   font-size: 20px;
+  text-align: center;
+  margin: 10px;
 }
 
 .contact-form {
@@ -8,7 +24,6 @@
   align-items: center;
   justify-content: space-around;
   height: 70vh;
-  background-color: blue;
 }
 
 .contact-input,

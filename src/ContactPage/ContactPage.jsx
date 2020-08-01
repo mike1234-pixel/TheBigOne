@@ -2,8 +2,13 @@ import React, { useState } from "react";
 import "./ContactPage.scss";
 import axios from "axios";
 import qs from "qs";
+import { useStore } from "react-redux";
 
 const ContactPage = () => {
+  // redux
+  const store = useStore();
+  const state = store.getState();
+
   // state
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -102,8 +107,13 @@ const ContactPage = () => {
 
   return (
     <div className="contact-page">
-      <p>CONTACT ME PWEEASEE X</p>
-      <form className="contact-form" onSubmit={() => handleSubmit()}>
+      <h1 className="contact-title">Contact Me</h1>
+      <form
+        className={
+          state.darkMode ? `dark-mode contact-form` : `light-mode contact-form`
+        }
+        onSubmit={() => handleSubmit()}
+      >
         <input
           id="first-name-input"
           className="contact-input"

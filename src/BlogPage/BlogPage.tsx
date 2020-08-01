@@ -12,7 +12,7 @@ const BlogPage = (props) => {
   const [items, setItems] = useState<any[]>([]);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [numberOfResults] = useState(10);
+  const [numberOfResults, setNumberOfResults] = useState(10);
 
   let lastId = numberOfResults * currentPage; // 10 * 1 = 10
   let firstId = lastId - numberOfResults;
@@ -51,6 +51,7 @@ const BlogPage = (props) => {
                 img: item.img,
                 content: item.content,
                 date: item.date,
+                comment: item.comment,
               },
             }}
             onClick={() =>
@@ -105,6 +106,101 @@ const BlogPage = (props) => {
         >
           NEXT PAGE x
         </button>
+
+        <div className="results-per-page-title">Results Per Page</div>
+        <div className="results-per-page-container">
+          <div
+            className="results-per-page-btn"
+            onClick={() => {
+              setNumberOfResults(1);
+              setCurrentPage(1);
+            }}
+          >
+            1
+          </div>
+          <div
+            className="results-per-page-btn"
+            onClick={() => {
+              setNumberOfResults(2);
+              setCurrentPage(1);
+            }}
+          >
+            2
+          </div>
+          <div
+            className="results-per-page-btn"
+            onClick={() => {
+              setNumberOfResults(3);
+              setCurrentPage(1);
+            }}
+          >
+            3
+          </div>
+          <div
+            className="results-per-page-btn"
+            onClick={() => {
+              setNumberOfResults(4);
+              setCurrentPage(1);
+            }}
+          >
+            4
+          </div>
+          <div
+            className="results-per-page-btn"
+            onClick={() => {
+              setNumberOfResults(5);
+              setCurrentPage(1);
+            }}
+          >
+            5
+          </div>
+          <div
+            className="results-per-page-btn"
+            onClick={() => {
+              setNumberOfResults(6);
+              setCurrentPage(1);
+            }}
+          >
+            6
+          </div>
+          <div
+            className="results-per-page-btn"
+            onClick={() => {
+              setNumberOfResults(7);
+              setCurrentPage(1);
+            }}
+          >
+            7
+          </div>
+          <div
+            className="results-per-page-btn"
+            onClick={() => {
+              setNumberOfResults(8);
+              setCurrentPage(1);
+            }}
+          >
+            8
+          </div>
+          <div
+            className="results-per-page-btn"
+            onClick={() => {
+              setNumberOfResults(9);
+              setCurrentPage(1);
+            }}
+          >
+            9
+          </div>
+          <div
+            className="results-per-page-btn"
+            onClick={() => {
+              setNumberOfResults(10);
+              setCurrentPage(1);
+            }}
+          >
+            10
+          </div>
+          {/* setNumberOfResults to user selected, then set currentPage to 1 */}
+        </div>
       </div>
     );
   }

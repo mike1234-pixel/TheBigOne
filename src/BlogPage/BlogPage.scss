@@ -1,10 +1,12 @@
 .dark-mode {
-  background-color: #000;
   color: #fff;
+  background-image: url("../backgroundImages/backgroundImage1.webp");
+  background-color: rgba(211, 208, 206, 0.5); // Tint color
+  background-blend-mode: multiply;
 }
 
 .light-mode {
-  background-color: #fff;
+  background: #e3dac9;
   color: #000;
 }
 
@@ -37,4 +39,20 @@
 .blog-img {
   height: 200px;
   width: 400px;
+}
+
+.results-per-page-title {
+  color: blue;
+}
+
+.results-per-page-container {
+  display: flex;
+  justify-content: space-around;
+  background-color: blue;
+  min-width: 300px;
+  cursor: pointer;
+}
+
+.result-per-page-btn {
+  cursor: pointer;
 }
