@@ -24,6 +24,9 @@ const BlogPost = (props) => {
 
   const [submitMessage, setSubmitMessage] = useState("");
 
+  const [nameIsRequired, setNameIsRequired] = useState("");
+  const [messageIsRequired, setMessageIsRequired] = useState("");
+
   const handleComment = (e) => {
     setComment(e.target.value);
     console.log(comment);
@@ -31,31 +34,40 @@ const BlogPost = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault(e);
-    let payload = {
-      articleTitle: props.location.state.title,
-      name: filter.clean(name),
-      comment: filter.clean(comment),
-    };
 
-    axios
-      .post("http://localhost:4000/blogComment", qs.stringify(payload))
-      .then((err, res) => {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log(res);
-        }
-      });
+    if (name === "" || comment === "") {
+      setNameIsRequired("Name field is required.");
+      setMessageIsRequired("Message field is required.");
+    } else {
+      setNameIsRequired("");
+      setMessageIsRequired("");
 
-    // these work, don't use .push in react
-    setDummyName([...dummyName, filter.clean(name)]);
-    setDummyComment([...dummyComment, filter.clean(comment)]);
+      let payload = {
+        articleTitle: props.location.state.title,
+        name: filter.clean(name),
+        comment: filter.clean(comment),
+      };
 
-    setName("");
-    setComment("");
-    setSubmitMessage(
-      "Thanks for your comment. Your comment will be visible shortly."
-    );
+      axios
+        .post("http://localhost:4000/blogComment", qs.stringify(payload))
+        .then((err, res) => {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log(res);
+          }
+        });
+
+      // these work, don't use .push in react
+      setDummyName([...dummyName, filter.clean(name)]);
+      setDummyComment([...dummyComment, filter.clean(comment)]);
+
+      setName("");
+      setComment("");
+      setSubmitMessage(
+        "Thanks for your comment. Your comment will be visible shortly."
+      );
+    }
   };
 
   return (
@@ -84,6 +96,8 @@ const BlogPost = (props) => {
           value={comment}
           onChange={(e) => handleComment(e)}
         ></textarea>
+        <p>{nameIsRequired}</p>
+        <p>{messageIsRequired}</p>
         <button type="submit">Submit</button>
         <p>{submitMessage}</p>
         <p>
