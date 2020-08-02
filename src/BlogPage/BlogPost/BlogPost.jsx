@@ -15,8 +15,8 @@ const BlogPost = (props) => {
   const [name, setName] = useState("");
   const [comment, setComment] = useState("");
 
-  const [dummyName, setDummyName] = useState("");
-  const [dummyComment, setDummyComment] = useState("");
+  const [dummyName, setDummyName] = useState([]);
+  const [dummyComment, setDummyComment] = useState([]);
 
   const [submitMessage, setSubmitMessage] = useState("");
 
@@ -43,8 +43,9 @@ const BlogPost = (props) => {
         }
       });
 
-    setDummyName(name);
-    setDummyComment(comment);
+    // these work, don't use .push in react
+    setDummyName([...dummyName, name]);
+    setDummyComment([...dummyComment, comment]);
 
     setName("");
     setComment("");
@@ -93,18 +94,27 @@ const BlogPost = (props) => {
             : ""}
         </p>
         {/* dummy comment */}
-
-        {dummyName !== "" && dummyComment !== "" ? (
-          <div className="user-comment">
-            <p>{dummyName}</p>
-            <p>{dummyComment}</p>
-          </div>
-        ) : (
-          ""
-        )}
+        {dummyName !== [] && dummyComment !== []
+          ? dummyName.map((name, index) => {
+              return (
+                <div className="user-comment">
+                  <p>{name}</p>
+                  <p>{dummyComment[index]}</p>
+                </div>
+              );
+            })
+          : ""}
       </form>
     </div>
   );
 };
+
+{
+  /* {dummyComment.map((comment) => {
+                    return <p>{comment}</p>;
+                  })}
+                </div>
+              ); */
+}
 
 export default BlogPost;

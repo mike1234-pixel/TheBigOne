@@ -30,7 +30,9 @@ function App(props) {
       <Nav darkModeButton={darkModeButton} darkMode={props.darkMode} />
       <Route exact path="/" component={HomePage} />
       <Route path="/Blog" component={BlogPage} />
-      <Route path={`/BlogPost`} component={BlogPost} />
+
+      <Route exact path={`/BlogPost`} component={BlogPost} />
+
       <Route path="/Contact" component={ContactPage} />
     </BrowserRouter>
   );
