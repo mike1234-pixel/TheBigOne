@@ -3,10 +3,14 @@ import "./BlogPost.scss";
 import { useStore } from "react-redux";
 import axios from "axios";
 import qs from "qs";
+const Filter = require("bad-words");
 
 const BlogPost = (props) => {
   const store = useStore();
   const state = store.getState();
+
+  // profanity filter
+  const filter = new Filter();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -29,8 +33,8 @@ const BlogPost = (props) => {
     e.preventDefault(e);
     let payload = {
       articleTitle: props.location.state.title,
-      name: name,
-      comment: comment,
+      name: filter.clean(name),
+      comment: filter.clean(comment),
     };
 
     axios
@@ -44,8 +48,8 @@ const BlogPost = (props) => {
       });
 
     // these work, don't use .push in react
-    setDummyName([...dummyName, name]);
-    setDummyComment([...dummyComment, comment]);
+    setDummyName([...dummyName, filter.clean(name)]);
+    setDummyComment([...dummyComment, filter.clean(comment)]);
 
     setName("");
     setComment("");
@@ -108,13 +112,5 @@ const BlogPost = (props) => {
     </div>
   );
 };
-
-{
-  /* {dummyComment.map((comment) => {
-                    return <p>{comment}</p>;
-                  })}
-                </div>
-              ); */
-}
 
 export default BlogPost;
