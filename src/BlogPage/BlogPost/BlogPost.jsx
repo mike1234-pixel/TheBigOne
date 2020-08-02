@@ -3,7 +3,6 @@ import "./BlogPost.scss";
 import { useStore } from "react-redux";
 import axios from "axios";
 import qs from "qs";
-import { render } from "@testing-library/react";
 
 const BlogPost = (props) => {
   const store = useStore();
@@ -16,9 +15,10 @@ const BlogPost = (props) => {
   const [name, setName] = useState("");
   const [comment, setComment] = useState("");
 
-  const [submitMessage, setSubmitMessage] = useState("");
+  const [dummyName, setDummyName] = useState("");
+  const [dummyComment, setDummyComment] = useState("");
 
-  // .replace(/</g, "&lt;").replace(/>/g, "&gt;"))
+  const [submitMessage, setSubmitMessage] = useState("");
 
   const handleComment = (e) => {
     setComment(e.target.value);
@@ -43,9 +43,14 @@ const BlogPost = (props) => {
         }
       });
 
+    setDummyName(name);
+    setDummyComment(comment);
+
     setName("");
     setComment("");
-    setSubmitMessage("thanks for your comment");
+    setSubmitMessage(
+      "Thanks for your comment. Your comment will be visible shortly."
+    );
   };
 
   return (
@@ -87,6 +92,16 @@ const BlogPost = (props) => {
               ))
             : ""}
         </p>
+        {/* dummy comment */}
+
+        {dummyName !== "" && dummyComment !== "" ? (
+          <div className="user-comment">
+            <p>{dummyName}</p>
+            <p>{dummyComment}</p>
+          </div>
+        ) : (
+          ""
+        )}
       </form>
     </div>
   );
