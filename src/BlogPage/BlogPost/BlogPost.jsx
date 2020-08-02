@@ -107,17 +107,33 @@ const BlogPost = (props) => {
                 <div className="user-comment">
                   <p>{comment.commentName}</p>
                   <p>{comment.commentContent}</p>
+                  <p>
+                    Posted: {comment.commentDateAndTime.commentDate}-
+                    {comment.commentDateAndTime.commentMonth}-
+                    {comment.commentDateAndTime.commentYear}@
+                    {comment.commentDateAndTime.commentTime}
+                  </p>
                 </div>
               ))
             : ""}
         </p>
         {/* dummy comment */}
+
         {dummyName !== [] && dummyComment !== []
           ? dummyName.map((name, index) => {
+              const date = new Date();
+              const time = date.getHours() + ":" + date.getMinutes();
+
+              const year = date.getFullYear();
+              const month = date.getMonth();
+              const day = date.getDate();
               return (
                 <div className="user-comment">
                   <p>{name}</p>
                   <p>{dummyComment[index]}</p>
+                  <p>
+                    Posted: {day}-{month + 1}-{year}@{time}
+                  </p>
                 </div>
               );
             })
