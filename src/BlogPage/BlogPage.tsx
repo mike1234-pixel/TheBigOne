@@ -206,7 +206,3 @@ const BlogPage = (props) => {
   }
 };
 export default BlogPage;
-
-// what is the page limit?
-// currentPage (3) * numberOfResults (5) = (15)  items.length
-//

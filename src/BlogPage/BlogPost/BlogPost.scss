@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Gaegu:wght@700&display=swap");
+
 .dark-mode {
   background: #000;
   color: #fff;
@@ -13,10 +15,59 @@
   width: 600px;
 }
 
+.blog-post-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-post-name-input {
+  font-family: arial;
+  font-size: 20px;
+  min-width: 300px;
+}
+
+.blog-post-textarea {
+  min-height: 100px;
+  font-family: arial;
+  font-size: 20px;
+  min-width: 300px;
+}
+
+.blog-post-submit-button {
+  font-family: arial;
+  font-size: 20px;
+  background: #fff;
+  color: #000;
+  min-width: 300px;
+  margin-bottom: 10px;
+}
+
+.blog-post-error-message-container {
+  text-align: center;
+}
+
+.blog-post-error-message {
+  color: white;
+}
+
 .user-comment {
   background: #000;
   color: #fff;
-  margin: 10px;
-  width: 300px;
-  height: 100px;
+  margin-top: 10px;
+
+  padding: 10px;
+  text-align: center;
+}
+
+.user-comment-name {
+  color: blue;
+}
+
+.user-comment-comment {
+  color: pink;
+  font-family: Gaegu;
+}
+
+.user-comment-date {
+  color: beige;
 }

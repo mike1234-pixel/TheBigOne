@@ -65,7 +65,7 @@ const BlogPost = (props) => {
       setName("");
       setComment("");
       setSubmitMessage(
-        "Thanks for your comment. Your comment will be visible shortly."
+        "Thanks for your comment. Your comment is visible below."
       );
     }
   };
@@ -84,30 +84,39 @@ const BlogPost = (props) => {
       />
       <p>{props.location.state.content}</p>
       <p>{props.location.state.date}</p>
-      <form onSubmit={(e) => handleSubmit(e)}>
+      <form className="blog-post-form" onSubmit={(e) => handleSubmit(e)}>
         <input
+          className="blog-post-name-input"
           value={name}
           placeholder="Name"
           onChange={(e) => setName(e.target.value)}
         ></input>
 
         <textarea
+          className="blog-post-textarea"
           placeholder="leave a comment"
           value={comment}
           onChange={(e) => handleComment(e)}
         ></textarea>
-        <p>{nameIsRequired}</p>
-        <p>{messageIsRequired}</p>
-        <button type="submit">Submit</button>
-        <p>{submitMessage}</p>
+
+        <button type="submit" className="blog-post-submit-button">
+          Submit
+        </button>
+        <div className="blog-post-error-message-container">
+          <p className="blog-post-error-message">{nameIsRequired}</p>
+          <p className="blog-post-error-message">{messageIsRequired}</p>
+          <p className="blog-post-error-message">{submitMessage}</p>
+        </div>
         <p>
           {/* LOOP THROUGH THE COMMENTS ARRAY AND RENDER THEM props.location.state.comment is an array*/}
           {props.location.state.comment
             ? props.location.state.comment.map((comment) => (
                 <div className="user-comment">
-                  <p>{comment.commentName}</p>
-                  <p>{comment.commentContent}</p>
-                  <p>
+                  <p className="user-comment-name">{comment.commentName}</p>
+                  <p className="user-comment-comment">
+                    {comment.commentContent}
+                  </p>
+                  <p className="user-comment-date">
                     Posted: {comment.commentDateAndTime.commentDate}-
                     {comment.commentDateAndTime.commentMonth}-
                     {comment.commentDateAndTime.commentYear}@
@@ -122,16 +131,23 @@ const BlogPost = (props) => {
         {dummyName !== [] && dummyComment !== []
           ? dummyName.map((name, index) => {
               const date = new Date();
-              const time = date.getHours() + ":" + date.getMinutes();
+
+              let time;
+
+              if (date.getMinutes() >= 0 && date.getMinutes() <= 9) {
+                time = date.getHours() + ":0" + date.getMinutes();
+              } else {
+                time = date.getHours() + ":" + date.getMinutes();
+              }
 
               const year = date.getFullYear();
               const month = date.getMonth();
               const day = date.getDate();
               return (
                 <div className="user-comment">
-                  <p>{name}</p>
-                  <p>{dummyComment[index]}</p>
-                  <p>
+                  <p className="user-comment-name">{name}</p>
+                  <p className="user-comment-comment">{dummyComment[index]}</p>
+                  <p className="user-comment-date">
                     Posted: {day}-{month + 1}-{year}@{time}
                   </p>
                 </div>

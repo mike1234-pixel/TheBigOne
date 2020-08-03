@@ -20,8 +20,13 @@ const ContactPage = () => {
   const [emailErrorMessage, setEmailErrorMessage] = useState("");
   const [messageError, setMessageError] = useState("");
 
+  const [emailMessage, setEmailMessage] = useState(
+    "We will never share your email address with anyone, ever."
+  );
+
   // handleSubmit
   const handleSubmit = (e) => {
+    e.preventDefault();
     let payload = {
       firstName: firstName,
       lastName: lastName,
@@ -38,6 +43,12 @@ const ContactPage = () => {
           console.log(res);
         }
       });
+
+    setEmailMessage("Thanks for your message. We will be in touch shortly.");
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setMessage("");
   };
 
   // ONCHANGE HANDLERS
@@ -112,7 +123,7 @@ const ContactPage = () => {
         className={
           state.darkMode ? `dark-mode contact-form` : `light-mode contact-form`
         }
-        onSubmit={() => handleSubmit()}
+        onSubmit={(e) => handleSubmit(e)}
       >
         <input
           id="first-name-input"
@@ -146,6 +157,7 @@ const ContactPage = () => {
           onChange={(e) => messageHandler(e)}
         ></textarea>
         <p className="error-message">{messageError}</p>
+        <p>{emailMessage}</p>
         <button type="submit" className="contact-button">
           submit
         </button>
