@@ -61,20 +61,13 @@ const BlogPage = (props) => {
           <Link
             to={{
               pathname: `/BlogPost/${urlifyArticleTitle(item.title)}`,
-              state: {
-                title: item.title,
-                img: item.img,
-                content: item.content,
-                date: item.date,
-                comment: item.comment,
-              },
             }}
-            onClick={() =>
-              store.dispatch({
-                type: "UPDATE_URL_TITLE",
-                title: urlifyArticleTitle(item.title),
-              })
-            }
+            // onClick={() =>
+            //   store.dispatch({
+            //     type: "UPDATE_URL_TITLE",
+            //     title: urlifyArticleTitle(item.title),
+            //   })
+            // }
           >
             ...
           </Link>

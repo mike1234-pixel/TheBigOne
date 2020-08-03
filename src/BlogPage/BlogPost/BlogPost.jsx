@@ -41,7 +41,7 @@ const BlogPost = (props) => {
     } else {
       setNameIsRequired("");
       let payload = {
-        articleTitle: props.location.state.title,
+        articleTitle: props.title,
         name: filter.clean(name),
         comment: filter.clean(comment),
       };
@@ -74,14 +74,10 @@ const BlogPost = (props) => {
         state.darkMode ? `dark-mode blog-page` : `light-mode blog-page`
       }
     >
-      <h1>{props.location.state.title}</h1>
-      <img
-        src={props.location.state.img}
-        alt={props.location.state.title}
-        className="blog-post-img"
-      />
-      <p>{props.location.state.content}</p>
-      <p>{props.location.state.date}</p>
+      <h1>{props.title}</h1>
+      <img src={props.img} alt={props.title} className="blog-post-img" />
+      <p>{props.content}</p>
+      <p>{props.date}</p>
       <form className="blog-post-form" onSubmit={(e) => handleSubmit(e)}>
         <input
           className="blog-post-name-input"
@@ -107,8 +103,8 @@ const BlogPost = (props) => {
         </div>
         <p>
           {/* LOOP THROUGH THE COMMENTS ARRAY AND RENDER THEM props.location.state.comment is an array*/}
-          {props.location.state.comment
-            ? props.location.state.comment.map((comment) => (
+          {props.comment
+            ? props.comment.map((comment) => (
                 <div className="user-comment">
                   <p className="user-comment-name">{comment.commentName}</p>
                   <p className="user-comment-comment">
