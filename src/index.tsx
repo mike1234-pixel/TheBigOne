@@ -9,19 +9,12 @@ import { Provider } from "react-redux";
 // set initialState of redux store here
 const initialState = {
   darkMode: true,
-  urlTitle: "",
 };
 
 function reducer(state = initialState, action) {
   switch (action.type) {
-    case "UPDATE_URL_TITLE":
-      return {
-        urlTitle: action.title,
-        darkMode: state.darkMode,
-      };
     case "TOGGLE_DARKMODE":
       return {
-        urlTitle: state.urlTitle,
         darkMode: !state.darkMode,
       };
     default:

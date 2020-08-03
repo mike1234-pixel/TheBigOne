@@ -102,7 +102,7 @@ const BlogPost = (props) => {
           <p className="blog-post-error-message">{submitMessage}</p>
         </div>
         <p>
-          {/* LOOP THROUGH THE COMMENTS ARRAY AND RENDER THEM props.location.state.comment is an array*/}
+          {/* props are coming from app.jsin the dynamically created <Route/> components */}
           {props.comment
             ? props.comment.map((comment) => (
                 <div className="user-comment">

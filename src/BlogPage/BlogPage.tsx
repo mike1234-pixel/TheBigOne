@@ -36,8 +36,7 @@ const BlogPage = (props) => {
     window.scrollTo(0, 0);
   });
 
-  // const urlExtensionDummy = "hello-this-is-an-article";
-
+  // still needs this to pass into correct path into Link component below
   const urlifyArticleTitle = (articleTitle) => {
     let urlifiedTitle = articleTitle
       .toLowerCase()
@@ -62,12 +61,6 @@ const BlogPage = (props) => {
             to={{
               pathname: `/BlogPost/${urlifyArticleTitle(item.title)}`,
             }}
-            // onClick={() =>
-            //   store.dispatch({
-            //     type: "UPDATE_URL_TITLE",
-            //     title: urlifyArticleTitle(item.title),
-            //   })
-            // }
           >
             ...
           </Link>

@@ -6,12 +6,11 @@ import HomePage from "./HomePage/HomePage";
 import BlogPage from "./BlogPage/BlogPage";
 import BlogPost from "./BlogPage/BlogPost/BlogPost";
 import ContactPage from "./ContactPage/ContactPage";
-// import PageNotFound from "./PageNotFound/PageNotFound";
+import PageNotFound from "./PageNotFound/PageNotFound";
 import { connect } from "react-redux";
 import { BrowserRouter, Route } from "react-router-dom";
 
 function App(props) {
-  // DARK MODE BTN ////////////////////////////////////////////////////////
   const [newRoutes, setNewRoutes] = useState("");
 
   const darkModeButton = (
@@ -53,19 +52,20 @@ function App(props) {
           <Route
             exact
             path={`/BlogPost/${urlifyArticleTitle(blogPost.title)}`}
-            // component={BlogPost}
+            // pass data as props to BlogPost
             render={(routeProps) => <BlogPost {...routeProps} {...blogPost} />}
           />
         ));
+
         setNewRoutes(results);
       });
   };
 
+  // create new routes dynamically on app first loading... just one get request is made.
   useEffect(() => {
     spinMeBlogRoutes();
   }, []);
 
-  //////////////////////////////////////////////////////////////////////////////////////////
   return (
     <BrowserRouter className="App">
       <Nav darkModeButton={darkModeButton} darkMode={props.darkMode} />
@@ -75,8 +75,9 @@ function App(props) {
       <Route exact path={`/BlogPost/${props.urlTitle}`} component={BlogPost} />
       <Route path="/Contact" component={ContactPage} />
 
-      {/* <Route path="*" component={PageNotFound} /> */}
+      {/* BlogPost routes - dynamically created by spinMeBlogRoutes() function based on data from backend */}
       {newRoutes}
+      <Route path="*" component={PageNotFound} />
     </BrowserRouter>
   );
 }
