@@ -27,6 +27,12 @@ const ContactPage = () => {
   // handleSubmit
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (firstName === "" || lastName === "" || email === "" || message === "") {
+      setEmailMessage(
+        "Please enter a first name, last name, email and message."
+      );
+      return;
+    }
     let payload = {
       firstName: firstName,
       lastName: lastName,

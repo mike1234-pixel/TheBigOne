@@ -36,6 +36,21 @@ const BlogPage = (props) => {
     window.scrollTo(0, 0);
   });
 
+  // const urlExtensionDummy = "hello-this-is-an-article";
+
+  const urlifyArticleTitle = (articleTitle) => {
+    let urlifiedTitle = articleTitle
+      .toLowerCase()
+      .replace(/\.|\s|\//g, "-")
+      .replace(/\(|\)|\?/g, "")
+      .replace(/"-"$/, "");
+
+    if (urlifiedTitle.charAt(urlifiedTitle.length - 1) === "-") {
+      return urlifiedTitle.replace(/.$/, "");
+    }
+    return urlifiedTitle;
+  };
+
   const arrayOfBlogPosts = items
     .filter((item) => item.id > firstId && item.id <= lastId)
     .map((item) => (
@@ -45,7 +60,7 @@ const BlogPage = (props) => {
           {item.content.substring(0, 199)}
           <Link
             to={{
-              pathname: "/BlogPost",
+              pathname: `/BlogPost/${urlifyArticleTitle(item.title)}`,
               state: {
                 title: item.title,
                 img: item.img,
@@ -57,7 +72,7 @@ const BlogPage = (props) => {
             onClick={() =>
               store.dispatch({
                 type: "UPDATE_URL_TITLE",
-                title: item.title,
+                title: urlifyArticleTitle(item.title),
               })
             }
           >

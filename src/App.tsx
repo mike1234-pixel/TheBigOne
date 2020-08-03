@@ -10,7 +10,7 @@ import { connect } from "react-redux";
 import { BrowserRouter, Route } from "react-router-dom";
 
 function App(props) {
-  var urlExtension = "and-thats-the-way-we-do-this";
+  // const urlExtensionDummy = "hello-this-is-an-article";
 
   const darkModeButton = (
     <button
@@ -24,14 +24,14 @@ function App(props) {
       {props.darkMode ? `Light Mode` : `Dark Mode`}
     </button>
   );
-  console.log(props.urlTitle);
+  console.log(props.urlTitle); //the one clicked on
   return (
     <BrowserRouter className="App">
       <Nav darkModeButton={darkModeButton} darkMode={props.darkMode} />
       <Route exact path="/" component={HomePage} />
       <Route path="/Blog" component={BlogPage} />
 
-      <Route exact path={`/BlogPost`} component={BlogPost} />
+      <Route exact path={`/BlogPost/${props.urlTitle}`} component={BlogPost} />
 
       <Route path="/Contact" component={ContactPage} />
     </BrowserRouter>

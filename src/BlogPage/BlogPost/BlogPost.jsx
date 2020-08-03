@@ -40,8 +40,6 @@ const BlogPost = (props) => {
       setMessageIsRequired("Message field is required.");
     } else {
       setNameIsRequired("");
-      setMessageIsRequired("");
-
       let payload = {
         articleTitle: props.location.state.title,
         name: filter.clean(name),
