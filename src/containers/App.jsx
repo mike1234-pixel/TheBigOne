@@ -1,38 +1,24 @@
 import React, { useEffect, useState } from "react";
 import "./App.scss";
+import { connect, useStore } from "react-redux";
+import { BrowserRouter, Route } from "react-router-dom";
+import { toggleDarkMode } from "../actions/actionCreators";
+import urlifyArticleTitle from "../functions/urlifyArticleTitle";
 import Nav from "../components/Nav/Nav";
 import HomePage from "../components/HomePage/HomePage";
 import BlogPage from "../components/BlogPage/BlogPage";
 import BlogPost from "../components/BlogPage/BlogPost/BlogPost";
 import ContactPage from "../components/ContactPage/ContactPage";
 import PageNotFound from "../components/PageNotFound/PageNotFound";
-import { connect, useStore } from "react-redux";
-import { BrowserRouter, Route } from "react-router-dom";
-import { toggleDarkMode } from "../actions/actionCreators";
 
-function App(props) {
+const App = (props) => {
   const store = useStore();
   const state = store.getState();
 
   const [newRoutes, setNewRoutes] = useState("");
 
-  // urlify blog title - used to create blog post routes
-  const urlifyArticleTitle = (articleTitle) => {
-    let urlifiedTitle = articleTitle
-      .toLowerCase()
-      .replace(/\.|\s|\//g, "-")
-      .replace(/\(|\)|\?/g, "")
-      .replace(/"-"$/, "");
-
-    if (urlifiedTitle.charAt(urlifiedTitle.length - 1) === "-") {
-      return urlifiedTitle.replace(/.$/, "");
-    }
-    return urlifiedTitle;
-  };
-
   const spinMeBlogRoutes = () => {
     let data;
-
     fetch("http://localhost:4000/blogEntries")
       .then((res) => res.json())
       .then((result) => {
@@ -66,10 +52,10 @@ function App(props) {
       <Route path="*" component={PageNotFound} />
     </BrowserRouter>
   );
-}
+};
 
-// actions are dispatched in smart component app.js (container)
-// onClick handler is passed as props to dumb components (app-->nav-->navbar)
+// actions are dispatched in container component app.js
+// onClick handler is passed as props to presentational components (app-->nav-->navbar)
 const mapDispatchToProps = (dispatch) => {
   return {
     onClick: () => {

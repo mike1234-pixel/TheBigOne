@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import urlifyArticleTitle from "../../functions/urlifyArticleTitle";
 import "./BlogPage.scss";
 import { Link } from "react-router-dom";
 
@@ -32,20 +33,6 @@ const BlogPage = (props) => {
     window.scrollTo(0, 0);
   });
 
-  // still needs this to pass into correct path into Link component below
-  const urlifyArticleTitle = (articleTitle) => {
-    let urlifiedTitle = articleTitle
-      .toLowerCase()
-      .replace(/\.|\s|\//g, "-")
-      .replace(/\(|\)|\?/g, "")
-      .replace(/"-"$/, "");
-
-    if (urlifiedTitle.charAt(urlifiedTitle.length - 1) === "-") {
-      return urlifiedTitle.replace(/.$/, "");
-    }
-    return urlifiedTitle;
-  };
-
   const arrayOfBlogPosts = items
     .filter((item) => item.id > firstId && item.id <= lastId)
     .map((item) => (
@@ -65,6 +52,21 @@ const BlogPage = (props) => {
         <p className="blog-date">{item.date}</p>
       </div>
     ));
+
+  const createResultsPerPageButtons = () => {
+    let resultsPerPageButtons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => (
+      <div
+        className="results-per-page-btn"
+        onClick={() => {
+          setNumberOfResults(item);
+          setCurrentPage(1);
+        }}
+      >
+        {item}
+      </div>
+    ));
+    return resultsPerPageButtons;
+  };
 
   if (error) {
     return <div>Error:</div>;
@@ -103,99 +105,9 @@ const BlogPage = (props) => {
         >
           NEXT PAGE x
         </button>
-
         <div className="results-per-page-title">Results Per Page</div>
         <div className="results-per-page-container">
-          <div
-            className="results-per-page-btn"
-            onClick={() => {
-              setNumberOfResults(1);
-              setCurrentPage(1);
-            }}
-          >
-            1
-          </div>
-          <div
-            className="results-per-page-btn"
-            onClick={() => {
-              setNumberOfResults(2);
-              setCurrentPage(1);
-            }}
-          >
-            2
-          </div>
-          <div
-            className="results-per-page-btn"
-            onClick={() => {
-              setNumberOfResults(3);
-              setCurrentPage(1);
-            }}
-          >
-            3
-          </div>
-          <div
-            className="results-per-page-btn"
-            onClick={() => {
-              setNumberOfResults(4);
-              setCurrentPage(1);
-            }}
-          >
-            4
-          </div>
-          <div
-            className="results-per-page-btn"
-            onClick={() => {
-              setNumberOfResults(5);
-              setCurrentPage(1);
-            }}
-          >
-            5
-          </div>
-          <div
-            className="results-per-page-btn"
-            onClick={() => {
-              setNumberOfResults(6);
-              setCurrentPage(1);
-            }}
-          >
-            6
-          </div>
-          <div
-            className="results-per-page-btn"
-            onClick={() => {
-              setNumberOfResults(7);
-              setCurrentPage(1);
-            }}
-          >
-            7
-          </div>
-          <div
-            className="results-per-page-btn"
-            onClick={() => {
-              setNumberOfResults(8);
-              setCurrentPage(1);
-            }}
-          >
-            8
-          </div>
-          <div
-            className="results-per-page-btn"
-            onClick={() => {
-              setNumberOfResults(9);
-              setCurrentPage(1);
-            }}
-          >
-            9
-          </div>
-          <div
-            className="results-per-page-btn"
-            onClick={() => {
-              setNumberOfResults(10);
-              setCurrentPage(1);
-            }}
-          >
-            10
-          </div>
+          {createResultsPerPageButtons()}
           {/* setNumberOfResults to user selected, then set currentPage to 1 */}
         </div>
       </div>

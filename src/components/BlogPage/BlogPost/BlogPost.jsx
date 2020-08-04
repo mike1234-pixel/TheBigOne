@@ -56,7 +56,7 @@ const BlogPost = (props) => {
           }
         });
 
-      // these work, don't use .push in react
+      // .push doesn't work properly in react so use something like this...
       setDummyName([...dummyName, filter.clean(name)]);
       setDummyComment([...dummyComment, filter.clean(comment)]);
 
