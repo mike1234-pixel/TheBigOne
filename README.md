@@ -52,7 +52,7 @@ To create a new state property in the redux store and modify it in the app, do t
 1. Go to your reducers file, add the new property to the initial state object, and add a case for it in the switch statement of the reducer function.
 2. Create an action creator for it.
 3. Call the new action creator in the dispatch function inside mapDispatchToProps in your container (App.jsx).
-4. Pass the dispatch function down as props from your container to whichever component needs it.
+4. Pass the dispatch function and/or the state down as props from your container to whichever component needs it/them.
 
 You will now be able to dispatch actions from your container component **_via_** your child component.
 

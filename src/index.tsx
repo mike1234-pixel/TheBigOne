@@ -9,13 +9,18 @@ import reducer from "./reducers";
 
 const store = createStore(reducer);
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>,
-  document.getElementById("root")
-);
+fetch("http://localhost:4000/blogEntries")
+  .then((res) => res.json())
+  .then((result) => {
+    let data = result.data.blogEntries;
+    ReactDOM.render(
+      <React.StrictMode>
+        <Provider store={store}>
+          <App data={data} />
+        </Provider>
+      </React.StrictMode>,
+      document.getElementById("root")
+    );
+  });
 
 serviceWorker.register();

@@ -4,30 +4,13 @@ import "./BlogPage.scss";
 import { Link } from "react-router-dom";
 
 const BlogPage = (props) => {
-  const [error, setError] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [items, setItems] = useState<any[]>([]);
+  const [items] = useState<any[]>(props.data);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [numberOfResults, setNumberOfResults] = useState(10);
 
   let lastId = numberOfResults * currentPage; // 10 * 1 = 10
   let firstId = lastId - numberOfResults;
-
-  useEffect(() => {
-    fetch("http://localhost:4000/blogEntries")
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          setIsLoaded(true);
-          setItems(result.data.blogEntries);
-        },
-        (error) => {
-          setIsLoaded(true);
-          setError(error);
-        }
-      );
-  }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -68,50 +51,42 @@ const BlogPage = (props) => {
     return resultsPerPageButtons;
   };
 
-  if (error) {
-    return <div>Error:</div>;
-  } else if (!isLoaded) {
-    return <div>Loading...</div>;
-  } else {
-    return (
-      <div
-        className={
-          props.darkMode ? `dark-mode blog-page` : `light-mode blog-page`
+  return (
+    <div
+      className={
+        props.darkMode ? `dark-mode blog-page` : `light-mode blog-page`
+      }
+    >
+      {arrayOfBlogPosts}
+      <button
+        onClick={
+          currentPage !== 1
+            ? () => setCurrentPage(currentPage - 1)
+            : () => setCurrentPage(currentPage)
         }
       >
-        {arrayOfBlogPosts}
-        <button
-          onClick={
-            currentPage !== 1
-              ? () => setCurrentPage(currentPage - 1)
-              : () => setCurrentPage(currentPage)
-          }
-        >
-          PREV PAGE x
-        </button>
-        <p>Page {currentPage}</p>
-        <p>
-          Results: {firstId + 1} -{" "}
-          {currentPage * numberOfResults <= items.length
-            ? lastId
-            : items.length}
-        </p>
-        <button
-          onClick={
-            currentPage * numberOfResults < items.length
-              ? () => setCurrentPage(currentPage + 1)
-              : () => setCurrentPage(currentPage)
-          }
-        >
-          NEXT PAGE x
-        </button>
-        <div className="results-per-page-title">Results Per Page</div>
-        <div className="results-per-page-container">
-          {createResultsPerPageButtons()}
-          {/* setNumberOfResults to user selected, then set currentPage to 1 */}
-        </div>
+        PREV PAGE x
+      </button>
+      <p>Page {currentPage}</p>
+      <p>
+        Results: {firstId + 1} -{" "}
+        {currentPage * numberOfResults <= items.length ? lastId : items.length}
+      </p>
+      <button
+        onClick={
+          currentPage * numberOfResults < items.length
+            ? () => setCurrentPage(currentPage + 1)
+            : () => setCurrentPage(currentPage)
+        }
+      >
+        NEXT PAGE x
+      </button>
+      <div className="results-per-page-title">Results Per Page</div>
+      <div className="results-per-page-container">
+        {createResultsPerPageButtons()}
+        {/* setNumberOfResults to user selected, then set currentPage to 1 */}
       </div>
-    );
-  }
+    </div>
+  );
 };
 export default BlogPage;

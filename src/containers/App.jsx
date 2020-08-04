@@ -15,27 +15,21 @@ const App = (props) => {
   const store = useStore();
   const state = store.getState();
 
+  console.log(props.data); // data here, can now be passed down
+
   const [newRoutes, setNewRoutes] = useState("");
 
   const spinMeBlogRoutes = () => {
-    let data;
-    fetch("http://localhost:4000/blogEntries")
-      .then((res) => res.json())
-      .then((result) => {
-        data = result.data.blogEntries;
-        // this result is an array of react elements
-        let results = data.map((blogPost) => (
-          <Route
-            exact
-            path={`/BlogPost/${urlifyArticleTitle(blogPost.title)}`}
-            // pass data as props to BlogPost
-            render={() => <BlogPost {...blogPost} />}
-          />
-        ));
-        setNewRoutes(results);
-      });
+    let results = props.data.map((blogPost) => (
+      <Route
+        exact
+        path={`/BlogPost/${urlifyArticleTitle(blogPost.title)}`}
+        // pass data as props to BlogPost
+        render={() => <BlogPost {...blogPost} />}
+      />
+    ));
+    setNewRoutes(results);
   };
-
   // create new routes dynamically on app first loading... just one get request is made.
   useEffect(() => {
     spinMeBlogRoutes();
@@ -45,7 +39,8 @@ const App = (props) => {
     <BrowserRouter className="App">
       <Nav toggleDarkMode={props.onClick} darkMode={state.darkMode} />
       <Route exact path="/" render={() => <HomePage {...state} />} />
-      <Route path="/Blog" render={() => <BlogPage {...state} />} />
+      {/* render={(props) => <Greeting text="Hello, " {...props} */}
+      <Route path="/Blog" render={() => <BlogPage {...state} {...props} />} />
       <Route path="/Contact" render={() => <ContactPage {...state} />} />
       {/* BlogPost routes - dynamically created by spinMeBlogRoutes() function based on data from backend */}
       {newRoutes}
@@ -53,7 +48,6 @@ const App = (props) => {
     </BrowserRouter>
   );
 };
-
 // actions are dispatched in container component app.js
 // onClick handler is passed as props to presentational components (app-->nav-->navbar)
 const mapDispatchToProps = (dispatch) => {
@@ -63,10 +57,8 @@ const mapDispatchToProps = (dispatch) => {
     },
   };
 };
-
 const mapStateToProps = (state) => ({
   darkMode: state.darkMode,
   urlTitle: state.urlTitle,
 });
-
 export default connect(mapStateToProps, mapDispatchToProps)(App);
