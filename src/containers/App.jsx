@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./App.scss";
-import Nav from "./Nav/Nav";
-import HomePage from "./HomePage/HomePage";
-import BlogPage from "./BlogPage/BlogPage";
-import BlogPost from "./BlogPage/BlogPost/BlogPost";
-import ContactPage from "./ContactPage/ContactPage";
-import PageNotFound from "./PageNotFound/PageNotFound";
+import Nav from "../components/Nav/Nav";
+import HomePage from "../components/HomePage/HomePage";
+import BlogPage from "../components/BlogPage/BlogPage";
+import BlogPost from "../components/BlogPage/BlogPost/BlogPost";
+import ContactPage from "../components/ContactPage/ContactPage";
+import PageNotFound from "../components/PageNotFound/PageNotFound";
 import { connect } from "react-redux";
 import { BrowserRouter, Route } from "react-router-dom";
-import { toggleDarkMode } from "./actions/actionCreators";
+import { toggleDarkMode } from "../actions/actionCreators";
 
 function App(props) {
   const [newRoutes, setNewRoutes] = useState("");

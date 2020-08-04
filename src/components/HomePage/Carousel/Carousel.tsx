@@ -88,7 +88,7 @@ class Carousel extends Component<
             <div className="fg-video-1">
               <video className="fg-video-1__content" autoPlay muted loop>
                 <source
-                  src={require("../../backgroundImages/video.mp4")}
+                  src={require("../../../staticResources/backgroundImages/video.mp4")}
                   type="video/mp4"
                 />
                 Your browser is not supported
