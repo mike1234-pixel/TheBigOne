@@ -14,26 +14,27 @@ import PageNotFound from "../components/PageNotFound/PageNotFound";
 const App = (props) => {
   const store = useStore();
   const state = store.getState();
-
-  console.log(props.data); // data here, can now be passed down
+  // server data is accessed with props.data
 
   const [newRoutes, setNewRoutes] = useState("");
 
-  const spinMeBlogRoutes = () => {
-    let results = props.data.map((blogPost) => (
-      <Route
-        exact
-        path={`/BlogPost/${urlifyArticleTitle(blogPost.title)}`}
-        // pass data as props to BlogPost
-        render={() => <BlogPost {...blogPost} />}
-      />
-    ));
-    setNewRoutes(results);
-  };
   // create new routes dynamically on app first loading... just one get request is made.
   useEffect(() => {
+    const spinMeBlogRoutes = () => {
+      let results = props.data.map((blogPost, index) => (
+        <Route
+          exact
+          path={`/BlogPost/${urlifyArticleTitle(blogPost.title)}`}
+          key={index}
+          // pass data as props to BlogPost
+          render={() => <BlogPost {...blogPost} />}
+        />
+      ));
+      setNewRoutes(results);
+    };
+
     spinMeBlogRoutes();
-  }, []);
+  }, [props.data]);
 
   return (
     <BrowserRouter className="App">

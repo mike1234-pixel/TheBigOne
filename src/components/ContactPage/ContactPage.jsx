@@ -97,11 +97,7 @@ const ContactPage = (props) => {
 
   // email must contain at least one @ and one .
   const emailValidator = (e) => {
-    if (
-      e.target.value !== "" &&
-      /[@]/.test(e.target.value) === false &&
-      /[\.]/.test(e.target.value) === false
-    ) {
+    if (e.target.value !== "" && /[@]/.test(e.target.value) === false) {
       setEmailErrorMessage("Please enter a valid email");
     } else {
       setEmailErrorMessage("");

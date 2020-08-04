@@ -101,11 +101,11 @@ const BlogPost = (props) => {
           <p className="blog-post-error-message">{messageIsRequired}</p>
           <p className="blog-post-error-message">{submitMessage}</p>
         </div>
-        <p>
+        <span>
           {/* props are coming from app.jsin the dynamically created <Route/> components */}
           {props.comment
-            ? props.comment.map((comment) => (
-                <div className="user-comment">
+            ? props.comment.map((comment, index) => (
+                <div className="user-comment" key={index}>
                   <p className="user-comment-name">{comment.commentName}</p>
                   <p className="user-comment-comment">
                     {comment.commentContent}
@@ -119,7 +119,7 @@ const BlogPost = (props) => {
                 </div>
               ))
             : ""}
-        </p>
+        </span>
         {/* dummy comment */}
 
         {dummyName !== [] && dummyComment !== []
@@ -138,7 +138,7 @@ const BlogPost = (props) => {
               const month = date.getMonth();
               const day = date.getDate();
               return (
-                <div className="user-comment">
+                <div className="user-comment" key={index}>
                   <p className="user-comment-name">{name}</p>
                   <p className="user-comment-comment">{dummyComment[index]}</p>
                   <p className="user-comment-date">

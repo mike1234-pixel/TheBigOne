@@ -18,8 +18,8 @@ const BlogPage = (props) => {
 
   const arrayOfBlogPosts = items
     .filter((item) => item.id > firstId && item.id <= lastId)
-    .map((item) => (
-      <div className="blog-post">
+    .map((item, index) => (
+      <div className="blog-post" key={index}>
         <p className="blog-title">{item.title}</p>
         <p className="blog-content">
           {item.content.substring(0, 199)}
@@ -37,17 +37,20 @@ const BlogPage = (props) => {
     ));
 
   const createResultsPerPageButtons = () => {
-    let resultsPerPageButtons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => (
-      <div
-        className="results-per-page-btn"
-        onClick={() => {
-          setNumberOfResults(item);
-          setCurrentPage(1);
-        }}
-      >
-        {item}
-      </div>
-    ));
+    const resultsPerPageButtons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(
+      (item, index) => (
+        <div
+          key={index}
+          className="results-per-page-btn"
+          onClick={() => {
+            setNumberOfResults(item);
+            setCurrentPage(1);
+          }}
+        >
+          {item}
+        </div>
+      )
+    );
     return resultsPerPageButtons;
   };
 
