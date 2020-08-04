@@ -18,6 +18,7 @@ const Nav = (props) => {
       {navVisible ? (
         <NavBar
           darkModeButton={props.darkModeButton}
+          toggleDarkMode={props.toggleDarkMode}
           darkMode={state.darkMode}
         />
       ) : (

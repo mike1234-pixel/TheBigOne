@@ -1,4 +1,3 @@
-// ADD LOADING SPINNER
 import React, { useEffect, useState } from "react";
 import "./App.scss";
 import Nav from "./Nav/Nav";
@@ -9,24 +8,12 @@ import ContactPage from "./ContactPage/ContactPage";
 import PageNotFound from "./PageNotFound/PageNotFound";
 import { connect } from "react-redux";
 import { BrowserRouter, Route } from "react-router-dom";
+import { toggleDarkMode } from "./actions/actionCreators";
 
 function App(props) {
   const [newRoutes, setNewRoutes] = useState("");
 
-  const darkModeButton = (
-    <button
-      className={
-        props.darkMode
-          ? `dark-mode-btn btn-dark-background`
-          : `dark-mode-btn btn-light-background`
-      }
-      onClick={() => props.dispatch({ type: "TOGGLE_DARKMODE" })}
-    >
-      {props.darkMode ? `Light Mode` : `Dark Mode`}
-    </button>
-  );
-
-  // URLIFY BLOGTITLE
+  // urlify blog title - used to create blog post routes
   const urlifyArticleTitle = (articleTitle) => {
     let urlifiedTitle = articleTitle
       .toLowerCase()
@@ -56,7 +43,6 @@ function App(props) {
             render={(routeProps) => <BlogPost {...routeProps} {...blogPost} />}
           />
         ));
-
         setNewRoutes(results);
       });
   };
@@ -68,7 +54,7 @@ function App(props) {
 
   return (
     <BrowserRouter className="App">
-      <Nav darkModeButton={darkModeButton} darkMode={props.darkMode} />
+      <Nav toggleDarkMode={props.onClick} darkMode={props.darkMode} />
       <Route exact path="/" component={HomePage} />
       <Route path="/Blog" component={BlogPage} />
 
@@ -82,9 +68,19 @@ function App(props) {
   );
 }
 
+// actions are dispatched in smart component app.js (container)
+// onClick handler is passed as props to dumb components (app-->nav-->navbar)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onClick: () => {
+      dispatch(toggleDarkMode());
+    },
+  };
+};
+
 const mapStateToProps = (state) => ({
   darkMode: state.darkMode,
   urlTitle: state.urlTitle,
 });
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -5,22 +5,7 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
-
-// set initialState of redux store here
-const initialState = {
-  darkMode: true,
-};
-
-function reducer(state = initialState, action) {
-  switch (action.type) {
-    case "TOGGLE_DARKMODE":
-      return {
-        darkMode: !state.darkMode,
-      };
-    default:
-      return state;
-  }
-}
+import reducer from "./reducers";
 
 const store = createStore(reducer);
 
