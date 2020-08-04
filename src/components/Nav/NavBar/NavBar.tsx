@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 const NavBar = (props) => {
   const noDarkModeButton = useMediaQuery({ query: "(max-width: 1530px)" }); // returns boolean
 
-  console.log(props);
   return (
     <div
       data-testid="NavBar"
@@ -36,9 +35,6 @@ const NavBar = (props) => {
             >
               {props.darkMode ? `Light Mode` : `Dark Mode`}
             </button>
-
-            {/* {props.darkModeButton} */}
-            {/*make this conditional on screen size */}
           </div>
         )}
         <div className={props.darkMode ? `item item-dark` : `item item-light`}>

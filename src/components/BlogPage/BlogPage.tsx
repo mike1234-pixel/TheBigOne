@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./BlogPage.scss";
-import { useStore } from "react-redux";
 import { Link } from "react-router-dom";
 
 const BlogPage = (props) => {
-  const store = useStore();
-  const state = store.getState();
-
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState<any[]>([]);
@@ -78,7 +74,7 @@ const BlogPage = (props) => {
     return (
       <div
         className={
-          state.darkMode ? `dark-mode blog-page` : `light-mode blog-page`
+          props.darkMode ? `dark-mode blog-page` : `light-mode blog-page`
         }
       >
         {arrayOfBlogPosts}

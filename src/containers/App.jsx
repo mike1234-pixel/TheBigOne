@@ -6,11 +6,14 @@ import BlogPage from "../components/BlogPage/BlogPage";
 import BlogPost from "../components/BlogPage/BlogPost/BlogPost";
 import ContactPage from "../components/ContactPage/ContactPage";
 import PageNotFound from "../components/PageNotFound/PageNotFound";
-import { connect } from "react-redux";
+import { connect, useStore } from "react-redux";
 import { BrowserRouter, Route } from "react-router-dom";
 import { toggleDarkMode } from "../actions/actionCreators";
 
 function App(props) {
+  const store = useStore();
+  const state = store.getState();
+
   const [newRoutes, setNewRoutes] = useState("");
 
   // urlify blog title - used to create blog post routes
@@ -40,7 +43,7 @@ function App(props) {
             exact
             path={`/BlogPost/${urlifyArticleTitle(blogPost.title)}`}
             // pass data as props to BlogPost
-            render={(routeProps) => <BlogPost {...routeProps} {...blogPost} />}
+            render={() => <BlogPost {...blogPost} />}
           />
         ));
         setNewRoutes(results);
@@ -54,13 +57,10 @@ function App(props) {
 
   return (
     <BrowserRouter className="App">
-      <Nav toggleDarkMode={props.onClick} darkMode={props.darkMode} />
-      <Route exact path="/" component={HomePage} />
-      <Route path="/Blog" component={BlogPage} />
-
-      <Route exact path={`/BlogPost/${props.urlTitle}`} component={BlogPost} />
-      <Route path="/Contact" component={ContactPage} />
-
+      <Nav toggleDarkMode={props.onClick} darkMode={state.darkMode} />
+      <Route exact path="/" render={() => <HomePage {...state} />} />
+      <Route path="/Blog" render={() => <BlogPage {...state} />} />
+      <Route path="/Contact" render={() => <ContactPage {...state} />} />
       {/* BlogPost routes - dynamically created by spinMeBlogRoutes() function based on data from backend */}
       {newRoutes}
       <Route path="*" component={PageNotFound} />

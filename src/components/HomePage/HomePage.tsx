@@ -13,8 +13,8 @@ const HomePage = (props) => {
     <div>
       <Carousel data-testid="Carousel" darkMode={props.darkMode} />
       <SectionA darkMode={props.darkMode} />
-      <SectionB loremText={loremText} />
-      <SectionC loremText={loremText} />
+      <SectionB loremText={loremText} darkMode={props.darkMode} />
+      <SectionC loremText={loremText} darkMode={props.darkMode} />
       <SectionD />
     </div>
   );
