@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="contact-page"
+>
+  <h1
+    className="contact-title"
+  >
+    Contact Me
+  </h1>
+  <form
+    className="dark-mode contact-form"
+    onSubmit={[Function]}
+  >
+    <input
+      className="contact-input"
+      id="first-name-input"
+      onChange={[Function]}
+      placeholder="First Name"
+      value=""
+    />
+    <p
+      className="error-message"
+    >
+      
+    </p>
+    <input
+      className="contact-input"
+      id="last-name-input"
+      onChange={[Function]}
+      placeholder="Last Name"
+      value=""
+    />
+    <p
+      className="error-message"
+    >
+      
+    </p>
+    <input
+      className="contact-input"
+      id="email-input"
+      onChange={[Function]}
+      placeholder="Email"
+      value=""
+    />
+    <p
+      className="error-message"
+    >
+      
+    </p>
+    <textarea
+      className="contact-input"
+      id="message-input"
+      onChange={[Function]}
+      placeholder="Your Message"
+      value=""
+    />
+    <p
+      className="error-message"
+    >
+      
+    </p>
+    <p>
+      We will never share your email address with anyone, ever.
+    </p>
+    <button
+      className="contact-button"
+      type="submit"
+    >
+      submit
+    </button>
+  </form>
+</div>
+`;

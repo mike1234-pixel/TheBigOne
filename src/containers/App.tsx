@@ -36,6 +36,8 @@ const App = (props) => {
     spinMeBlogRoutes();
   }, [props, props.data]);
 
+  console.log(`PROPS.ONCLICK = ${props.onClick}`);
+
   return (
     <BrowserRouter className="App">
       <Nav toggleDarkMode={props.onClick} darkMode={state.darkMode} />
