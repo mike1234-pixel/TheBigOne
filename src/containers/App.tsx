@@ -10,17 +10,17 @@ import BlogPage from "../components/BlogPage/BlogPage";
 import BlogPost from "../components/BlogPage/BlogPost/BlogPost";
 import ContactPage from "../components/ContactPage/ContactPage";
 import PageNotFound from "../components/PageNotFound/PageNotFound";
+import PropTypes from "prop-types";
 
 const App = (props) => {
   const store = useStore();
   const state = store.getState();
   // server data is accessed with props.data
-
-  const [newRoutes, setNewRoutes] = useState("");
+  const [newRoutes, setNewRoutes] = useState<string>("");
 
   // create new routes dynamically on app first loading... just one get request is made.
-  useEffect(() => {
-    const spinMeBlogRoutes = () => {
+  useEffect((): void => {
+    const spinMeBlogRoutes = (): void => {
       let results = props.data.map((blogPost, index) => (
         <Route
           exact
@@ -34,16 +34,14 @@ const App = (props) => {
     };
 
     spinMeBlogRoutes();
-  }, [props.data]);
+  }, [props, props.data]);
 
   return (
     <BrowserRouter className="App">
       <Nav toggleDarkMode={props.onClick} darkMode={state.darkMode} />
       <Route exact path="/" render={() => <HomePage {...state} />} />
-      {/* render={(props) => <Greeting text="Hello, " {...props} */}
       <Route path="/Blog" render={() => <BlogPage {...state} {...props} />} />
       <Route path="/Contact" render={() => <ContactPage {...state} />} />
-      {/* BlogPost routes - dynamically created by spinMeBlogRoutes() function based on data from backend */}
       {newRoutes}
       <Route path="*" component={PageNotFound} />
     </BrowserRouter>
@@ -63,3 +61,11 @@ const mapStateToProps = (state) => ({
   urlTitle: state.urlTitle,
 });
 export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+// typecheck props
+
+App.propTypes = {
+  darkMode: PropTypes.bool,
+  data: PropTypes.array,
+  onClick: PropTypes.func,
+};

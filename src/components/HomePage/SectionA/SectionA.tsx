@@ -1,5 +1,6 @@
 import React from "react";
 import "./SectionA.scss";
+import PropTypes from "prop-types";
 
 const SectionA = (props) => {
   const loremText =
@@ -10,7 +11,6 @@ const SectionA = (props) => {
       <div className="grid-item grid-item-one">
         <h2>item</h2>
         <p>{loremText}</p>
-        <p>{props.darkMode ? `DARK MODE ON` : `DARK MODE OFF`}</p>
       </div>
 
       <div className="grid-item grid-item-two">
@@ -28,4 +28,6 @@ const SectionA = (props) => {
 
 export default SectionA;
 
-// hover over text to reveal a picture
+SectionA.propTypes = {
+  darkMode: PropTypes.bool,
+};

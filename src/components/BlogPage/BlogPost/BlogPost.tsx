@@ -3,6 +3,7 @@ import "./BlogPost.scss";
 import { useStore } from "react-redux";
 import axios from "axios";
 import qs from "qs";
+import PropTypes from "prop-types";
 const Filter = require("bad-words");
 
 const BlogPost = (props) => {
@@ -16,23 +17,22 @@ const BlogPost = (props) => {
     window.scrollTo(0, 0);
   }, []);
 
-  const [name, setName] = useState("");
-  const [comment, setComment] = useState("");
+  const [name, setName] = useState<string>("");
+  const [comment, setComment] = useState<string>("");
 
-  const [dummyName, setDummyName] = useState([]);
-  const [dummyComment, setDummyComment] = useState([]);
+  const [dummyName, setDummyName] = useState<string[]>([]);
+  const [dummyComment, setDummyComment] = useState<string[]>([]);
 
-  const [submitMessage, setSubmitMessage] = useState("");
+  const [submitMessage, setSubmitMessage] = useState<string>("");
 
-  const [nameIsRequired, setNameIsRequired] = useState("");
-  const [messageIsRequired, setMessageIsRequired] = useState("");
+  const [nameIsRequired, setNameIsRequired] = useState<string>("");
+  const [messageIsRequired, setMessageIsRequired] = useState<string>("");
 
-  const handleComment = (e) => {
+  const handleComment = (e): void => {
     setComment(e.target.value);
-    console.log(comment);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e): void => {
     e.preventDefault(e);
 
     if (name === "" || comment === "") {
@@ -40,7 +40,14 @@ const BlogPost = (props) => {
       setMessageIsRequired("Message field is required.");
     } else {
       setNameIsRequired("");
-      let payload = {
+
+      interface commentPayload {
+        articleTitle: string;
+        name: string;
+        comment: string;
+      }
+
+      let payload: commentPayload = {
         articleTitle: props.title,
         name: filter.clean(name),
         comment: filter.clean(comment),
@@ -48,11 +55,9 @@ const BlogPost = (props) => {
 
       axios
         .post("http://localhost:4000/blogComment", qs.stringify(payload))
-        .then((err, res) => {
+        .then((err) => {
           if (err) {
             console.log(err);
-          } else {
-            console.log(res);
           }
         });
 
@@ -154,3 +159,7 @@ const BlogPost = (props) => {
 };
 
 export default BlogPost;
+
+BlogPost.propTypes = {
+  props: PropTypes.object,
+};

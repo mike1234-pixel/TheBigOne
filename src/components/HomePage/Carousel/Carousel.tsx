@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import "./Carousel.scss";
 
+// MEMORY LEAK HERE SOMEWHERE
+
 class Carousel extends Component<
   { darkMode: boolean },
   { carouselImage: number; appear: boolean }
@@ -16,17 +18,17 @@ class Carousel extends Component<
     this.handleBackward = this.handleBackward.bind(this);
   }
 
-  componentDidMount() {
+  componentDidMount(): void {
     setInterval(() => this.handleForward(), 5000);
   }
 
-  componentWillUnmount() {
+  componentWillUnmount(): void {
     clearInterval();
   }
 
   // if carouselImage is less than 4, then increment, otherwise, set to 1
 
-  handleForward() {
+  handleForward(): void {
     this.state.carouselImage < 4
       ? this.setState((state) => ({
           carouselImage: state.carouselImage + 1,
@@ -38,7 +40,7 @@ class Carousel extends Component<
 
   // if carousel is greater than 1, then decrement, otherwise, set to 4
 
-  handleBackward() {
+  handleBackward(): void {
     this.state.carouselImage > 1
       ? this.setState((state) => ({
           carouselImage: state.carouselImage - 1,

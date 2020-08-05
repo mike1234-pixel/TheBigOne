@@ -3,6 +3,7 @@ import "./Nav.scss";
 import NavBar from "./NavBar/NavBar";
 import NoNav from "./NoNav/NoNav";
 import ToggleNavButton from "./ToggleNavButton/ToggleNavButton";
+import PropTypes from "prop-types";
 
 const Nav = (props) => {
   const [navVisible, setNavVisible] = useState(true);
@@ -11,7 +12,6 @@ const Nav = (props) => {
     <div className="triangle-container-container">
       {navVisible ? (
         <NavBar
-          darkModeButton={props.darkModeButton}
           toggleDarkMode={props.toggleDarkMode}
           darkMode={props.darkMode}
         />
@@ -26,3 +26,10 @@ const Nav = (props) => {
 };
 
 export default Nav;
+
+// typecheck props
+
+Nav.propTypes = {
+  darkMode: PropTypes.bool,
+  toggleDarkMode: PropTypes.func,
+};

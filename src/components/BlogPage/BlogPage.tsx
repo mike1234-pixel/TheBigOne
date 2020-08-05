@@ -2,12 +2,23 @@ import React, { useState, useEffect } from "react";
 import urlifyArticleTitle from "../../functions/urlifyArticleTitle";
 import "./BlogPage.scss";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const BlogPage = (props) => {
-  const [items] = useState<any[]>(props.data);
+  // data type for props.data...
+  interface blogData {
+    id: number;
+    title: string;
+    content: string;
+    date: string;
+    img: string;
+    comment: any[];
+  }
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const [numberOfResults, setNumberOfResults] = useState(10);
+  const [items] = useState<blogData[]>(props.data);
+
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [numberOfResults, setNumberOfResults] = useState<number>(10);
 
   let lastId = numberOfResults * currentPage; // 10 * 1 = 10
   let firstId = lastId - numberOfResults;
@@ -36,7 +47,7 @@ const BlogPage = (props) => {
       </div>
     ));
 
-  const createResultsPerPageButtons = () => {
+  const createResultsPerPageButtons = (): object[] => {
     const resultsPerPageButtons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(
       (item, index) => (
         <div
@@ -93,3 +104,8 @@ const BlogPage = (props) => {
   );
 };
 export default BlogPage;
+
+BlogPage.propTypes = {
+  darkMode: PropTypes.bool,
+  data: PropTypes.array,
+};

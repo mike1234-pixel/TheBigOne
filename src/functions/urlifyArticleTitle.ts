@@ -1,4 +1,4 @@
-const urlifyArticleTitle = (articleTitle) => {
+const urlifyArticleTitle = (articleTitle: string): string => {
   let urlifiedTitle = articleTitle
     .toLowerCase()
     .replace(/\.|\s|\//g, "-")

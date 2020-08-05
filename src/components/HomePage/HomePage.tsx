@@ -4,6 +4,7 @@ import SectionA from "./SectionA/SectionA";
 import SectionB from "./SectionB/SectionB";
 import SectionC from "./SectionC/SectionC";
 import SectionD from "./SectionD/SectionD";
+import PropTypes from "prop-types";
 
 const HomePage = (props) => {
   const loremText =
@@ -21,3 +22,7 @@ const HomePage = (props) => {
 };
 
 export default HomePage;
+
+HomePage.propTypes = {
+  darkMode: PropTypes.bool,
+};

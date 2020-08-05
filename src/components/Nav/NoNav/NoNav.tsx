@@ -1,5 +1,6 @@
 import React from "react";
 import "./NoNav.scss";
+import PropTypes from "prop-types";
 
 const NoNav = (props) => {
   return (
@@ -10,3 +11,9 @@ const NoNav = (props) => {
 };
 
 export default NoNav;
+
+// typecheck props
+
+NoNav.propTypes = {
+  darkMode: PropTypes.bool,
+};

@@ -1,7 +1,8 @@
 import React from "react";
 import "./SectionD.scss";
+import PropTypes from "prop-types";
 
-const SectionD = () => {
+const SectionD = (props) => {
   return (
     <div className="section-d">
       <div className="bg-video">
@@ -18,3 +19,7 @@ const SectionD = () => {
 };
 // video autoplay
 export default SectionD;
+
+SectionD.propTypes = {
+  darkMode: PropTypes.bool,
+};

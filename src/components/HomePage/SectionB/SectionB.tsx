@@ -1,5 +1,6 @@
 import React from "react";
 import "./SectionB.scss";
+import PropTypes from "prop-types";
 
 const SectionB = (props) => {
   return (
@@ -32,3 +33,8 @@ const SectionB = (props) => {
 };
 
 export default SectionB;
+
+SectionB.propTypes = {
+  loremText: PropTypes.string,
+  darkMode: PropTypes.bool,
+};

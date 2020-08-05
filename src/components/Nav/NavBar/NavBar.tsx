@@ -2,6 +2,7 @@ import React from "react";
 import "./NavBar.scss";
 import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const NavBar = (props) => {
   const noDarkModeButton = useMediaQuery({ query: "(max-width: 1530px)" }); // returns boolean
@@ -70,3 +71,10 @@ const NavBar = (props) => {
 };
 
 export default NavBar;
+
+// typecheck props
+
+NavBar.propTypes = {
+  darkMode: PropTypes.bool,
+  toggleDarkMode: PropTypes.func,
+};

@@ -7,12 +7,12 @@ import { createStore } from "redux";
 import { Provider } from "react-redux";
 import reducer from "./reducers";
 
-const store = createStore(reducer);
+const store: object = createStore(reducer);
 
 fetch("http://localhost:4000/blogEntries")
   .then((res) => res.json())
   .then((result) => {
-    let data = result.data.blogEntries;
+    let data: object[] = result.data.blogEntries;
     ReactDOM.render(
       <React.StrictMode>
         <Provider store={store}>

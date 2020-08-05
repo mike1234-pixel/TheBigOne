@@ -2,25 +2,36 @@ import React, { useState } from "react";
 import "./ContactPage.scss";
 import axios from "axios";
 import qs from "qs";
+import PropTypes from "prop-types";
 
 const ContactPage = (props) => {
   // state
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  const [firstName, setFirstName] = useState<string>("");
+  const [lastName, setLastName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
 
-  const [firstNameErrorMessage, setFirstNameErrorMessage] = useState("");
-  const [lastNameErrorMessage, setLastNameErrorMessage] = useState("");
-  const [emailErrorMessage, setEmailErrorMessage] = useState("");
-  const [messageError, setMessageError] = useState("");
+  const [firstNameErrorMessage, setFirstNameErrorMessage] = useState<string>(
+    ""
+  );
+  const [lastNameErrorMessage, setLastNameErrorMessage] = useState<string>("");
+  const [emailErrorMessage, setEmailErrorMessage] = useState<string>("");
+  const [messageError, setMessageError] = useState<string>("");
 
-  const [emailMessage, setEmailMessage] = useState(
+  const [emailMessage, setEmailMessage] = useState<string>(
     "We will never share your email address with anyone, ever."
   );
 
+  // payload interface [TS]
+  interface contactFormMessagePayload {
+    firstName: String;
+    lastName: String;
+    email: String;
+    message: String;
+  }
+
   // handleSubmit
-  const handleSubmit = (e) => {
+  const handleSubmit = (e): void => {
     e.preventDefault();
     if (firstName === "" || lastName === "" || email === "" || message === "") {
       setEmailMessage(
@@ -28,7 +39,7 @@ const ContactPage = (props) => {
       );
       return;
     }
-    let payload = {
+    let payload: contactFormMessagePayload = {
       firstName: firstName,
       lastName: lastName,
       email: email,
@@ -37,11 +48,9 @@ const ContactPage = (props) => {
 
     axios
       .post("http://localhost:4000/contact", qs.stringify(payload))
-      .then((err, res) => {
+      .then((err) => {
         if (err) {
           console.log(err);
-        } else {
-          console.log(res);
         }
       });
 
@@ -53,42 +62,49 @@ const ContactPage = (props) => {
   };
 
   // ONCHANGE HANDLERS
-  const firstNameHandler = (e) => {
-    setFirstName(e.target.value, firstNameValidator(e));
+  const firstNameHandler = (e): void => {
+    setFirstName(e.target.value);
+    firstNameValidator(e);
   };
 
-  const lastNameHandler = (e) => {
-    setLastName(e.target.value, lastNameValidator(e));
+  const lastNameHandler = (e): void => {
+    setLastName(e.target.value);
+    lastNameValidator(e);
   };
 
-  const emailHandler = (e) => {
-    setEmail(e.target.value, emailValidator(e));
+  const emailHandler = (e): void => {
+    setEmail(e.target.value);
+    emailValidator(e);
   };
 
-  const messageHandler = (e) => {
-    setMessage(e.target.value, messageValidator(e));
+  const messageHandler = (e): void => {
+    setMessage(e.target.value);
+    messageValidator(e);
   };
 
   // VALIDATORS
   // error message appears if: name has chars other than letters or length greater than 20 or it contains a space
-  const firstNameValidator = (e) => {
+  const nameValidator = (name: string): boolean => {
     if (
-      (e.target.value !== "" && /^[a-zA-Z]+$/.test(e.target.value) === false) ||
-      e.target.value.length > 20 ||
-      /␣/g.test(e.target.value)
+      (name !== "" && /^[a-zA-Z]+$/.test(name) === false) ||
+      name.length > 20 ||
+      /␣/g.test(name)
     ) {
+      return true;
+    }
+    return false;
+  };
+
+  const firstNameValidator = (e): void => {
+    if (nameValidator(e.target.value)) {
       setFirstNameErrorMessage("Please enter a valid first name");
     } else {
       setFirstNameErrorMessage("");
     }
   };
 
-  const lastNameValidator = (e) => {
-    if (
-      (e.target.value !== "" && /^[a-zA-Z]+$/.test(e.target.value) === false) ||
-      e.target.value.length > 20 ||
-      /␣/g.test(e.target.value)
-    ) {
+  const lastNameValidator = (e): void => {
+    if (nameValidator(e.target.value)) {
       setLastNameErrorMessage("Please enter a valid last name name");
     } else {
       setLastNameErrorMessage("");
@@ -96,7 +112,7 @@ const ContactPage = (props) => {
   };
 
   // email must contain at least one @ and one .
-  const emailValidator = (e) => {
+  const emailValidator = (e): void => {
     if (e.target.value !== "" && /[@]/.test(e.target.value) === false) {
       setEmailErrorMessage("Please enter a valid email");
     } else {
@@ -105,7 +121,7 @@ const ContactPage = (props) => {
   };
 
   // message must be 10 characters or longer
-  const messageValidator = (e) => {
+  const messageValidator = (e): void => {
     if (e.target.value.length < 10) {
       setMessageError("Message must 10 characters or longer.");
     } else {
@@ -164,3 +180,7 @@ const ContactPage = (props) => {
 };
 
 export default ContactPage;
+
+ContactPage.propTypes = {
+  darkMode: PropTypes.bool,
+};
