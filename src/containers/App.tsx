@@ -6,9 +6,11 @@ import { toggleDarkMode } from "../actions/actionCreators";
 import urlifyArticleTitle from "../functions/urlifyArticleTitle";
 import Nav from "../components/Nav/Nav";
 import HomePage from "../components/HomePage/HomePage";
+import MembersPage from "../components/MembersPage/MembersPage";
 import BlogPage from "../components/BlogPage/BlogPage";
 import BlogPost from "../components/BlogPage/BlogPost/BlogPost";
 import ContactPage from "../components/ContactPage/ContactPage";
+import Footer from "../components/Footer/Footer";
 import PageNotFound from "../components/PageNotFound/PageNotFound";
 import PropTypes from "prop-types";
 
@@ -36,16 +38,16 @@ const App = (props) => {
     spinMeBlogRoutes();
   }, [props, props.data]);
 
-  console.log(`PROPS.ONCLICK = ${props.onClick}`);
-
   return (
     <BrowserRouter className="App">
       <Nav toggleDarkMode={props.onClick} darkMode={state.darkMode} />
       <Route exact path="/" render={() => <HomePage {...state} />} />
+      <Route path="/Members" component={MembersPage} />
       <Route path="/Blog" render={() => <BlogPage {...state} {...props} />} />
       <Route path="/Contact" render={() => <ContactPage {...state} />} />
       {newRoutes}
       <Route path="*" component={PageNotFound} />
+      <Footer darkMode={state.darkMode} />
     </BrowserRouter>
   );
 };

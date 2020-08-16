@@ -44,7 +44,7 @@
 
   &-one {
     grid-column: 1/2;
-    background-image: url(../Carousel/carouselImages/img2.webp);
+    background-image: url(../Carousel/carouselImages/img2.jpg);
     @media (max-width: 700px) {
       grid-column: 1/-1;
       grid-row: 1/2;
@@ -52,7 +52,7 @@
   }
   &-two {
     grid-column: 2/3;
-    background-image: url(../Carousel/carouselImages/img3.webp);
+    background-image: url(../Carousel/carouselImages/img3.jpg);
     @media (max-width: 700px) {
       grid-column: 1/-1;
       grid-row: 2/3;
@@ -60,7 +60,7 @@
   }
   &-three {
     grid-column: 3/4;
-    background-image: url(../Carousel/carouselImages/img4.webp);
+    background-image: url(../Carousel/carouselImages/img4.jpg);
     @media (max-width: 700px) {
       grid-column: 1/-1;
       grid-row: 3/4;

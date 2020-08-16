@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./ContactPage.scss";
 import axios from "axios";
 import qs from "qs";
 import PropTypes from "prop-types";
+import ReCAPTCHA from "react-google-recaptcha"; // https://github.com/dozoisch/react-google-recaptcha
 
 const ContactPage = (props) => {
   // state
@@ -130,14 +131,13 @@ const ContactPage = (props) => {
   };
 
   return (
-    <div className="contact-page">
+    <div
+      className={
+        props.darkMode ? `dark-mode contact-page` : `light-mode contact-page`
+      }
+    >
       <h1 className="contact-title">Contact Me</h1>
-      <form
-        className={
-          props.darkMode ? `dark-mode contact-form` : `light-mode contact-form`
-        }
-        onSubmit={(e) => handleSubmit(e)}
-      >
+      <form className="contact-form" onSubmit={(e) => handleSubmit(e)}>
         <input
           id="first-name-input"
           className="contact-input"
@@ -174,6 +174,7 @@ const ContactPage = (props) => {
         <button type="submit" className="contact-button">
           submit
         </button>
+        <ReCAPTCHA sitekey="site key" onChange={(e) => handleSubmit(e)} />
       </form>
     </div>
   );

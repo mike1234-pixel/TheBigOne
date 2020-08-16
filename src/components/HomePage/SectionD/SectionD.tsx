@@ -4,7 +4,13 @@ import PropTypes from "prop-types";
 
 const SectionD = (props) => {
   return (
-    <div className="section-d">
+    <div
+      className={
+        props.darkMode
+          ? `section-d section-d-dark`
+          : `section-d section-d-light`
+      }
+    >
       <div className="bg-video">
         <video className="bg-video__content" autoPlay muted loop>
           <source
@@ -18,6 +24,7 @@ const SectionD = (props) => {
   );
 };
 // video autoplay
+// can i put a transparent div over the top of it and color the div?
 export default SectionD;
 
 SectionD.propTypes = {

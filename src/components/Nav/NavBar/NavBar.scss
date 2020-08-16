@@ -1,5 +1,7 @@
 @import "../../../staticResources/sassFiles/Mixins.scss";
 
+@import url("https://fonts.googleapis.com/css2?family=Cabin+Sketch&display=swap");
+
 // MIXINS:
 // underline styles (grow and shrink)
 
@@ -30,8 +32,8 @@
   font-size: 20px;
   flex-grow: 1;
   // change item width here:
-  width: 200px;
-  max-width: 200px;
+  width: 198px;
+  max-width: 198px;
   text-transform: uppercase;
   display: inline-block;
   padding: 15px 20px;
@@ -79,9 +81,12 @@
 
 .org-logo {
   @include navItemStyles;
+  text-align: center;
+  font-family: "Cabin Sketch";
 }
 
-@media (min-width: 746px) {
+// @media (min-width: 746px) {
+@media (min-width: 790px) {
   .org-logo {
     margin-right: auto;
   }
@@ -96,7 +101,7 @@
   background: #000;
   color: #fff;
   cursor: pointer;
-  @media (max-width: 1530px) {
+  @media (max-width: 1535px) {
     max-width: 100px;
   }
 }
@@ -110,7 +115,7 @@
   background: #fff;
   color: #000;
   cursor: pointer;
-  @media (max-width: 1530px) {
+  @media (max-width: 1535px) {
     max-width: 100px;
   }
 }

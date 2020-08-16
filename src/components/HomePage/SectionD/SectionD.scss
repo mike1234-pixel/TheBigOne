@@ -2,7 +2,12 @@
   width: 100%;
   max-width: 100%;
   height: 75vh;
-  background-color: #000;
+  &-light {
+    background: #fff;
+  }
+  &-dark {
+    background: #000;
+  }
 }
 
 .bg-video {

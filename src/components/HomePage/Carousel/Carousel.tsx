@@ -83,7 +83,7 @@ class Carousel extends Component<
             >
               <img
                 className="carousel-img"
-                src={require(`./carouselImages/img${this.state.carouselImage.toString()}.webp`)}
+                src={require(`./carouselImages/img${this.state.carouselImage.toString()}.jpg`)}
                 alt="city scape"
               />
             </CSSTransition>

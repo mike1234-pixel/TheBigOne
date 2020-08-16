@@ -16,7 +16,7 @@ const HomePage = (props) => {
       <SectionA darkMode={props.darkMode} />
       <SectionB loremText={loremText} darkMode={props.darkMode} />
       <SectionC loremText={loremText} darkMode={props.darkMode} />
-      <SectionD />
+      <SectionD darkMode={props.darkMode} />
     </div>
   );
 };

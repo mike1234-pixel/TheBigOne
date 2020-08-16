@@ -30,7 +30,7 @@ const BlogPage = (props) => {
   const arrayOfBlogPosts = items
     .filter((item) => item.id > firstId && item.id <= lastId)
     .map((item, index) => (
-      <div className="blog-post" key={index}>
+      <div className="blog-post-listing" key={index}>
         <p className="blog-title">{item.title}</p>
         <p className="blog-content">
           {item.content.substring(0, 199)}
@@ -68,7 +68,9 @@ const BlogPage = (props) => {
   return (
     <div
       className={
-        props.darkMode ? `dark-mode blog-page` : `light-mode blog-page`
+        props.darkMode
+          ? `blog-page-dark-mode blog-page`
+          : `blog-page-light-mode blog-page`
       }
     >
       {arrayOfBlogPosts}

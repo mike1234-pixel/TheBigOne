@@ -3,6 +3,7 @@ import "./BlogPost.scss";
 import { useStore } from "react-redux";
 import axios from "axios";
 import qs from "qs";
+import ReCAPTCHA from "react-google-recaptcha";
 import PropTypes from "prop-types";
 const Filter = require("bad-words");
 
@@ -76,7 +77,9 @@ const BlogPost = (props) => {
   return (
     <div
       className={
-        state.darkMode ? `dark-mode blog-page` : `light-mode blog-page`
+        state.darkMode
+          ? `blog-post-dark-mode blog-post`
+          : `blog-post-light-mode blog-post`
       }
     >
       <h1>{props.title}</h1>
@@ -101,6 +104,13 @@ const BlogPost = (props) => {
         <button type="submit" className="blog-post-submit-button">
           Submit
         </button>
+        <div className="recaptcha-container">
+          <ReCAPTCHA
+            sitekey="Your client site key"
+            onChange={(e) => handleSubmit(e)}
+          />
+        </div>
+
         <div className="blog-post-error-message-container">
           <p className="blog-post-error-message">{nameIsRequired}</p>
           <p className="blog-post-error-message">{messageIsRequired}</p>

@@ -14,7 +14,7 @@ const NavBar = (props) => {
     >
       <div className="org-logo">
         <Link to="/" style={{ color: "inherit", textDecoration: "inherit" }}>
-          Cool Frontends
+          Michael Tandy Developer
         </Link>
       </div>
       <div className="nav-items">
@@ -39,13 +39,18 @@ const NavBar = (props) => {
           </div>
         )}
         <div className={props.darkMode ? `item item-dark` : `item item-light`}>
-          item
+          About
         </div>
         <div className={props.darkMode ? `item item-dark` : `item item-light`}>
-          item
+          Services
         </div>
         <div className={props.darkMode ? `item item-dark` : `item item-light`}>
-          item
+          <Link
+            to="/Members"
+            style={{ color: "inherit", textDecoration: "inherit" }}
+          >
+            Prices
+          </Link>
         </div>
         <div className={props.darkMode ? `item item-dark` : `item item-light`}>
           <Link
