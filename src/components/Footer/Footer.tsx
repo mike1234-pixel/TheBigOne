@@ -8,6 +8,7 @@ import {
   FaReact,
   FaNodeJs,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Footer = (props) => {
   const date = new Date();
@@ -26,39 +27,72 @@ const Footer = (props) => {
       <div className="footer-div footer-div-4"></div>
       <ul className="footer-div site-links">
         <li>
-          <a href="#">About</a>
+          <Link
+            to="/About"
+            style={{ color: "inherit", textDecoration: "inherit" }}
+          >
+            About
+          </Link>
         </li>
         <li>
-          <a href="#">Link2</a>
+          <Link
+            to="/Link2"
+            style={{ color: "inherit", textDecoration: "inherit" }}
+          >
+            Link2
+          </Link>
         </li>
         <li>
-          <a href="#">Link3</a>
+          <Link
+            to="/Link3"
+            style={{ color: "inherit", textDecoration: "inherit" }}
+          >
+            Link3
+          </Link>
         </li>
         <li>
-          <a href="#">Blog</a>
+          <Link
+            to="/Blog"
+            style={{ color: "inherit", textDecoration: "inherit" }}
+          >
+            Blog
+          </Link>
         </li>
         <li>
-          <a href="#">Contact</a>
+          <Link
+            to="/Contact"
+            style={{ color: "inherit", textDecoration: "inherit" }}
+          >
+            Contact
+          </Link>
         </li>
       </ul>
       <ul className="footer-div profile-links">
         <li>
-          <a href="#">
+          <a href="https://github.com/mike1234-pixel" target="_blank">
             Github
             <FaGithub />
           </a>
         </li>
         <li>
-          <a href="#">
+          <a
+            href="https://www.freecodecamp.org/fcc64cf2f0b-2faa-4dac-bbae-48a1bc7f9538"
+            target="_blank"
+          >
             freeCodeCamp
             <FaFreeCodeCamp />
           </a>
         </li>
         <li>
-          <a href="#">CodeWars</a>
+          <a
+            href="https://www.codewars.com/users/Michael-tandy"
+            target="_blank"
+          >
+            CodeWars
+          </a>
         </li>
         <li>
-          <a href="#">
+          <a href="https://www.linkedin.com/in/mike-tandy/" target="_blank">
             LinkedIn
             <FaLinkedin />
           </a>

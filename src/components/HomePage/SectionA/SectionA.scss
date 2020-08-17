@@ -21,6 +21,10 @@
     grid-template-columns: 100%;
     grid-template-rows: repeat(3, 1fr);
   }
+  @media (max-height: 1400px) and (max-width: 1050px) {
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(3, 1fr);
+  }
 }
 
 .grid-item {
@@ -49,6 +53,10 @@
       grid-column: 1/-1;
       grid-row: 1/2;
     }
+    @media (max-height: 1400px) and (max-width: 1050px) {
+      grid-column: 1/-1;
+      grid-row: 1/2;
+    }
   }
   &-two {
     grid-column: 2/3;
@@ -57,11 +65,19 @@
       grid-column: 1/-1;
       grid-row: 2/3;
     }
+    @media (max-height: 1400px) and (max-width: 1050px) {
+      grid-column: 1/-1;
+      grid-row: 2/3;
+    }
   }
   &-three {
     grid-column: 3/4;
     background-image: url(../Carousel/carouselImages/img4.jpg);
     @media (max-width: 700px) {
+      grid-column: 1/-1;
+      grid-row: 3/4;
+    }
+    @media (max-height: 1400px) and (max-width: 1050px) {
       grid-column: 1/-1;
       grid-row: 3/4;
     }

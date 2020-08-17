@@ -73,6 +73,7 @@ const BlogPage = (props) => {
           : `blog-page-light-mode blog-page`
       }
     >
+      <h1 className="blog-page-title">Blog</h1>
       {arrayOfBlogPosts}
 
       <p>Page {currentPage}</p>
