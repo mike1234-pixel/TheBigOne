@@ -1,8 +1,17 @@
 import React from "react";
 import "./Footer.scss";
-import { FaJs, FaFreeCodeCamp, FaGithub, FaLinkedin } from "react-icons/fa";
+import {
+  FaJs,
+  FaFreeCodeCamp,
+  FaGithub,
+  FaLinkedin,
+  FaReact,
+  FaNodeJs,
+} from "react-icons/fa";
 
 const Footer = (props) => {
+  const date = new Date();
+  const year = date.getFullYear();
   return (
     <div
       className={props.darkMode ? `footer footer-dark` : `footer footer-light`}
@@ -56,8 +65,11 @@ const Footer = (props) => {
         </li>
       </ul>
       <div className="footer-footnote">
-        Website Designed and Built by Michael Tandy, written in JavaScript{" "}
-        <FaJs />
+        Website Designed and Built by Michael Tandy, written in <FaJs />
+        {` with `}
+        <FaReact />
+        {` and `}
+        <FaNodeJs /> {year}
       </div>
     </div>
   );

@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./App.scss";
 import { connect, useStore } from "react-redux";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Redirect } from "react-router-dom";
 import { toggleDarkMode } from "../actions/actionCreators";
 import urlifyArticleTitle from "../functions/urlifyArticleTitle";
 import Nav from "../components/Nav/Nav";
 import HomePage from "../components/HomePage/HomePage";
-import MembersPage from "../components/MembersPage/MembersPage";
+import AboutPage from "../components/AboutPage/AboutPage";
+import Link2 from "../components/Link2/Link2";
+import Link3 from "../components/Link3/Link3";
 import BlogPage from "../components/BlogPage/BlogPage";
 import BlogPost from "../components/BlogPage/BlogPost/BlogPost";
 import ContactPage from "../components/ContactPage/ContactPage";
@@ -41,12 +43,16 @@ const App = (props) => {
   return (
     <BrowserRouter className="App">
       <Nav toggleDarkMode={props.onClick} darkMode={state.darkMode} />
+      {/* <Route component={PageNotFound} /> */}
       <Route exact path="/" render={() => <HomePage {...state} />} />
-      <Route path="/Members" component={MembersPage} />
+      <Route path="/About" render={() => <AboutPage {...state} />} />
+      <Route path="/Link2" render={() => <Link2 {...state} />} />
+      <Route path="/Link3" render={() => <Link3 {...state} />} />
       <Route path="/Blog" render={() => <BlogPage {...state} {...props} />} />
       <Route path="/Contact" render={() => <ContactPage {...state} />} />
       {newRoutes}
-      <Route path="*" component={PageNotFound} />
+      <Route path="/404" render={() => <PageNotFound {...state} />} />
+      <Redirect from="*" to="/404" />
       <Footer darkMode={state.darkMode} />
     </BrowserRouter>
   );

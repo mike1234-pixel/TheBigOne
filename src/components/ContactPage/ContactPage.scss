@@ -1,21 +1,27 @@
-.dark-mode {
-  color: #fff;
-  background-image: url("../../staticResources/backgroundImages/backgroundImage1.webp");
-  background-color: rgba(27, 27, 26, 0.5); // Tint color
-  background-blend-mode: multiply;
-}
-
-.light-mode {
-  color: #000;
-  background-image: url("../../staticResources/backgroundImages/backgroundImage1.webp");
-  background-color: rgba(211, 208, 206, 0.5); // Tint color
-  background-blend-mode: multiply;
-}
-
 .contact-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+  min-height: 100vh;
+  background-image: url("../HomePage/Carousel/carouselImages/img4.jpg");
+  background-blend-mode: multiply;
   font-size: 20px;
   text-align: center;
-  margin: 10px;
+  &-dark-mode {
+    background-color: rgba(37, 37, 37, 0.5); // Tint color
+    color: #fff;
+  }
+  &-light-mode {
+    background-color: rgba(221, 221, 215, 0.5);
+    color: #000;
+  }
+}
+
+.contact-title {
+  font-family: "Cabin Sketch";
+  font-weight: 400;
+  margin-bottom: 20px;
 }
 
 .contact-form {
@@ -30,8 +36,14 @@
 .contact-textarea,
 .contact-button {
   font-size: 30px;
-  width: 30%;
+  width: 100%;
+  font-family: arial;
   // margin: 10px;
+}
+
+.contact-button {
+  background: grey;
+  color: #fff;
 }
 
 .contact-button::before {

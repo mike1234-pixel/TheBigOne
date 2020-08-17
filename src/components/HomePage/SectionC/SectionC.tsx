@@ -17,7 +17,9 @@ const SectionC = (props) => {
             ? `grid-item-c grid-item-c-dark-mode grid-item-image-box`
             : `grid-item-c grid-item-c-light-mode grid-item-image-box`
         }
-      ></div>
+      >
+        <img className="grid-item-c-img" src={props.img}></img>
+      </div>
       <div
         className={
           props.darkMode
@@ -37,4 +39,5 @@ export default SectionC;
 SectionC.propTypes = {
   loremText: PropTypes.string,
   darkMode: PropTypes.bool,
+  img: PropTypes.string,
 };

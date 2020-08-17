@@ -82,10 +82,10 @@ const BlogPost = (props) => {
           : `blog-post-light-mode blog-post`
       }
     >
-      <h1>{props.title}</h1>
+      <h1 className="blog-post-title">{props.title}</h1>
       <img src={props.img} alt={props.title} className="blog-post-img" />
-      <p>{props.content}</p>
-      <p>{props.date}</p>
+      <p className="blog-post-content">{props.content}</p>
+      <p className="blog-post-date">{props.date}</p>
       <form className="blog-post-form" onSubmit={(e) => handleSubmit(e)}>
         <input
           className="blog-post-name-input"

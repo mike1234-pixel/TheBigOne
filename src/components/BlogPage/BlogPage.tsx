@@ -74,29 +74,34 @@ const BlogPage = (props) => {
       }
     >
       {arrayOfBlogPosts}
-      <button
-        onClick={
-          currentPage !== 1
-            ? () => setCurrentPage(currentPage - 1)
-            : () => setCurrentPage(currentPage)
-        }
-      >
-        PREV PAGE x
-      </button>
+
       <p>Page {currentPage}</p>
       <p>
         Results: {firstId + 1} -{" "}
         {currentPage * numberOfResults <= items.length ? lastId : items.length}
       </p>
-      <button
-        onClick={
-          currentPage * numberOfResults < items.length
-            ? () => setCurrentPage(currentPage + 1)
-            : () => setCurrentPage(currentPage)
-        }
-      >
-        NEXT PAGE x
-      </button>
+      <div className="next-prev-page-btn-container">
+        <button
+          className="prev-page-btn"
+          onClick={
+            currentPage !== 1
+              ? () => setCurrentPage(currentPage - 1)
+              : () => setCurrentPage(currentPage)
+          }
+        >
+          Prev Page
+        </button>
+        <button
+          className="next-page-btn"
+          onClick={
+            currentPage * numberOfResults < items.length
+              ? () => setCurrentPage(currentPage + 1)
+              : () => setCurrentPage(currentPage)
+          }
+        >
+          Next Page
+        </button>
+      </div>
       <div className="results-per-page-title">Results Per Page</div>
       <div className="results-per-page-container">
         {createResultsPerPageButtons()}

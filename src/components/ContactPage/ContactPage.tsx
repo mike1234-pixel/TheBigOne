@@ -133,7 +133,9 @@ const ContactPage = (props) => {
   return (
     <div
       className={
-        props.darkMode ? `dark-mode contact-page` : `light-mode contact-page`
+        props.darkMode
+          ? `contact-page-dark-mode contact-page`
+          : `contact-page-light-mode contact-page`
       }
     >
       <h1 className="contact-title">Contact Me</h1>

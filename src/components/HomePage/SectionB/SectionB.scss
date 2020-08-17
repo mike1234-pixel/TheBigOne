@@ -26,7 +26,7 @@
   transition: 1s;
   &:hover,
   &:active {
-    background: #e2dccd;
+    background: #fffffe;
     color: #333333;
     cursor: pointer;
   }
@@ -65,6 +65,7 @@
 .grid-item-b-dark-mode {
   color: #fff;
   background: #333333;
+  // background-image: url("../Carousel/carouselImages/img1.jpg");
   &:hover,
   &:active {
     background: #e2dccd;
@@ -80,4 +81,10 @@
     background: #333333;
     color: #e2dccd;
   }
+}
+
+.grid-item-b-img {
+  // object-fit: cover;
+  width: 100%;
+  height: 100%;
 }

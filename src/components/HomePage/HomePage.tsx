@@ -5,6 +5,8 @@ import SectionB from "./SectionB/SectionB";
 import SectionC from "./SectionC/SectionC";
 import SectionD from "./SectionD/SectionD";
 import PropTypes from "prop-types";
+import img13 from "../HomePage/Carousel/carouselImages/img13.jpg";
+import img14 from "../HomePage/Carousel/carouselImages/img14.jpg";
 
 const HomePage = (props) => {
   const loremText =
@@ -14,8 +16,8 @@ const HomePage = (props) => {
     <div>
       <Carousel data-testid="Carousel" darkMode={props.darkMode} />
       <SectionA darkMode={props.darkMode} />
-      <SectionB loremText={loremText} darkMode={props.darkMode} />
-      <SectionC loremText={loremText} darkMode={props.darkMode} />
+      <SectionB loremText={loremText} darkMode={props.darkMode} img={img13} />
+      <SectionC loremText={loremText} darkMode={props.darkMode} img={img14} />
       <SectionD darkMode={props.darkMode} />
     </div>
   );
