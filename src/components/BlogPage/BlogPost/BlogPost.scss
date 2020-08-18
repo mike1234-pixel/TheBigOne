@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Gaegu:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cabin+Sketch&family=Gruppo&family=Libre+Barcode+128+Text&display=swap");
 .blog-post {
   display: flex;
   flex-direction: column;
@@ -26,6 +26,8 @@
 .blog-post-title {
   text-align: center;
   margin: 20px 0 10px;
+  font-family: "Cabin Sketch";
+  font-weight: 400;
 }
 
 .blog-post-content {
@@ -55,8 +57,8 @@
 }
 
 .blog-post-name-input {
-  font-family: arial;
-  font-size: 20px;
+  font-family: "Libre Barcode 128 Text";
+  font-size: 40px;
   min-width: 300px;
   border-radius: 5px;
 
@@ -72,8 +74,8 @@
 
 .blog-post-textarea {
   min-height: 100px;
-  font-family: arial;
-  font-size: 20px;
+  font-family: "Libre Barcode 128 Text";
+  font-size: 40px;
   min-width: 300px;
   border-radius: 5px;
   &-dark-mode {
@@ -87,8 +89,8 @@
 }
 
 .blog-post-submit-button {
-  font-family: arial;
-  font-size: 20px;
+  font-family: "Libre Barcode 128 Text";
+  font-size: 40px;
   background: grey;
   color: #fff;
   min-width: 300px;
@@ -120,7 +122,8 @@
 
 .user-comment-comment {
   color: pink;
-  font-family: Gaegu;
+  font-family: Gruppo;
+  margin: 10px 0;
 }
 
 .user-comment-date {

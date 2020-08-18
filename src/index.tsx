@@ -9,7 +9,7 @@ import reducer from "./reducers";
 
 const store: object = createStore(reducer);
 
-fetch("http://localhost:4000/blogEntries")
+fetch("https://thebigone-api.herokuapp.com/blogEntries")
   .then((res) => res.json())
   .then((result) => {
     let data: object[] = result.data.blogEntries;

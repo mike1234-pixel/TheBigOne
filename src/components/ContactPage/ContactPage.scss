@@ -26,18 +26,18 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  height: 70vh;
+  height: 100vh;
 }
 
 .contact-input,
 .contact-textarea,
 .contact-button {
-  font-size: 30px;
+  font-size: 50px;
   width: 80%;
-  font-family: arial;
+  font-family: "Libre Barcode 128 Text";
 
   border-radius: 5px;
-  @media (min-width: 750px) {
+  @media (min-width: 1200px) {
     width: 40%;
   }
 }
@@ -57,12 +57,12 @@
 }
 
 .contact-input {
-  flex-grow: 1;
+  flex-grow: 0.5;
   margin: 1%;
 }
 
 .contact-textarea {
-  flex-grow: 3;
+  flex-grow: 6;
   margin: 1%;
 }
 

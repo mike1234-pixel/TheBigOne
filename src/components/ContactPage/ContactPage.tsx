@@ -58,7 +58,11 @@ const ContactPage = (props) => {
     };
 
     axios
-      .post("http://localhost:4000/contact", qs.stringify(payload))
+      // .post("http://localhost:4000/contact", qs.stringify(payload))
+      .post(
+        "https://thebigone-api.herokuapp.com/contact",
+        qs.stringify(payload)
+      )
       .then((err) => {
         if (err) {
           console.log(err);
