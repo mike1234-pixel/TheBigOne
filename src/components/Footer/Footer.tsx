@@ -27,6 +27,11 @@ const Footer = (props) => {
       <div className="footer-div footer-div-4"></div>
       <ul className="footer-div site-links">
         <li>
+          <Link to="/" style={{ color: "inherit", textDecoration: "inherit" }}>
+            Home
+          </Link>
+        </li>
+        <li>
           <Link
             to="/About"
             style={{ color: "inherit", textDecoration: "inherit" }}

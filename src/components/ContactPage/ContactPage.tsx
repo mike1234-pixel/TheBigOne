@@ -34,7 +34,17 @@ const ContactPage = (props) => {
   // handleSubmit
   const handleSubmit = (e): void => {
     e.preventDefault();
-    if (firstName === "" || lastName === "" || email === "" || message === "") {
+    // fields should not be blank && error messages should be blank
+    if (
+      firstName === "" ||
+      lastName === "" ||
+      email === "" ||
+      message === "" ||
+      firstNameErrorMessage !== "" ||
+      lastNameErrorMessage !== "" ||
+      emailErrorMessage !== "" ||
+      messageError !== ""
+    ) {
       setEmailMessage(
         "Please enter a first name, last name, email and message."
       );
@@ -181,6 +191,7 @@ const ContactPage = (props) => {
           submit
         </button>
         <ReCAPTCHA sitekey="site key" onChange={(e) => handleSubmit(e)} />
+        {/* onChange function in ReCAPTCHA is called when user successfully completes the captcha*/}
       </form>
     </div>
   );

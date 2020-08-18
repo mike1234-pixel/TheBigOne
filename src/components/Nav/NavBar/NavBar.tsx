@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 const NavBar = (props) => {
-  const noDarkModeButton = useMediaQuery({ query: "(max-width: 1530px)" }); // returns boolean
+  const noDarkModeButton = useMediaQuery({ query: "(max-width: 1050px)" }); // returns boolean 1530
 
   return (
     <div
@@ -70,16 +70,14 @@ const NavBar = (props) => {
             Blog
           </Link>
         </div>
-        <Link
-          to="/Contact"
-          style={{ color: "inherit", textDecoration: "inherit" }}
-        >
-          <div
-            className={props.darkMode ? `item item-dark` : `item item-light`}
+        <div className={props.darkMode ? `item item-dark` : `item item-light`}>
+          <Link
+            to="/Contact"
+            style={{ color: "inherit", textDecoration: "inherit" }}
           >
             Contact
-          </div>
-        </Link>
+          </Link>
+        </div>
       </div>
     </div>
   );

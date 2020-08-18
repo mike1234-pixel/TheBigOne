@@ -1,7 +1,4 @@
 .contact-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   padding: 50px;
   min-height: 100vh;
   background-image: url("../HomePage/Carousel/carouselImages/img4.jpg");
@@ -36,13 +33,18 @@
 .contact-textarea,
 .contact-button {
   font-size: 30px;
-  width: 100%;
+  width: 80%;
   font-family: arial;
-  // margin: 10px;
+  background: rgba(221, 221, 215, 0.349);
+  @media (min-width: 750px) {
+    width: 40%;
+  }
 }
 
+.contact-input,
 .contact-textarea {
-  height: 500px;
+  border-style: inset;
+  border-width: 2px;
 }
 
 .contact-button {

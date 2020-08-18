@@ -17,7 +17,7 @@
   }
   @media (max-height: 1400px) and (max-width: 1050px) {
     grid-template-columns: 100%;
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 45%);
   }
 }
 

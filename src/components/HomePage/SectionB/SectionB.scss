@@ -17,7 +17,10 @@
   }
   @media (max-height: 1400px) and (max-width: 1050px) {
     grid-template-columns: 100%;
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(
+      2,
+      45%
+    ); // set row height (otherwise auto by default)
   }
 }
 
@@ -81,7 +84,6 @@
 .grid-item-b-dark-mode {
   color: #fff;
   background: #333333;
-  // background-image: url("../Carousel/carouselImages/img1.jpg");
   &:hover,
   &:active {
     background: #e2dccd;

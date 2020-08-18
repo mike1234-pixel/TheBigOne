@@ -34,8 +34,6 @@ body::-webkit-scrollbar-corner {
   outline: none;
   position: absolute;
   left: 200px;
-  // the dark mode button vanishes at 1544
-  // make this happen at 980
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   transition: all 0.3s;
