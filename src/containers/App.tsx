@@ -51,8 +51,8 @@ const App = (props) => {
       <Route path="/Blog" render={() => <BlogPage {...state} {...props} />} />
       <Route path="/Contact" render={() => <ContactPage {...state} />} />
       {newRoutes}
-      <Route path="/404" render={() => <PageNotFound {...state} />} />
-      <Redirect from="*" to="/404" />
+      {/* <Route path="/404" render={() => <PageNotFound {...state} />} />
+      <Redirect from="*" to="/404" /> */}
       <Footer darkMode={state.darkMode} />
     </BrowserRouter>
   );

@@ -156,7 +156,11 @@ const ContactPage = (props) => {
       <form className="contact-form" onSubmit={(e) => handleSubmit(e)}>
         <input
           id="first-name-input"
-          className="contact-input"
+          className={
+            props.darkMode
+              ? `contact-input-dark-mode contact-input`
+              : `contact-input-light-mode contact-input`
+          }
           value={firstName}
           placeholder="First Name"
           onChange={(e) => firstNameHandler(e)}
@@ -164,7 +168,11 @@ const ContactPage = (props) => {
         <p className="error-message">{firstNameErrorMessage}</p>
         <input
           id="last-name-input"
-          className="contact-input"
+          className={
+            props.darkMode
+              ? `contact-input-dark-mode contact-input`
+              : `contact-input-light-mode contact-input`
+          }
           value={lastName}
           placeholder="Last Name"
           onChange={(e) => lastNameHandler(e)}
@@ -172,7 +180,11 @@ const ContactPage = (props) => {
         <p className="error-message">{lastNameErrorMessage}</p>
         <input
           id="email-input"
-          className="contact-input"
+          className={
+            props.darkMode
+              ? `contact-input-dark-mode contact-input`
+              : `contact-input-light-mode contact-input`
+          }
           value={email}
           placeholder="Email"
           onChange={(e) => emailHandler(e)}
@@ -180,7 +192,11 @@ const ContactPage = (props) => {
         <p className="error-message">{emailErrorMessage}</p>
         <textarea
           id="message-input"
-          className="contact-input"
+          className={
+            props.darkMode
+              ? `contact-textarea-dark-mode contact-textarea`
+              : `contact-textarea-light-mode contact-textarea`
+          }
           placeholder="Your Message"
           value={message}
           onChange={(e) => messageHandler(e)}

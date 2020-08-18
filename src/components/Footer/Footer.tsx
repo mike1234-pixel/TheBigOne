@@ -7,7 +7,9 @@ import {
   FaLinkedin,
   FaReact,
   FaNodeJs,
+  FaStackOverflow,
 } from "react-icons/fa";
+import { GrCloudlinux } from "react-icons/gr";
 import { Link } from "react-router-dom";
 
 const Footer = (props) => {
@@ -74,7 +76,11 @@ const Footer = (props) => {
       </ul>
       <ul className="footer-div profile-links">
         <li>
-          <a href="https://github.com/mike1234-pixel" target="_blank">
+          <a
+            href="https://github.com/mike1234-pixel"
+            className="footer-anchor"
+            target="_blank"
+          >
             Github
             <FaGithub />
           </a>
@@ -82,6 +88,7 @@ const Footer = (props) => {
         <li>
           <a
             href="https://www.freecodecamp.org/fcc64cf2f0b-2faa-4dac-bbae-48a1bc7f9538"
+            className="footer-anchor"
             target="_blank"
           >
             freeCodeCamp
@@ -91,15 +98,31 @@ const Footer = (props) => {
         <li>
           <a
             href="https://www.codewars.com/users/Michael-tandy"
+            className="footer-anchor"
             target="_blank"
           >
             CodeWars
+            <GrCloudlinux />
           </a>
         </li>
         <li>
-          <a href="https://www.linkedin.com/in/mike-tandy/" target="_blank">
+          <a
+            href="https://www.linkedin.com/in/mike-tandy/"
+            className="footer-anchor"
+            target="_blank"
+          >
             LinkedIn
             <FaLinkedin />
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://stackoverflow.com/users/13808892/michael-tandy"
+            className="footer-anchor"
+            target="_blank"
+          >
+            Stack Overflow
+            <FaStackOverflow />
           </a>
         </li>
       </ul>

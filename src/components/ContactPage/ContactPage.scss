@@ -35,7 +35,8 @@
   font-size: 30px;
   width: 80%;
   font-family: arial;
-  background: rgba(221, 221, 215, 0.349);
+
+  border-radius: 5px;
   @media (min-width: 750px) {
     width: 40%;
   }
@@ -45,11 +46,30 @@
 .contact-textarea {
   border-style: inset;
   border-width: 2px;
+  &-dark-mode {
+    background: #000;
+    color: #fff;
+  }
+  &-light-mode {
+    background: #fff;
+    color: #000;
+  }
+}
+
+.contact-input {
+  flex-grow: 1;
+  margin: 1%;
+}
+
+.contact-textarea {
+  flex-grow: 3;
+  margin: 1%;
 }
 
 .contact-button {
   background: grey;
   color: #fff;
+  margin: 1%;
 }
 
 .contact-button::before {

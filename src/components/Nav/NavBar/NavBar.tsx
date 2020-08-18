@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 const NavBar = (props) => {
-  const noDarkModeButton = useMediaQuery({ query: "(max-width: 1050px)" }); // returns boolean 1530
+  const noDarkModeButton = useMediaQuery({ query: "(max-width: 1202px)" }); // returns boolean 1530
 
   return (
     <div

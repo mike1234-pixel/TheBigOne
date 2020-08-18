@@ -30,21 +30,22 @@ const BlogPage = (props) => {
   const arrayOfBlogPosts = items
     .filter((item) => item.id > firstId && item.id <= lastId)
     .map((item, index) => (
-      <div className="blog-post-listing" key={index}>
-        <p className="blog-title">{item.title}</p>
-        <p className="blog-content">
-          {item.content.substring(0, 199)}
-          <Link
-            to={{
-              pathname: `/BlogPost/${urlifyArticleTitle(item.title)}`,
-            }}
-          >
+      <Link
+        to={{
+          pathname: `/BlogPost/${urlifyArticleTitle(item.title)}`,
+        }}
+        className="link-component"
+      >
+        <div className="blog-post-listing" key={index}>
+          <p className="blog-title">{item.title}</p>
+          <p className="blog-content">
+            {item.content.substring(0, 199)}
             ...
-          </Link>
-        </p>
-        <img src={item.img} className="blog-img" alt={item.title}></img>
-        <p className="blog-date">{item.date}</p>
-      </div>
+          </p>
+          <img src={item.img} className="blog-img" alt={item.title}></img>
+          <p className="blog-date">{item.date}</p>
+        </div>
+      </Link>
     ));
 
   const createResultsPerPageButtons = (): object[] => {

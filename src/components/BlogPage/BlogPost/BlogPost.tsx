@@ -88,14 +88,22 @@ const BlogPost = (props) => {
       <p className="blog-post-date">{props.date}</p>
       <form className="blog-post-form" onSubmit={(e) => handleSubmit(e)}>
         <input
-          className="blog-post-name-input"
+          className={
+            state.darkMode
+              ? `blog-post-name-input-dark-mode blog-post-name-input`
+              : `blog-post-name-input-light-mode blog-post-name-input`
+          }
           value={name}
           placeholder="Name"
           onChange={(e) => setName(e.target.value)}
         ></input>
 
         <textarea
-          className="blog-post-textarea"
+          className={
+            state.darkMode
+              ? `blog-post-textarea-dark-mode blog-post-textarea`
+              : `blog-post-textarea-light-mode blog-post-textarea`
+          }
           placeholder="leave a comment"
           value={comment}
           onChange={(e) => handleComment(e)}
