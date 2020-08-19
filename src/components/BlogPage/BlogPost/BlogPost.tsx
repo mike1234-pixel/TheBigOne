@@ -56,11 +56,15 @@ const BlogPost = (props) => {
 
       axios
         // .post("http://localhost:4000/blogComment", qs.stringify(payload))
+        // .post(
+        //   `https://cors-anywhere.herokuapp.com/thebigone-api.herokuapp.com/blogComment`,
+        //   {
+        //     headers: { "Access-Control-Allow-Origin": "*" },
+        //   },
+        //   qs.stringify(payload)
+        // )
         .post(
-          `https://cors-anywhere.herokuapp.com/thebigone-api.herokuapp.com/blogComment`,
-          {
-            headers: { "Access-Control-Allow-Origin": "*" },
-          },
+          "https://thebigone-api.herokuapp.com/blogComment",
           qs.stringify(payload)
         )
         .then((err) => {
