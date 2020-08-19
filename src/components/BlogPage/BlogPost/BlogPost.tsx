@@ -57,7 +57,10 @@ const BlogPost = (props) => {
       axios
         // .post("http://localhost:4000/blogComment", qs.stringify(payload))
         .post(
-          "https://thebigone-api.herokuapp.com/blogComment",
+          `https://cors-anywhere.herokuapp.com/thebigone-api.herokuapp.com/blogComment`,
+          {
+            headers: { "Access-Control-Allow-Origin": "*" },
+          },
           qs.stringify(payload)
         )
         .then((err) => {
