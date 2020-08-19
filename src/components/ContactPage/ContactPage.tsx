@@ -59,10 +59,7 @@ const ContactPage = (props) => {
 
     axios
       // .post("http://localhost:4000/contact", qs.stringify(payload))
-      .post(
-        "https://thebigone-api.herokuapp.com/contact",
-        qs.stringify(payload)
-      )
+      .post("https://thebigone-api.herokuapp.com/contact", payload)
       // .post(
       //   `https://cors-anywhere.herokuapp.com/thebigone-api.herokuapp.com/contact`,
       //   {
