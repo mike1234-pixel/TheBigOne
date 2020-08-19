@@ -8,8 +8,13 @@ import { Provider } from "react-redux";
 import reducer from "./reducers";
 
 const store: object = createStore(reducer);
-
-fetch("https://thebigone-api.herokuapp.com/blogEntries")
+fetch("https://thebigone-api.herokuapp.com/blogEntries") // production
+  // fetch(
+  //   `https://cors-anywhere.herokuapp.com/thebigone-api.herokuapp.com/blogEntries`,
+  //   {
+  //     headers: { "Access-Control-Allow-Origin": "*" },
+  //   }
+  // ) // --------------------------------------------- development ------------------------------------------
   .then((res) => res.json())
   .then((result) => {
     let data: object[] = result.data.blogEntries;

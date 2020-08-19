@@ -63,6 +63,13 @@ const ContactPage = (props) => {
         "https://thebigone-api.herokuapp.com/contact",
         qs.stringify(payload)
       )
+      // .post(
+      //   `https://cors-anywhere.herokuapp.com/thebigone-api.herokuapp.com/contact`,
+      //   {
+      //     headers: { "Access-Control-Allow-Origin": "*" },
+      //   },
+      //   qs.stringify(payload)
+      // ) --------------------------------------------- development ------------------------------------------
       .then((err) => {
         if (err) {
           console.log(err);

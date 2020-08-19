@@ -8,6 +8,7 @@ import {
   FaReact,
   FaNodeJs,
   FaStackOverflow,
+  FaFileCode,
 } from "react-icons/fa";
 import { GrCloudlinux } from "react-icons/gr";
 import { Link } from "react-router-dom";
@@ -131,7 +132,15 @@ const Footer = (props) => {
         {` with `}
         <FaReact />
         {` and `}
-        <FaNodeJs /> {year}
+        <FaNodeJs /> {year}...
+        <a
+          href="https://github.com/mike1234-pixel/TheBigOne"
+          className="footer-anchor"
+          target="_blank"
+        >
+          Check Out The Source Code Here
+          <FaFileCode />
+        </a>
       </div>
     </div>
   );
