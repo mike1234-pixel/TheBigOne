@@ -6,17 +6,18 @@ import PropTypes from "prop-types";
 
 const BlogPage = (props) => {
   // data type for props.data...
-  interface blogData {
-    comment: any[];
-    _id: string;
-    post_id: number;
-    title: string;
-    content: string;
-    date: string;
-    img: string;
-  }
+  // interface blogData {
+  //   comment: any[];
+  //   _id: string;
+  //   post_id: number;
+  //   title: string;
+  //   content: string;
+  //   date: string;
+  //   img: string;
+  // }
 
-  const [items] = useState<blogData[]>(props.data);
+  // const [items] = useState<blogData[]>(props.data);
+  const [items] = useState(props.data);
 
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [numberOfResults, setNumberOfResults] = useState<number>(10);
