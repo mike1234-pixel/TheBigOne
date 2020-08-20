@@ -28,7 +28,7 @@ const App = (props) => {
       let results = props.data.map((blogPost, index) => (
         <Route
           exact
-          path={`/BlogPost/${urlifyArticleTitle(blogPost.title)}`}
+          path={`/blog-post/${urlifyArticleTitle(blogPost.title)}`}
           key={index}
           // pass data as props to BlogPost
           render={() => <BlogPost {...blogPost} />}
@@ -45,11 +45,11 @@ const App = (props) => {
       <Nav toggleDarkMode={props.onClick} darkMode={state.darkMode} />
       {/* <Route component={PageNotFound} /> */}
       <Route exact path="/" render={() => <HomePage {...state} />} />
-      <Route path="/About" render={() => <AboutPage {...state} />} />
-      <Route path="/Link2" render={() => <Link2 {...state} />} />
-      <Route path="/Link3" render={() => <Link3 {...state} />} />
-      <Route path="/Blog" render={() => <BlogPage {...state} {...props} />} />
-      <Route path="/Contact" render={() => <ContactPage {...state} />} />
+      <Route path="/about" render={() => <AboutPage {...state} />} />
+      <Route path="/link2" render={() => <Link2 {...state} />} />
+      <Route path="/link3" render={() => <Link3 {...state} />} />
+      <Route path="/blog" render={() => <BlogPage {...state} {...props} />} />
+      <Route path="/contact" render={() => <ContactPage {...state} />} />
       {newRoutes}
       {/* <Route path="/404" render={() => <PageNotFound {...state} />} />
       <Redirect from="*" to="/404" /> */}
