@@ -7,12 +7,13 @@ import PropTypes from "prop-types";
 const BlogPage = (props) => {
   // data type for props.data...
   interface blogData {
-    id: number;
+    comment: any[];
+    _id: string;
+    post_id: number;
     title: string;
     content: string;
     date: string;
     img: string;
-    comment: any[];
   }
 
   const [items] = useState<blogData[]>(props.data);
@@ -28,7 +29,7 @@ const BlogPage = (props) => {
   });
 
   const arrayOfBlogPosts = items
-    .filter((item) => item.id > firstId && item.id <= lastId)
+    .filter((item) => item.post_id > firstId && item.post_id <= lastId)
     .map((item, index) => (
       <Link
         to={{
