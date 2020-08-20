@@ -40,7 +40,7 @@ const NavBar = (props) => {
         )}
         <div className={props.darkMode ? `item item-dark` : `item item-light`}>
           <Link
-            to="/About"
+            to="/about"
             style={{ color: "inherit", textDecoration: "inherit" }}
           >
             About
@@ -48,7 +48,7 @@ const NavBar = (props) => {
         </div>
         <div className={props.darkMode ? `item item-dark` : `item item-light`}>
           <Link
-            to="/Link2"
+            to="/link2"
             style={{ color: "inherit", textDecoration: "inherit" }}
           >
             Link2
@@ -56,7 +56,7 @@ const NavBar = (props) => {
         </div>
         <div className={props.darkMode ? `item item-dark` : `item item-light`}>
           <Link
-            to="/Link3"
+            to="/link3"
             style={{ color: "inherit", textDecoration: "inherit" }}
           >
             Link3
@@ -64,7 +64,7 @@ const NavBar = (props) => {
         </div>
         <div className={props.darkMode ? `item item-dark` : `item item-light`}>
           <Link
-            to="/Blog"
+            to="/blog"
             style={{ color: "inherit", textDecoration: "inherit" }}
           >
             Blog
@@ -72,7 +72,7 @@ const NavBar = (props) => {
         </div>
         <div className={props.darkMode ? `item item-dark` : `item item-light`}>
           <Link
-            to="/Contact"
+            to="/contact"
             style={{ color: "inherit", textDecoration: "inherit" }}
           >
             Contact

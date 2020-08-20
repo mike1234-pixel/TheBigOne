@@ -22,7 +22,7 @@ const BlogPage = (props) => {
     .map((item, index) => (
       <Link
         to={{
-          pathname: `/BlogPost/${urlifyArticleTitle(item.title)}`,
+          pathname: `/blog-post/${urlifyArticleTitle(item.title)}`,
         }}
         className="link-component"
       >

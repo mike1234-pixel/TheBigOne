@@ -36,7 +36,7 @@ const Footer = (props) => {
         </li>
         <li>
           <Link
-            to="/About"
+            to="/about"
             style={{ color: "inherit", textDecoration: "inherit" }}
           >
             About
@@ -44,7 +44,7 @@ const Footer = (props) => {
         </li>
         <li>
           <Link
-            to="/Link2"
+            to="/link2"
             style={{ color: "inherit", textDecoration: "inherit" }}
           >
             Link2
@@ -52,7 +52,7 @@ const Footer = (props) => {
         </li>
         <li>
           <Link
-            to="/Link3"
+            to="/link3"
             style={{ color: "inherit", textDecoration: "inherit" }}
           >
             Link3
@@ -60,7 +60,7 @@ const Footer = (props) => {
         </li>
         <li>
           <Link
-            to="/Blog"
+            to="/blog"
             style={{ color: "inherit", textDecoration: "inherit" }}
           >
             Blog
@@ -68,7 +68,7 @@ const Footer = (props) => {
         </li>
         <li>
           <Link
-            to="/Contact"
+            to="/contact"
             style={{ color: "inherit", textDecoration: "inherit" }}
           >
             Contact
