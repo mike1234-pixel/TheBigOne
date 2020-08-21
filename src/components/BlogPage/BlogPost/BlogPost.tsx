@@ -78,6 +78,11 @@ const BlogPost = (props) => {
     }
   };
 
+  // this value will be sent to the backend to verify the user is not a robot
+  const onChange = (value) => {
+    console.log("Captcha value:", value);
+  };
+
   return (
     <div
       className={
@@ -119,7 +124,7 @@ const BlogPost = (props) => {
         <div className="recaptcha-container">
           <ReCAPTCHA
             sitekey={process.env.REACT_APP_GOOGLE_RECAPTCHA_SITE_KEY}
-            onChange={(e) => handleSubmit(e)}
+            onChange={onChange}
           />
         </div>
 
