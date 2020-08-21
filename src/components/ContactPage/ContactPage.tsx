@@ -155,6 +155,11 @@ const ContactPage = (props) => {
     window.scrollTo(0, 0);
   });
 
+  // this value will be sent to the backend to verify the user is not a robot
+  const onChange = (value) => {
+    console.log("Captcha value:", value);
+  };
+
   return (
     <div
       className={
@@ -217,7 +222,10 @@ const ContactPage = (props) => {
         <button type="submit" className="contact-button">
           submit
         </button>
-        <ReCAPTCHA sitekey="site key" onChange={(e) => handleSubmit(e)} />
+        <ReCAPTCHA
+          sitekey={process.env.REACT_APP_GOOGLE_RECAPTCHA_SITE_KEY}
+          onChange={onChange}
+        />
         {/* onChange function in ReCAPTCHA is called when user successfully completes the captcha*/}
       </form>
     </div>

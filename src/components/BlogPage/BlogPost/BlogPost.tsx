@@ -3,7 +3,7 @@ import "./BlogPost.scss";
 import { useStore } from "react-redux";
 import axios from "axios";
 import qs from "qs";
-import ReCAPTCHA from "react-google-recaptcha";
+// import ReCAPTCHA from "react-google-recaptcha";
 import PropTypes from "prop-types";
 const Filter = require("bad-words");
 
@@ -78,10 +78,10 @@ const BlogPost = (props) => {
     }
   };
 
-  // this value will be sent to the backend to verify the user is not a robot
-  const onChange = (value) => {
-    console.log("Captcha value:", value);
-  };
+  // // this value will be sent to the backend to verify the user is not a robot
+  // const onChange = (value) => {
+  //   console.log("Captcha value:", value);
+  // };
 
   return (
     <div
@@ -121,12 +121,12 @@ const BlogPost = (props) => {
         <button type="submit" className="blog-post-submit-button">
           Submit
         </button>
-        <div className="recaptcha-container">
+        {/* <div className="recaptcha-container">
           <ReCAPTCHA
             sitekey={process.env.REACT_APP_GOOGLE_RECAPTCHA_SITE_KEY2}
             onChange={onChange}
           />
-        </div>
+        </div> */}
 
         <div className="blog-post-error-message-container">
           <p className="blog-post-error-message">{nameIsRequired}</p>
