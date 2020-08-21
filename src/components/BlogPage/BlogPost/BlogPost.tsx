@@ -123,7 +123,7 @@ const BlogPost = (props) => {
         </button>
         <div className="recaptcha-container">
           <ReCAPTCHA
-            sitekey={process.env.REACT_APP_GOOGLE_RECAPTCHA_SITE_KEY}
+            sitekey={process.env.REACT_APP_GOOGLE_RECAPTCHA_SITE_KEY2}
             onChange={onChange}
           />
         </div>
