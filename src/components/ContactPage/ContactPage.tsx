@@ -3,7 +3,7 @@ import "./ContactPage.scss";
 import axios from "axios";
 import qs from "qs";
 import PropTypes from "prop-types";
-import ReCAPTCHA from "react-google-recaptcha"; // https://github.com/dozoisch/react-google-recaptcha
+import Recaptcha from "react-recaptcha";
 
 const ContactPage = (props) => {
   // state
@@ -23,6 +23,8 @@ const ContactPage = (props) => {
     "We will never share your email address with anyone, ever."
   );
 
+  const [isVerfified, setIsVerified] = useState<boolean>(false);
+
   // payload interface [TS]
   interface contactFormMessagePayload {
     firstName: String;
@@ -34,8 +36,12 @@ const ContactPage = (props) => {
   // handleSubmit
   const handleSubmit = (e): void => {
     e.preventDefault();
+
+    if (isVerfified === false) {
+      alert("Please confirm you are human");
+    }
     // fields should not be blank && error messages should be blank
-    if (
+    else if (
       firstName === "" ||
       lastName === "" ||
       email === "" ||
@@ -153,11 +159,16 @@ const ContactPage = (props) => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  });
+  }, []);
 
-  // this value will be sent to the backend to verify the user is not a robot
-  const onChange = (value) => {
-    console.log("Captcha value:", value);
+  const recaptchaLoaded = () => {
+    console.log("captcha successful");
+  };
+
+  const verifyCallback = (response) => {
+    if (response) {
+      setIsVerified(true);
+    }
   };
 
   return (
@@ -222,9 +233,11 @@ const ContactPage = (props) => {
         <button type="submit" className="contact-button">
           submit
         </button>
-        <ReCAPTCHA
+        <Recaptcha
           sitekey={process.env.REACT_APP_GOOGLE_RECAPTCHA_SITE_KEY}
-          onChange={onChange}
+          render="explicit"
+          onloadCallback={() => recaptchaLoaded()}
+          verifyCallback={verifyCallback}
         />
         {/* onChange function in ReCAPTCHA is called when user successfully completes the captcha*/}
       </form>

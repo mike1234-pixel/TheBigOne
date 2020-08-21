@@ -3,7 +3,7 @@ import "./BlogPost.scss";
 import { useStore } from "react-redux";
 import axios from "axios";
 import qs from "qs";
-// import ReCAPTCHA from "react-google-recaptcha";
+import Recaptcha from "react-recaptcha";
 import PropTypes from "prop-types";
 const Filter = require("bad-words");
 
@@ -29,6 +29,8 @@ const BlogPost = (props) => {
   const [nameIsRequired, setNameIsRequired] = useState<string>("");
   const [messageIsRequired, setMessageIsRequired] = useState<string>("");
 
+  const [isVerfified, setIsVerified] = useState<boolean>(false);
+
   const handleComment = (e): void => {
     setComment(e.target.value);
   };
@@ -36,7 +38,9 @@ const BlogPost = (props) => {
   const handleSubmit = (e): void => {
     e.preventDefault(e);
 
-    if (name === "" || comment === "") {
+    if (isVerfified === false) {
+      alert("Please confirm you are human");
+    } else if (name === "" || comment === "") {
       setNameIsRequired("Name field is required.");
       setMessageIsRequired("Message field is required.");
     } else {
@@ -78,10 +82,15 @@ const BlogPost = (props) => {
     }
   };
 
-  // // this value will be sent to the backend to verify the user is not a robot
-  // const onChange = (value) => {
-  //   console.log("Captcha value:", value);
-  // };
+  const recaptchaLoaded = () => {
+    console.log("captcha successful");
+  };
+
+  const verifyCallback = (response) => {
+    if (response) {
+      setIsVerified(true);
+    }
+  };
 
   return (
     <div
@@ -121,12 +130,14 @@ const BlogPost = (props) => {
         <button type="submit" className="blog-post-submit-button">
           Submit
         </button>
-        {/* <div className="recaptcha-container">
-          <ReCAPTCHA
-            sitekey={process.env.REACT_APP_GOOGLE_RECAPTCHA_SITE_KEY2}
-            onChange={onChange}
+        <div className="recaptcha-container">
+          <Recaptcha
+            sitekey={process.env.REACT_APP_GOOGLE_RECAPTCHA_SITE_KEY}
+            render="explicit"
+            onloadCallback={() => recaptchaLoaded()}
+            verifyCallback={verifyCallback}
           />
-        </div> */}
+        </div>
 
         <div className="blog-post-error-message-container">
           <p className="blog-post-error-message">{nameIsRequired}</p>
