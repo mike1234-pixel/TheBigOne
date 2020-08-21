@@ -83,7 +83,7 @@ const BlogPost = (props) => {
   };
 
   const recaptchaLoaded = () => {
-    console.log("captcha successful");
+    console.log("captcha loaded");
   };
 
   const verifyCallback = (response) => {

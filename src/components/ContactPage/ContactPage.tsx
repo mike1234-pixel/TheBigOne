@@ -162,7 +162,7 @@ const ContactPage = (props) => {
   }, []);
 
   const recaptchaLoaded = () => {
-    console.log("captcha successful");
+    console.log("recaptcha loaded");
   };
 
   const verifyCallback = (response) => {
