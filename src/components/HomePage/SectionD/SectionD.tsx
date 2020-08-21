@@ -14,7 +14,7 @@ const SectionD = (props) => {
       <div className="bg-video">
         <video className="bg-video__content" autoPlay muted loop>
           <source
-            src={require("../../../staticResources/backgroundImages/video.mp4")}
+            src={require("../Carousel/carouselImages/video.mp4")}
             type="video/mp4"
           />
           Your browser is not supported
