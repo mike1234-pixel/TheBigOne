@@ -118,7 +118,7 @@ const BlogPost = (props) => {
         </button>
         <div className="recaptcha-container">
           <ReCAPTCHA
-            sitekey="Your client site key"
+            sitekey={process.env.REACT_APP_GOOGLE_RECAPTCHA_SITE_KEY}
             onChange={(e) => handleSubmit(e)}
           />
         </div>
