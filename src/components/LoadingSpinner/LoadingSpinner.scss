@@ -1,0 +1,25 @@
+.loading-spinner-container {
+  width: 100vw;
+  height: 100vh;
+  background: #f4fbfe;
+}
+
+.loading-spinner {
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  left: 50vw;
+  margin-left: -50px;
+  top: 50vh;
+  margin-top: -50px;
+}
+
+.spinner-attribution {
+  text-align: center;
+  background: #f4fbfe;
+
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+}

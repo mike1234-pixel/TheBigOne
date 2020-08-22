@@ -6,9 +6,17 @@ import * as serviceWorker from "./serviceWorker";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import reducer from "./reducers";
+import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner";
+
+let pageLoading: boolean = true;
 
 const store: object = createStore(reducer);
 // fetch("https://thebigone-api.herokuapp.com/blogEntries") // production
+
+if (pageLoading) {
+  ReactDOM.render(<LoadingSpinner />, document.getElementById("root"));
+}
+
 fetch(
   `https://cors-anywhere.herokuapp.com/thebigone-api.herokuapp.com/blogEntries`,
   {
@@ -26,6 +34,7 @@ fetch(
       </React.StrictMode>,
       document.getElementById("root")
     );
+    pageLoading = false;
   });
 
 serviceWorker.register();
