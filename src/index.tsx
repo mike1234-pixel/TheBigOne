@@ -26,6 +26,7 @@ fetch(
   .then((res) => res.json())
   .then((result) => {
     let data: object[] = result.data.blogEntries;
+    pageLoading = false;
     ReactDOM.render(
       <React.StrictMode>
         <Provider store={store}>
@@ -34,7 +35,6 @@ fetch(
       </React.StrictMode>,
       document.getElementById("root")
     );
-    pageLoading = false;
   });
 
 serviceWorker.register();
