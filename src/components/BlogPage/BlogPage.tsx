@@ -29,7 +29,8 @@ const BlogPage = (props) => {
         <div className="blog-post-listing" key={index}>
           <p className="blog-title">{item.title}</p>
           <p className="blog-content">
-            {item.content.substring(0, 199)}
+            {item.content.substring(3, 199)}{" "}
+            {/* starting at 3 cuts off the initial html <p> tag*/}
             ...
           </p>
           <img src={item.img} className="blog-img" alt={item.title}></img>
@@ -70,7 +71,7 @@ const BlogPage = (props) => {
       <p>Page {currentPage}</p>
       <p>
         Results: {firstId + 1} -{" "}
-        {currentPage * numberOfResults <= items.length ? lastId : items.length}
+        {currentPage * numberOfResults >= items.length ? lastId : items.length}
       </p>
       <div className="next-prev-page-btn-container">
         <button

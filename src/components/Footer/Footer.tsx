@@ -81,6 +81,7 @@ const Footer = (props) => {
             href="https://github.com/mike1234-pixel"
             className="footer-anchor"
             target="_blank"
+            rel="noopener noreferrer"
           >
             Github
             <FaGithub />
@@ -91,6 +92,7 @@ const Footer = (props) => {
             href="https://www.freecodecamp.org/fcc64cf2f0b-2faa-4dac-bbae-48a1bc7f9538"
             className="footer-anchor"
             target="_blank"
+            rel="noopener noreferrer"
           >
             freeCodeCamp
             <FaFreeCodeCamp />
@@ -101,6 +103,7 @@ const Footer = (props) => {
             href="https://www.codewars.com/users/Michael-tandy"
             className="footer-anchor"
             target="_blank"
+            rel="noopener noreferrer"
           >
             CodeWars
             <GrCloudlinux />
@@ -111,6 +114,7 @@ const Footer = (props) => {
             href="https://www.linkedin.com/in/mike-tandy/"
             className="footer-anchor"
             target="_blank"
+            rel="noopener noreferrer"
           >
             LinkedIn
             <FaLinkedin />
@@ -121,6 +125,7 @@ const Footer = (props) => {
             href="https://stackoverflow.com/users/13808892/michael-tandy"
             className="footer-anchor"
             target="_blank"
+            rel="noopener noreferrer"
           >
             Stack Overflow
             <FaStackOverflow />
@@ -137,6 +142,7 @@ const Footer = (props) => {
           href="https://github.com/mike1234-pixel/TheBigOne"
           className="footer-anchor"
           target="_blank"
+          rel="noopener noreferrer"
         >
           Check Out The Source Code Here
           <FaFileCode />

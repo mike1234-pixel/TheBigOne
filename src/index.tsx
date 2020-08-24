@@ -7,6 +7,9 @@ import { createStore } from "redux";
 import { Provider } from "react-redux";
 import reducer from "./reducers";
 import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner";
+import axios from "axios";
+
+// don't have to use cors if using axios?
 
 let pageLoading: boolean = true;
 
@@ -22,7 +25,11 @@ fetch(
   {
     headers: { "Access-Control-Allow-Origin": "*" },
   }
-) // --------------------------------------------- development ------------------------------------------
+)
+  // axios
+  //   .get("https://thebigone-api.herokuapp.com/blogEntries", {
+  //     headers: { "Access-Control-Allow-Origin": "*" },
+  //   })
   .then((res) => res.json())
   .then((result) => {
     let data: object[] = result.data.blogEntries;
@@ -38,3 +45,10 @@ fetch(
   });
 
 serviceWorker.register();
+
+// if site takes forever to load cors-anywhere is the issue
+// to fix:
+// change to axios.get instead of fetch
+// enable cors on the server and allow miketandy.com as an origin
+// works fine for now so leaving it...
+// get requests via normal route are instantaneous, cors-anywhere takes longer
