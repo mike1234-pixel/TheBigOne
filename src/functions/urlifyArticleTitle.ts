@@ -3,7 +3,8 @@ const urlifyArticleTitle = (articleTitle: string): string => {
     .toLowerCase()
     .replace(/\.|\s|\//g, "-")
     .replace(/\(|\)|\?/g, "")
-    .replace(/"-"$/, "");
+    .replace(/"-"$/, "")
+    .replace(":", "");
 
   if (urlifiedTitle.charAt(urlifiedTitle.length - 1) === "-") {
     return urlifiedTitle.replace(/.$/, "");
