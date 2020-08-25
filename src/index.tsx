@@ -25,28 +25,25 @@ if (pageLoading) {
 //   {
 //     headers: { "Access-Control-Allow-Origin": "*" },
 //   }
-// )
-fetch(`https://thebigone-api.herokuapp.com/blogEntries`, {
-  headers: { "Access-Control-Allow-Origin": "*" },
-})
-  // axios
-  //   .get("https://thebigone-api.herokuapp.com/blogEntries", {
-  //     headers: { "Access-Control-Allow-Origin": "*" },
-  //   })
-  .then((res) => res.json())
-  .then((result) => {
-    console.log(result);
-    let data: object[] = result.data.blogEntries;
-    pageLoading = false;
-    ReactDOM.render(
-      <React.StrictMode>
-        <Provider store={store}>
-          <App data={data} />
-        </Provider>
-      </React.StrictMode>,
-      document.getElementById("root")
-    );
-  });
+// ) //// --------------------DEV
+// fetch(`https://thebigone-api.herokuapp.com/blogEntries`, {
+//   headers: { "Access-Control-Allow-Origin": "*" },
+// }) //// ---------------PROD
+// .then((res) => res.json())
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+axios.get(`https://thebigone-api.herokuapp.com/blogEntries`).then((result) => {
+  console.log(result);
+  let data: object[] = result.data.data.blogEntries;
+  pageLoading = false;
+  ReactDOM.render(
+    <React.StrictMode>
+      <Provider store={store}>
+        <App data={data} />
+      </Provider>
+    </React.StrictMode>,
+    document.getElementById("root")
+  );
+});
 
 serviceWorker.register();
 
