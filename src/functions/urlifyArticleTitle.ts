@@ -4,7 +4,8 @@ const urlifyArticleTitle = (articleTitle: string): string => {
     .replace(/\.|\s|\//g, "-")
     .replace(/\(|\)|\?/g, "")
     .replace(/"-"$/, "")
-    .replace(":", "");
+    .replace(":", "")
+    .replace("'", "");
 
   if (urlifiedTitle.charAt(urlifiedTitle.length - 1) === "-") {
     return urlifiedTitle.replace(/.$/, "");

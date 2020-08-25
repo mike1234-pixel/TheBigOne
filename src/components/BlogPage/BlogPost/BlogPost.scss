@@ -152,5 +152,16 @@
 }
 
 .additional-blog-img {
-  width: 100%;
+  &-container {
+    text-align: center;
+  }
+  width: 50%;
+
+  @media (max-width: 950px) {
+    width: 100%;
+  }
+}
+
+.redux-post-list {
+  list-style-type: square;
 }

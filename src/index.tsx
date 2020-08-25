@@ -9,28 +9,13 @@ import reducer from "./reducers";
 import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner";
 import axios from "axios";
 
-// don't have to use cors if using axios?
-
 let pageLoading: boolean = true;
 
 const store: object = createStore(reducer);
-// fetch("https://thebigone-api.herokuapp.com/blogEntries") // production
 
 if (pageLoading) {
   ReactDOM.render(<LoadingSpinner />, document.getElementById("root"));
 }
-
-// fetch(
-//   `https://cors-anywhere.herokuapp.com/thebigone-api.herokuapp.com/blogEntries`,
-//   {
-//     headers: { "Access-Control-Allow-Origin": "*" },
-//   }
-// ) //// --------------------DEV
-// fetch(`https://thebigone-api.herokuapp.com/blogEntries`, {
-//   headers: { "Access-Control-Allow-Origin": "*" },
-// }) //// ---------------PROD
-// .then((res) => res.json())
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 axios.get(`https://thebigone-api.herokuapp.com/blogEntries`).then((result) => {
   console.log(result);
   let data: object[] = result.data.data.blogEntries;
@@ -53,3 +38,17 @@ serviceWorker.register();
 // enable cors on the server and allow miketandy.com as an origin
 // works fine for now so leaving it...
 // get requests via normal route are instantaneous, cors-anywhere takes longer
+
+// fetch(
+//   `https://cors-anywhere.herokuapp.com/thebigone-api.herokuapp.com/blogEntries`,
+//   {
+//     headers: { "Access-Control-Allow-Origin": "*" },
+//   }
+// ) //// --------------------DEV
+// fetch(`https://thebigone-api.herokuapp.com/blogEntries`, {
+//   headers: { "Access-Control-Allow-Origin": "*" },
+// }) //// ---------------PROD
+// .then((res) => res.json())
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// fetch("https://thebigone-api.herokuapp.com/blogEntries") // production
