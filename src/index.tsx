@@ -20,18 +20,22 @@ if (pageLoading) {
   ReactDOM.render(<LoadingSpinner />, document.getElementById("root"));
 }
 
-fetch(
-  `https://cors-anywhere.herokuapp.com/thebigone-api.herokuapp.com/blogEntries`,
-  {
-    headers: { "Access-Control-Allow-Origin": "*" },
-  }
-)
+// fetch(
+//   `https://cors-anywhere.herokuapp.com/thebigone-api.herokuapp.com/blogEntries`,
+//   {
+//     headers: { "Access-Control-Allow-Origin": "*" },
+//   }
+// )
+fetch(`https://thebigone-api.herokuapp.com/blogEntries`, {
+  headers: { "Access-Control-Allow-Origin": "*" },
+})
   // axios
   //   .get("https://thebigone-api.herokuapp.com/blogEntries", {
   //     headers: { "Access-Control-Allow-Origin": "*" },
   //   })
   .then((res) => res.json())
   .then((result) => {
+    console.log(result);
     let data: object[] = result.data.blogEntries;
     pageLoading = false;
     ReactDOM.render(

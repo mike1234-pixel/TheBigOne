@@ -20,7 +20,7 @@ const ContactPage = (props) => {
   const [messageError, setMessageError] = useState<string>("");
 
   const [emailMessage, setEmailMessage] = useState<string>(
-    "We will never share your email address with anyone, ever."
+    "Your email will not be stored in a database or shared with anyone."
   );
 
   const [isVerfified, setIsVerified] = useState<boolean>(false);
@@ -82,7 +82,7 @@ const ContactPage = (props) => {
         }
       });
 
-    setEmailMessage("Thanks for your message. We will be in touch shortly.");
+    setEmailMessage("Thanks for your message. I will be in touch shortly.");
     setFirstName("");
     setLastName("");
     setEmail("");
