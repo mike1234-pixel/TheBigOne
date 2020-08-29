@@ -48,18 +48,18 @@ const NavBar = (props) => {
         </div>
         <div className={props.darkMode ? `item item-dark` : `item item-light`}>
           <Link
-            to="/link2"
+            to="/tech"
             style={{ color: "inherit", textDecoration: "inherit" }}
           >
-            Link2
+            Tech
           </Link>
         </div>
         <div className={props.darkMode ? `item item-dark` : `item item-light`}>
           <Link
-            to="/link3"
+            to="/approach"
             style={{ color: "inherit", textDecoration: "inherit" }}
           >
-            Link3
+            Approach
           </Link>
         </div>
         <div className={props.darkMode ? `item item-dark` : `item item-light`}>

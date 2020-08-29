@@ -5,6 +5,8 @@
 // MIXINS:
 // underline styles (grow and shrink)
 
+// ON THE NAVBAR SPECIFICALLY NEED BOX-SIZING: NONE;
+
 @mixin underlineGrowOnMouseover {
   background: none repeat scroll 0 0 transparent;
   bottom: 0;
@@ -15,6 +17,7 @@
   position: absolute;
   transition: width 0.3s ease 0s, left 0.3s ease 0s;
   width: 0;
+  box-sizing: none;
 }
 
 @mixin underlineShrinkOnMouseout {
@@ -32,11 +35,13 @@
   font-size: 20px;
   flex-grow: 1;
   // change item width here:
-  width: 198px;
-  max-width: 198px;
+  // width: 198px;
+  // max-width: 198px;
+  max-width: 150px;
   text-transform: uppercase;
   display: inline-block;
   padding: 15px 20px;
+  box-sizing: none;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -59,6 +64,7 @@
   z-index: 10;
   width: 100%;
   max-width: 100%;
+  box-sizing: none;
 }
 
 .flex-container {
@@ -83,6 +89,8 @@
   @include navItemStyles;
   text-align: center;
   font-family: "Cabin Sketch";
+  box-sizing: none;
+  min-width: 200px;
 }
 
 // @media (min-width: 746px) {
@@ -93,6 +101,8 @@
 }
 
 .item-dark {
+  box-sizing: none;
+  min-width: 198px;
   @include navItemStyles;
   // added for growing underline
   text-align: center;
@@ -102,12 +112,15 @@
   color: #fff;
   cursor: pointer;
   @media (max-width: 1535px) {
-    max-width: 100px;
+    min-width: 120px;
     font-size: 15px;
   }
 }
 
 .item-light {
+  box-sizing: none;
+  min-width: 198px;
+  // min-width: 120px;
   @include navItemStyles;
   // added for growing underline
   text-align: center;
@@ -117,7 +130,8 @@
   color: #000;
   cursor: pointer;
   @media (max-width: 1535px) {
-    max-width: 100px;
+    // max-width: 100px;
+    min-width: 120px;
     font-size: 15px;
   }
 }

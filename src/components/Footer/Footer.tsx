@@ -21,9 +21,13 @@ const Footer = (props) => {
       className={props.darkMode ? `footer footer-dark` : `footer footer-light`}
     >
       <ul className="footer-div contact-links">
-        <li>Phone</li>
-        <li>Email</li>
-        <li>Location</li>
+        <li>07769-583-616</li>
+        <li>
+          mike.tandy.1
+          <br />
+          @gmail.com
+        </li>
+        <li>Sheffield, UK</li>
       </ul>
       <div className="footer-div footer-div-2"></div>
       <div className="footer-div footer-div-3"></div>
@@ -44,18 +48,18 @@ const Footer = (props) => {
         </li>
         <li>
           <Link
-            to="/link2"
+            to="/tech"
             style={{ color: "inherit", textDecoration: "inherit" }}
           >
-            Link2
+            Tech
           </Link>
         </li>
         <li>
           <Link
-            to="/link3"
+            to="/approach"
             style={{ color: "inherit", textDecoration: "inherit" }}
           >
-            Link3
+            Approach
           </Link>
         </li>
         <li>

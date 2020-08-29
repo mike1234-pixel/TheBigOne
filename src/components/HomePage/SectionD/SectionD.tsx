@@ -1,6 +1,7 @@
 import React from "react";
 import "./SectionD.scss";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const SectionD = (props) => {
   return (
@@ -11,6 +12,12 @@ const SectionD = (props) => {
           : `section-d section-d-light`
       }
     >
+      <Link
+        to="/contact"
+        style={{ color: "inherit", textDecoration: "inherit" }}
+      >
+        <p className="section-d-text">Got a project in mind? Get in touch...</p>
+      </Link>
       <div className="bg-video">
         <video className="bg-video__content" autoPlay muted loop>
           <source

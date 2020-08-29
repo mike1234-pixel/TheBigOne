@@ -7,8 +7,8 @@ import urlifyArticleTitle from "../functions/urlifyArticleTitle";
 import Nav from "../components/Nav/Nav";
 import HomePage from "../components/HomePage/HomePage";
 import AboutPage from "../components/AboutPage/AboutPage";
-import Link2 from "../components/Link2/Link2";
-import Link3 from "../components/Link3/Link3";
+import TechPage from "../components/TechPage/TechPage";
+import ApproachPage from "../components/ApproachPage/ApproachPage";
 import BlogPage from "../components/BlogPage/BlogPage";
 import BlogPost from "../components/BlogPage/BlogPost/BlogPost";
 import ContactPage from "../components/ContactPage/ContactPage";
@@ -46,8 +46,8 @@ const App = (props) => {
       {/* <Route component={PageNotFound} /> */}
       <Route exact path="/" render={() => <HomePage {...state} />} />
       <Route path="/about" render={() => <AboutPage {...state} />} />
-      <Route path="/link2" render={() => <Link2 {...state} />} />
-      <Route path="/link3" render={() => <Link3 {...state} />} />
+      <Route path="/tech" render={() => <TechPage {...state} />} />
+      <Route path="/approach" render={() => <ApproachPage {...state} />} />
       <Route path="/blog" render={() => <BlogPage {...state} {...props} />} />
       <Route path="/contact" render={() => <ContactPage {...state} />} />
       {newRoutes}

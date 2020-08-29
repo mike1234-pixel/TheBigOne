@@ -26,7 +26,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 10px;
+  // padding: 10px;
   transition: 1s;
   &:hover,
   &:active {
@@ -34,37 +34,21 @@
     color: #333333;
     cursor: pointer;
   }
-  @media (max-width: 650px) {
-    font-size: 75%;
-  }
-  @media (max-width: 330px) {
-    font-size: 50%;
+
+  @media (max-width: 1050px) {
+    font-size: 45%;
   }
 
   &-text-box {
-    grid-column: 1/2;
-    grid-row: 1 / -1;
-    @media (max-width: 650px) {
-      grid-column: 1/-1;
-      grid-row: 1/2;
-    }
-    @media (max-height: 1400px) and (max-width: 1050px) {
-      grid-column: 1/-1;
-      grid-row: 1/2;
+    padding: 20px;
+    text-align: center;
+    @media (max-width: 1050px) {
+      padding: 10px;
     }
   }
 
   &-image-box {
-    grid-column: 2/3;
-    grid-row: 1 / -1;
-    @media (max-width: 650px) {
-      grid-column: 1/-1;
-      grid-row: 2/3;
-    }
-    @media (max-height: 1400px) and (max-width: 1050px) {
-      grid-column: 1/-1;
-      grid-row: 2/3;
-    }
+    padding: 10px;
   }
 }
 

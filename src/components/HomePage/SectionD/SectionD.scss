@@ -2,11 +2,34 @@
   width: 100%;
   max-width: 100%;
   height: 75vh;
+  position: relative;
+
   &-light {
     background: #fff;
   }
   &-dark {
     background: #000;
+  }
+  &-text {
+    color: purple;
+    z-index: 10;
+    font-size: 40px;
+    position: absolute;
+    top: 65vh;
+    left: 50vw;
+    &:hover {
+      color: red;
+    }
+    @media (max-width: 1300px) {
+      font-size: 30px;
+    }
+    @media (max-width: 560px) {
+      left: 40vw;
+      top: 60vh;
+    }
+    @media (max-width: 340px) {
+      font-size: 20px;
+    }
   }
 }
 

@@ -14,21 +14,20 @@ const SectionC = (props) => {
       <div
         className={
           props.darkMode
-            ? `grid-item-c grid-item-c-dark-mode grid-item-image-box`
-            : `grid-item-c grid-item-c-light-mode grid-item-image-box`
+            ? `grid-item-c grid-item-c-dark-mode grid-item-c-image-box`
+            : `grid-item-c grid-item-c-light-mode grid-item-c-image-box`
         }
       >
-        <img className="grid-item-c-img" src={props.img}></img>
+        <img className="grid-item-c-img" src={props.img} alt={props.img}></img>
       </div>
       <div
         className={
           props.darkMode
-            ? `grid-item-c grid-item-c-dark-mode grid-item-text-box`
-            : `grid-item-c grid-item-c-light-mode grid-item-text-box`
+            ? `grid-item-c grid-item-c-dark-mode grid-item-c-text-box`
+            : `grid-item-c grid-item-c-light-mode grid-item-c-text-box`
         }
       >
-        <h2>Lorem Ipsum Delor</h2>
-        <p>{props.loremText}</p>
+        {props.innerJSX()}
       </div>
     </div>
   );
@@ -37,7 +36,7 @@ const SectionC = (props) => {
 export default SectionC;
 
 SectionC.propTypes = {
-  loremText: PropTypes.string,
+  innerJSX: PropTypes.func,
   darkMode: PropTypes.bool,
   img: PropTypes.string,
 };

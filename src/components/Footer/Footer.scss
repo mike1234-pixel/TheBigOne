@@ -76,13 +76,22 @@ ul li::before {
   text-align: center;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
   .footer-div {
     margin-left: 10px;
+    font-size: 10px;
   }
   .profile-links,
-  .site-links {
+  .site-links,
+  .contact-links {
     list-style: none;
+  }
+
+  .contact-links {
+    max-width: 100px;
+  }
+  .footer-footnote {
+    font-size: 10px;
   }
 }
 
@@ -90,9 +99,9 @@ ul li::before {
   list-style: none;
   text-decoration: none;
   &:hover {
-    color: grey;
+    color: red;
   }
   &:active {
-    color: grey;
+    color: red;
   }
 }
