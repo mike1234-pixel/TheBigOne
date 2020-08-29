@@ -13,15 +13,14 @@ const TechPage = (props) => {
   const techpageTextBoxOne = () => {
     return (
       <div>
-        <h1>Front</h1>
-        <br />
+        <h1 style={{ textDecoration: "underline" }}>Front</h1>
+
         <h2>React / Redux</h2>
         <br />
         <p>
-          React is a frontend view framework which enables the creation of
-          single page applications. Rather than sending a new file every time a
-          user clicks a link, React sends all files associated with the site at
-          once, so page loads become instantaneous view changes, resulting in a
+          React is a framework which enables the creation of single page
+          applications. React sends all site resources to the browser at once,
+          meaning page loads become instantaneous view changes, resulting in a
           super-fast user interface.
         </p>
         <br />
@@ -29,8 +28,8 @@ const TechPage = (props) => {
         <br />
         <p>
           CSS is a stylesheet language which controls the look, feel and
-          animations of a website. Sass introduces programmatic logic into your
-          CSS, creating more compact and reusable code.
+          animations of a website. Sass introduces programmatic logic to CSS,
+          creating more compact and reusable code.
         </p>
         <br />
       </div>
@@ -40,23 +39,21 @@ const TechPage = (props) => {
   const techpageTextBoxTwo = () => {
     return (
       <div>
-        <h1>Back</h1>
-        <br />
+        <h1 style={{ textDecoration: "underline" }}>Back</h1>
+
         <h2>Node.js / express</h2>
         <br />
         <p>
           Node.js is a JavaScript runtime environment which enables you to write
-          your backend code in JavaScript. Express is a middleware library for
-          writing servers in the Node environment. Node.js offers the advantage
-          of writing your entire application in one language.
+          your backend code in JavaScript. Node.js offers the advantage of
+          writing your entire application in one language.
         </p>
         <br />
         <h2>Mongoose</h2>
         <br />
         <p>
-          Mongoose is a node.js library that allows you to perform create, read,
-          update and delete operations on your MongoDB documents from your
-          Node.js server.
+          Mongoose is a node.js library that allows you to perform CRUD
+          operations on your MongoDB documents from your Node.js server.
         </p>
         <br />
       </div>
@@ -66,8 +63,9 @@ const TechPage = (props) => {
   const techpageTextBoxThree = () => {
     return (
       <div>
-        <h1>Database & Deployment</h1>
-        <br />
+        <h1 style={{ textDecoration: "underline" }}>
+          Database &amp; Deployment
+        </h1>
         <h2>MongoDB</h2>
         <br />
         <p>
@@ -78,10 +76,9 @@ const TechPage = (props) => {
         <h2>AWS / Heroku</h2>
         <br />
         <p>
-          AWS provides a number of services, including Route 53 for domain
-          management, S3 for cloud storage and Amplify for deploying your single
-          page application to the cloud. Heroku is also a good choice for
-          hosting remote servers and APIs.
+          AWS provides a number of services for domain management, cloud storage
+          and hosting SPA's. Heroku is also a good choice for hosting remote
+          servers and APIs.
         </p>
         <br />
       </div>

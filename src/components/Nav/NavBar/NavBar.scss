@@ -85,6 +85,15 @@
 
 /* FLEX ITEM PROPERTIES */
 
+.nav-items {
+  // nav items use grid layout on mobile
+  @media (max-width: 413px) {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .org-logo {
   @include navItemStyles;
   text-align: center;

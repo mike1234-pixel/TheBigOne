@@ -22,11 +22,7 @@ const Footer = (props) => {
     >
       <ul className="footer-div contact-links">
         <li>07769-583-616</li>
-        <li>
-          mike.tandy.1
-          <br />
-          @gmail.com
-        </li>
+        <li>mike.tandy.1@gmail.com</li>
         <li>Sheffield, UK</li>
       </ul>
       <div className="footer-div footer-div-2"></div>
