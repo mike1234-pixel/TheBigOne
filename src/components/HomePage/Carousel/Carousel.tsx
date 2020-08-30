@@ -83,8 +83,8 @@ class Carousel extends Component<
             >
               <img
                 className="carousel-img"
-                src={require(`./carouselImages/img${this.state.carouselImage.toString()}.jpg`)}
-                alt="city scape"
+                src={require(`./carouselImages/hero${this.state.carouselImage.toString()}.jpg`)}
+                alt="banner"
               />
             </CSSTransition>
             <div className="fg-video-1">

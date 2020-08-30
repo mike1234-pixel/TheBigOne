@@ -1,5 +1,29 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Backend
+
+This website relies on a Node.js remote server to function, the source code for which which can be found at https://github.com/mike1234-pixel/TheBigOne-API. This is an express server using mongoose to update documents stored in a MongoDB database.
+
+The remote server for this project is hosted on heroku and cors is enabled for interaction with the frontend.
+
+## Frontend
+
+This is a React frontend which makes an initial AJAX request to bring back the blog entries data before loading the UI, ensuring instantaneous loading on all pages.
+
+When the frontend receives the blog entries data, it dynamically creates a new Route for each blog entry, setting the url extension to a urlified version of the post's title.
+
+This website uses Redux for its darkMode state only, as this state is required globally. The rest of the state of the website is managed locally using React.
+
+This website uses a clean, functional syntax as much as possible and utlises React hooks. The only component required to be built using an ES6 class component is the Carousel on the homepage.
+
+This site is written in TypeScript.
+
+The website is organised according to Redux architecture and is modular, with all files associated with each component in separate folders.
+
+The site uses Sass primarily for its syntax shortcuts, although its features are not heavily used here.
+
+The frontend is hosted on AWS amplify, and various resources including the foreground video on the homepage and all blog images are stored in AWS S3 buckets.
+
 ## Available Scripts
 
 In the project directory, you can run:

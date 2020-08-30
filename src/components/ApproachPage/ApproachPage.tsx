@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import "./ApproachPage.scss";
 import SectionB from "../HomePage/SectionB/SectionB";
 import SectionC from "../HomePage/SectionC/SectionC";
-import img17 from "../HomePage/Carousel/carouselImages/img17.jpg";
+import img20 from "../HomePage/Carousel/carouselImages/img20.jpg";
 import img16 from "../HomePage/Carousel/carouselImages/img16.jpg";
-import img15 from "../HomePage/Carousel/carouselImages/img15.jpg";
+import img22 from "../HomePage/Carousel/carouselImages/img22.jpg";
 
 const Link3 = (props) => {
   // const loremText =
@@ -75,7 +75,7 @@ const Link3 = (props) => {
       <SectionB
         innerJSX={approachpageTextBoxOne}
         darkMode={props.darkMode}
-        img={img17}
+        img={img20}
       />
       <SectionC
         innerJSX={approachpageTextBoxTwo}
@@ -85,7 +85,7 @@ const Link3 = (props) => {
       <SectionB
         innerJSX={approachpageTextBoxThree}
         darkMode={props.darkMode}
-        img={img15}
+        img={img22}
       />
     </div>
   );
