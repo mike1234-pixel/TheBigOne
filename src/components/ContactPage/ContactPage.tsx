@@ -63,24 +63,24 @@ const ContactPage = (props) => {
       message: message,
     };
 
-    axios
-      // .post("http://localhost:4000/contact", qs.stringify(payload))
-      .post(
-        "https://thebigone-api.herokuapp.com/contact",
-        qs.stringify(payload)
-      )
-      // .post(
-      //   `https://cors-anywhere.herokuapp.com/thebigone-api.herokuapp.com/contact`,
-      //   {
-      //     headers: { "Access-Control-Allow-Origin": "*" },
-      //   },
-      //   qs.stringify(payload)
-      // )
-      .then((err) => {
-        if (err) {
-          console.log(err);
-        }
-      });
+    // axios
+    //   // .post("http://localhost:4000/contact", qs.stringify(payload))
+    //   .post(
+    //     "https://personal-backend.herokuapp.com/",
+    //     qs.stringify(payload)
+    //   )
+    //   // .post(
+    //   //   `https://cors-anywhere.herokuapp.com/thebigone-api.herokuapp.com/contact`,
+    //   //   {
+    //   //     headers: { "Access-Control-Allow-Origin": "*" },
+    //   //   },
+    //   //   qs.stringify(payload)
+    //   // )
+    //   .then((err) => {
+    //     if (err) {
+    //       console.log(err);
+    //     }
+    //   });
 
     setEmailMessage("Thanks for your message. I will be in touch shortly.");
     setFirstName("");

@@ -14,13 +14,13 @@ When the frontend receives the blog entries data, it dynamically creates a new R
 
 This website uses Redux for its darkMode state only, as this state is required globally. The rest of the state of the website is managed locally using React.
 
-This website uses a clean, functional syntax as much as possible and utlises React hooks. The only component required to be built using an ES6 class component is the Carousel on the homepage.
+This website uses a clean, functional syntax as much as possible and utilises React hooks. The only component required to be built using an ES6 class component is the Carousel on the homepage.
 
-This site is written in TypeScript.
+This website is written in TypeScript.
 
-The website is organised according to Redux architecture and is modular, with all files associated with each component in separate folders.
+The website is organised according to Redux architecture and is modular. Each component has its own folder and all files associated with that component are stored in that folder.
 
-The site uses Sass primarily for its syntax shortcuts, although its features are not heavily used here.
+The site uses Sass primarily for its syntax shortcuts, although its features are not heavily used.
 
 The frontend is hosted on AWS amplify, and various resources including the foreground video on the homepage and all blog images are stored in AWS S3 buckets.
 
@@ -66,18 +66,3 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
-
-## redux
-
-This app uses Redux for state management.
-
-To create a new state property in the redux store and modify it in the app, do the following:
-
-1. Go to your reducers file, add the new property to the initial state object, and add a case for it in the switch statement of the reducer function.
-2. Create an action creator for it.
-3. Call the new action creator in the dispatch function inside mapDispatchToProps in your container (App.jsx).
-4. Pass the dispatch function and/or the state down as props from your container to whichever component needs it/them.
-
-You will now be able to dispatch actions from your container component **_via_** your child component.
-
-App.jsx is the container component for this application and all other components are presentational components which receive event listener dispatch functions as props to update state, and the current state as props to display state. The only exception is the BlogPost component which subscribes to the store directly due to fact that the Routes for BlogPost are created dynamically, meaning state can't be passed as props.
