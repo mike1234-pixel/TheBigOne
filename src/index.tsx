@@ -16,7 +16,7 @@ const store: object = createStore(reducer);
 if (pageLoading) {
   ReactDOM.render(<LoadingSpinner />, document.getElementById("root"));
 }
-axios.get(`https://personal-backend.herokuapp.com/`).then((result) => {
+axios.get(`https://personal-backend.herokuapp.com/blogEntries`).then((result) => {
   console.log(result);
   let data: object[] = result.data.data.blogEntries;
   pageLoading = false;
