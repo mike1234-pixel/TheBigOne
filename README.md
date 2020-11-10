@@ -1,6 +1,6 @@
 # Personal Website
 
-![personal-screenshot](https://user-images.githubusercontent.com/57681651/98668271-9090f000-2347-11eb-8208-c8bd9683a4f2.JPG)
+[![personal-screenshot](https://user-images.githubusercontent.com/57681651/98668271-9090f000-2347-11eb-8208-c8bd9683a4f2.JPG)](https://www.miketandy.com/)
 
 ## Packages
 
